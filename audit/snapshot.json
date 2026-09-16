@@ -1,0 +1,46 @@
+{
+  "schema": "klt-public-snapshot-v1",
+  "source_commit": "8b6110c192269d3c3b2d80c2e54bef9f25864865",
+  "checkpoint": "candidate1559",
+  "checkpoint_date": "2026-09-13",
+  "packaged_date": "2026-09-15",
+  "manuscript_complete": false,
+  "lean_toolchain": "leanprover/lean4:v4.19.0",
+  "mathlib_commit": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+  "mathematical_modules": 1559,
+  "mathematical_declarations": 28595,
+  "mathematical_lines": 258073,
+  "audited_source_files_including_root_and_auditor": 1561,
+  "named_results": {
+    "accepted": 4,
+    "total": 47
+  },
+  "support_obligations": {
+    "accepted": 32,
+    "total": 72,
+    "attribution_or_context_records_without_lean_declarations": [
+      "U-ATTRIB-BERNASCONI",
+      "U-ATTRIB-KEEL-MCKERNAN",
+      "U-CONTEXT-BOUNDS"
+    ]
+  },
+  "source_hashes": {
+    "source/manuscript.tex": "c38426743c270f658d7cb4bbf25fd6e7ed5846bf593b88ff10017a98f10ba0c7",
+    "source/manuscript.pdf": "6fbe29da2f6193dae89a41400c843d8bd92da55179f478cf8d5a951c128fe769"
+  },
+  "recorded_builds": {
+    "library": "20260913T074624Z-955650",
+    "dependency_audit": "20260913T082256Z-967055",
+    "parser": "20260913T124743Z-1019344"
+  },
+  "certificate": {
+    "path": "audit/production_v4_candidate1559_validation.json.gz",
+    "uncompressed_sha256": "a278eb3b98f42ed2280174a39040de1fa7f8f6008d46e02f6e5fdd837895f4b4",
+    "failed_declaration_count": 0
+  },
+  "full_rebuild_in_packaging_session": false,
+  "full_inventory_omitted": {
+    "bytes": 4035652115,
+    "sha256": "bf603e7bac6894de6cbb042e4b7fe9a7a598f074de2167cb3b90f44ad5ad416f"
+  }
+}

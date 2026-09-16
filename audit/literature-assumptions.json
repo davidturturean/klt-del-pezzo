@@ -1,0 +1,120 @@
+{
+  "ordinary_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "active_literature_axioms": [
+    {
+      "name": "KltDP.Literature.Stacks.field_isJ2",
+      "module": "KltDP.Literature.Stacks.FieldJ2",
+      "source_path": "KltDP/Literature/Stacks/FieldJ2.lean",
+      "source_sha256": "c325d0d6f6f882ac4233020bad309d976e5baad69a32cd429d7dc493aa3bad37",
+      "universe_parameters": [
+        "u",
+        "v"
+      ],
+      "type_expression_sha256": "e53f0237efec9f53ea260be69ebdd184fc3cd8dca37a4489ad7d829f7a7c2ce2",
+      "printed_type_sha256": "e9c9b31ca1cc0b431ee3a630117258e5b5ca665d0c8a02895d1a907b8ffb093b",
+      "published_source": {
+        "tag": "07PJ",
+        "item": 1,
+        "commit": "540451b3e79a131df8eca4c4187448e49dcb262d",
+        "definition_tags": [
+          "07P7",
+          "00KU"
+        ]
+      },
+      "original_registry": {
+        "path": "audit/field_j2_admission.json",
+        "sha256": "b341fef779503eac029e5543911d27851c7d12c829c28a0bc2707f61e724d997"
+      }
+    },
+    {
+      "name": "KltDP.Literature.Stacks.regularLocal_isUFD",
+      "module": "KltDP.Literature.Stacks.RegularLocalUFD",
+      "source_path": "KltDP/Literature/Stacks/RegularLocalUFD.lean",
+      "source_sha256": "c04596613b6835a686c6c5f827badf96b5a946ca79f56e3f840458b769042ac5",
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "f356ec1014d1edc174811412b6cf9c9103559feefaff133b4faf8bb62d02552f",
+      "printed_type_sha256": "b7bf2804667cea9b0eb23a68ed79fde62085ff0a07c63f0cf5784d3668628724",
+      "published_source": {
+        "tag": "0AG0",
+        "commit": "540451b3e79a131df8eca4c4187448e49dcb262d",
+        "definition_tags": [
+          "0006",
+          "07BI",
+          "00KU",
+          "034S"
+        ],
+        "alignment_tags": [
+          "034T",
+          "00NP"
+        ]
+      },
+      "original_registry": {
+        "path": "audit/regular_local_ufd_admission.json",
+        "sha256": "258ffdd90ad110c7d58572908c547e2f28efc4e3d5172597efe080df907e92ba"
+      }
+    },
+    {
+      "name": "KltDP.Literature.Stacks.properCohomology_finite",
+      "module": "KltDP.Literature.Stacks.ProperCohomologyFinite",
+      "source_path": "KltDP/Literature/Stacks/ProperCohomologyFinite.lean",
+      "source_sha256": "ccc0cb94fc3344aad666076bf701f576a3ee167cc87ae677d535e64c0a8fea5d",
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "a8cf5253cf934ef86d283b9a18b4d394c5e8af9b52b4e17e4f1302f00eb5aa6d",
+      "printed_type_sha256": "5b7db27e8cc592c9c40c8bb014c0890351abe5bd91d23f7531e5c1d0bdec40df",
+      "published_source": {
+        "tag": "02O6",
+        "commit": "540451b3e79a131df8eca4c4187448e49dcb262d",
+        "coherence_definition_tag": "01BV",
+        "cohomology_model_tag": "01F1"
+      },
+      "original_registry": {
+        "path": "audit/proper_cohomology_admission.json",
+        "sha256": "0639cd7244af87b8b102eab28a43916650207b7b9c8ad8d563c2ad81aea20dde"
+      }
+    },
+    {
+      "name": "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal",
+      "module": "KltDP.Literature.Stacks.CurveTensorDegreeLiteral",
+      "source_path": "KltDP/Literature/Stacks/CurveTensorDegreeLiteral.lean",
+      "source_sha256": "fdbff47f231d00fa5ef478c20986efc48a176a8194d073275bf8f19072662543",
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "1e92838d86f7fc635853887b4538b22b8ef94ac764a93032fa2e5b49a2009bb4",
+      "printed_type_sha256": "326e5f637f172a4580a24e3869449f6ff8d715100fc1269bd93ff5673966d72d",
+      "published_source": {
+        "tag": "0AYX",
+        "lemma": "33.44.7",
+        "degree_definition_tag": "0AYR",
+        "degree_definition": "33.44.1",
+        "commit": "540451b3e79a131df8eca4c4187448e49dcb262d",
+        "file": "varieties.tex",
+        "definition_lines": [
+          9475,
+          9488
+        ],
+        "lemma_lines": [
+          9717,
+          9733
+        ],
+        "license": "GNU Free Documentation License",
+        "varieties_tex_sha256": "fc8e2216779a5fa22df2ce50cad5d81e0c638f87f75d8d4115716ec964459155",
+        "copying_sha256": "4b2c8fc390f802cd92f0622dc00a708a588bec54d0145d2ee135d6d7672bfe85"
+      },
+      "original_registry": {
+        "path": "audit/curve_tensor_degree_admission.json",
+        "sha256": "436db9c3a61f6db0f9adc818ade10cd7abae36d1f11b62be4764e65228f0e635"
+      }
+    }
+  ],
+  "authority": "Exact four-entry accepted candidate1559 certificate and root acceptance",
+  "proof_status": "Literature statements are assumptions; their local consumers have separate proofs."
+}
