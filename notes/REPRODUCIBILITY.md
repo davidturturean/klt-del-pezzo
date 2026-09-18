@@ -20,7 +20,7 @@ A full build takes several hours on a multi-core machine after the Mathlib cache
 | --- | --- |
 | `#print axioms` of the final theorems | `audit/axiom-report.txt` |
 | Fresh full build of this snapshot (commit `89ce9e8` sources): `lake build KltDP` on the project's build VM (32 cores, no resource caps), 2026-09-18 01:32:48Z to 04:03:59Z, exit 0, 7,297 jobs, no errors; `lake env lean KltDP/Manuscript/Main/Final.lean` reproduced `audit/axiom-report.txt` exactly | `audit/build-2026-09-18.txt` |
-| Compiled dependency audit of the full snapshot (policy v7) | `audit/checkpoints/final-2026-09/` |
+| Compiled dependency audit of this snapshot (policy v7, 2026-09-18): every declaration of the library was audited (71,351 declarations; the three final theorems depend on exactly the 28 admitted statements); 9 `partial`-definition companions in 12 elaborator-support modules fail the whole-library policy and are itemized; none lies in any final theorem's dependency closure. Certificate `production_v5_final_validation.json.gz`, summary, probe output and runner records; described in `docs/TRUST_AUDIT_V7.md` | `audit/checkpoints/final-2026-09/` |
 | Historical audit of the 1,559-module checkpoint of 13 September 2026 (policy v6, four Stacks axioms) | `audit/checkpoints/candidate1559/` |
 
 ## Manuscript

@@ -1,0 +1,35 @@
+{
+  "pid": 2308506,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/klt-build-20260918T144634Z-2308452.scope",
+  "limits": {
+    "cpu.max": "400000 100000",
+    "memory.max": "274877906944",
+    "memory.swap.max": "0"
+  },
+  "argv": [
+    "lake",
+    "env",
+    "python3",
+    "scripts/parse_compiled_audit256cpu4.py",
+    "--project",
+    "/home/david/klt-final-cmp/project",
+    "--build-record",
+    "/home/david/klt-final-cmp/runner/builds/20260918T021510Z-1719539",
+    "--audit-record",
+    "/home/david/klt-final-cmp/runner/builds/20260918T062905Z-1962699",
+    "--canonical-resource-profile",
+    "memory256cpu4",
+    "--native-type-objects-before",
+    "/home/david/klt-final-cmp/evidence/oleans_before.json",
+    "--native-type-objects-after",
+    "/home/david/klt-final-cmp/evidence/oleans_after.json",
+    "--itemize-nonroot-failures",
+    "KltDP.Manuscript.uniformSevenPointBound",
+    "KltDP.Manuscript.S01.sharpnessExampleCharThree",
+    "KltDP.Manuscript.S01.characteristicTwoFamily",
+    "--output",
+    "/home/david/klt-final-cmp/evidence/production_v5_final_validation.json"
+  ],
+  "verified": true,
+  "proof_status": "Resource evidence only"
+}

@@ -127,6 +127,8 @@ The formalization has no `sorry`. The final theorems depend on `propext`, `Class
 
 reports exactly these names (the recorded output is [`audit/axiom-report.txt`](audit/axiom-report.txt)).
 
+A compiled dependency audit of the whole library (`audit/checkpoints/final-2026-09/`, described in [`docs/TRUST_AUDIT_V7.md`](docs/TRUST_AUDIT_V7.md)) checks every declaration's transitive axioms against this list.
+
 ## Citation
 
 ```bibtex

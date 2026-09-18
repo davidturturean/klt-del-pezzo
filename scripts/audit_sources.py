@@ -3,6 +3,8 @@
 
 This is a source lint, never evidence that a theorem was compiled or proved.
 The authoritative dependency check is KltDP.Audit.Trust on a remote clean build.
+Policy v7: the `axiom` rejection is discharged only in the twenty-eight allowlisted
+literature files (one axiom each); every other lexical rule is unchanged from v6.
 """
 
 from __future__ import annotations
@@ -20,7 +22,7 @@ REJECT = {
     "sorry": "postponed proof syntax",
     "admit": "postponed proof syntax",
     "sorryAx": "postponed proof constant",
-    "axiom": "no literature axiom is currently approved",
+    "axiom": "axiom declarations are admitted only in the twenty-eight reviewed literature files, exactly one per file",
     "constant": "unchecked declaration requires review",
     "native_decide": "native evaluator proof path is forbidden",
     "native_eval": "native evaluator proof path is forbidden",
@@ -54,7 +56,7 @@ REVIEW = {
     "opaque": "inspect checked opaque value and semantic meaning",
     "attribute": "attribute command needs an exact reviewed form",
 }
-SOURCE_POLICY_PROFILE = "lean419_logical_boundary_four_stacks_v6"
+SOURCE_POLICY_PROFILE = "lean419_logical_boundary_twentyeight_admissions_v7"
 REVIEWED_ATTRIBUTE_COMMANDS = (
     "attribute [local instance] MvPolynomial.gradedAlgebra",
     "attribute [local instance] Types.instFunLike Types.instConcreteCategory",
@@ -406,6 +408,28 @@ def self_test() -> None:
         shadowed = subprocess.run(command, capture_output=True, text=True)
         assert shadowed.returncode == 1, shadowed.stderr
         assert json.loads(output.read_text())["import_policy_rejections"], output.read_text()
+        (root / "Lean.lean").unlink()
+        hidden.write_text("theorem checked : True := True.intro\n")
+        # An allowlisted literature file may declare exactly one axiom; a second one is fatal.
+        literal = root / "KltDP/Literature/Stacks/FieldJ2.lean"
+        literal.parent.mkdir(parents=True)
+        literal.write_text("axiom KltDP.Literature.Stacks.field_isJ2 : True\n")
+        admitted = subprocess.run(command, capture_output=True, text=True)
+        assert admitted.returncode == 0, (admitted.returncode, admitted.stdout, admitted.stderr)
+        report = json.loads(output.read_text())
+        assert report["status"] == "source_lint_passed", report
+        assert [(row["file"], row["name"], row["finding"]["token"]) for row in
+                report["admitted_literature_findings"]] == [
+            ("KltDP/Literature/Stacks/FieldJ2.lean", "KltDP.Literature.Stacks.field_isJ2", "axiom")], report
+        assert report["literature_admission"]["registry_sha256"] is None, report
+        literal.write_text("axiom KltDP.Literature.Stacks.field_isJ2 : True\naxiom extra : False\n")
+        doubled = subprocess.run(command, capture_output=True, text=True)
+        assert doubled.returncode != 0, doubled.stdout
+        assert "exactly one axiom token" in doubled.stderr, doubled.stderr
+        literal.write_text("theorem KltDP.Literature.Stacks.field_isJ2 : True := True.intro\n")
+        missing = subprocess.run(command, capture_output=True, text=True)
+        assert missing.returncode != 0, missing.stdout
+        assert "exactly one axiom token" in missing.stderr, missing.stderr
 
 
 def is_audit_tooling(relative: Path) -> bool:
@@ -413,166 +437,119 @@ def is_audit_tooling(relative: Path) -> bool:
     return relative.as_posix() == "KltDP/Audit/Trust.lean"
 
 
-ADMISSION_REGISTRY = "audit/field_j2_admission.json"
-ADMISSION_HELPER = "scripts/literature_admission.py"
-ADMISSION_HELPER_SHA256 = "42380106c8e033ee53349998f99ab75e7358c87191f814e2225b0bd8b4277d85"
+LITERATURE_REGISTRY = "audit/literature-assumptions.json"
+LITERATURE_REGISTRY_SCHEMA = "klt-literature-assumptions-v7"
+# Policy v7 axiom allowlist: exactly these twenty-eight source files may declare an `axiom`,
+# each exactly one, the named literature admission. Canonical (lexicographic) name order. Every
+# other file keeps the unconditional `axiom` rejection. This table is spelling policy; the
+# compiled audit (KltDP.Audit.Trust) and the production parser bind names, modules, sources and
+# types independently through the registry above.
+LITERATURE_AXIOM_FILES = (
+    ("KltDP/Literature/HartshorneCastelnuovoLiteral.lean",
+     "KltDP.Literature.Hartshorne.castelnuovo_contraction_literal"),
+    ("KltDP/Literature/Hartshorne/StrictTransformInstance.lean",
+     "KltDP.Literature.Hartshorne.hasContractionLifts_instance"),
+    ("KltDP/Literature/Hartshorne/HurwitzDegreeTwoInstance.lean",
+     "KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance"),
+    ("KltDP/Literature/Hartshorne/IntegralNumericalGroup.lean",
+     "KltDP.Literature.Hartshorne.integral_numerical_group_free_finite_literal"),
+    ("KltDP/Literature/Hartshorne/MinimalSurfaceClassification.lean",
+     "KltDP.Literature.Hartshorne.minimal_surface_classification_literal"),
+    ("KltDP/Literature/Hartshorne/SurfaceProjectivity.lean",
+     "KltDP.Literature.Hartshorne.nonsingular_complete_surface_projective_literal"),
+    ("KltDP/Literature/Hartshorne/PointBlowupCohomology.lean",
+     "KltDP.Literature.Hartshorne.point_blowup_structure_cohomology_literal"),
+    ("KltDP/Literature/Hartshorne/RuledSurfaceGenus.lean",
+     "KltDP.Literature.Hartshorne.ruled_surface_genus_literal"),
+    ("KltDP/Literature/Hartshorne/RuledSurfacePicard.lean",
+     "KltDP.Literature.Hartshorne.ruled_surface_picard_literal"),
+    ("KltDP/Literature/Hartshorne/SurfaceHodgeIndex.lean",
+     "KltDP.Literature.Hartshorne.surface_hodge_index_literal"),
+    ("KltDP/Literature/Hartshorne/SurfaceNakaiMoishezon.lean",
+     "KltDP.Literature.Hartshorne.surface_nakai_moishezon_literal"),
+    ("KltDP/Literature/Hartshorne/SurfaceRiemannRoch.lean",
+     "KltDP.Literature.Hartshorne.surface_riemannRoch_literal"),
+    ("KltDP/Literature/KeelCompleteSystem.lean",
+     "KltDP.Literature.Keel.semiampleness_completeSystem_literal"),
+    ("KltDP/Literature/Stacks/AffineMorphismCohomology.lean",
+     "KltDP.Literature.Stacks.affine_morphism_cohomology_literal"),
+    ("KltDP/Literature/Stacks/BlowupRegularPointAdmitted.lean",
+     "KltDP.Literature.Stacks.blowupRegularPoint_literal"),
+    ("KltDP/Literature/StacksPointBlowupDomination.lean",
+     "KltDP.Literature.Stacks.closed_point_blowups_dominate_proper_literal"),
+    ("KltDP/Literature/Stacks/FieldJ2.lean",
+     "KltDP.Literature.Stacks.field_isJ2"),
+    ("KltDP/Literature/LipmanResolutionLiteral.lean",
+     "KltDP.Literature.Stacks.lipman_resolution_of_normal_completions_literal"),
+    ("KltDP/Literature/Stacks/ProperCohomologyFinite.lean",
+     "KltDP.Literature.Stacks.properCohomology_finite"),
+    ("KltDP/Literature/Stacks/ProperFlatFiberEuler.lean",
+     "KltDP.Literature.Stacks.properFlat_fiberEuler_literal"),
+    ("KltDP/Literature/ProperCurvePullbackDegreeLiteral.lean",
+     "KltDP.Literature.Stacks.proper_curve_pullback_degree_literal"),
+    ("KltDP/Literature/Stacks/CurveTensorDegreeLiteral.lean",
+     "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal"),
+    ("KltDP/Literature/Stacks/RegularLocalUFD.lean",
+     "KltDP.Literature.Stacks.regularLocal_isUFD"),
+    ("KltDP/Literature/RegularSmoothLociLiteral.lean",
+     "KltDP.Literature.Stacks.regular_smooth_loci_perfect_literal"),
+    ("KltDP/Literature/SmoothStandardCoverLiteral.lean",
+     "KltDP.Literature.Stacks.smooth_standardSmooth_cover_literal"),
+    ("KltDP/Literature/SteinFactorizationNoetherian.lean",
+     "KltDP.Literature.Stacks.steinFactorization_noetherian_literal"),
+    ("KltDP/Literature/Tanaka/ContractionTheorem.lean",
+     "KltDP.Literature.Tanaka.contraction_44_instance"),
+    ("KltDP/Literature/ZariskiNormalCompletion.lean",
+     "KltDP.Literature.Zariski.closedPoint_normal_completion_literal"),
+)
+LITERATURE_FILE_INDEX = dict(LITERATURE_AXIOM_FILES)
+LITERATURE_NAMES = [name for _, name in LITERATURE_AXIOM_FILES]
 
 
-def load_admission(root: Path):
-    """Optional empty policy for isolated source tests; full production requires
-    the exact singleton registry in its separately checked artifact manifests.
-    No registry means no axiom exception, never implicit authorization.
+def unique_object(pairs: list[tuple[str, object]]) -> dict:
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate JSON object key: {key}")
+        result[key] = value
+    return result
+
+
+def discharge_literature_axiom(path: str, findings: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Discharge exactly one `axiom` rejection in an allowlisted literature file.
+
+    Every other finding in that file and every finding in any other file is retained.
+    An allowlisted file with zero or several axiom tokens is an error, never a pass.
     """
-    registry = root / ADMISSION_REGISTRY
-    if not registry.exists():
-        return None
-    helper_path = Path(__file__).resolve().with_name("literature_admission.py")
-    helper_bytes = helper_path.read_bytes()
-    if hashlib.sha256(helper_bytes).hexdigest() != ADMISSION_HELPER_SHA256:
-        raise ValueError("Admission helper differs from its externally reviewed code hash")
-    helper = ModuleType("_reviewed_literal_field_j2_admission")
-    helper.__file__ = str(helper_path)
-    exec(compile(helper_bytes, str(helper_path), "exec"), helper.__dict__)
-    registry_bytes = registry.read_bytes()
-    entry = helper.load_reviewed_registry(registry_bytes)
-    helper.verify_meaning_bytes(entry, lambda name: (root / name).read_bytes())
-    probe_bytes = (root / entry["expected_type_probe"]["compiled_evidence_path"]).read_bytes()
-    review_bytes = (root / entry["root_review_evidence_path"]).read_bytes()
-    helper.verify_evidence_bytes(entry, probe_bytes, review_bytes)
-    probe = json.loads(probe_bytes)
-    helper.verify_expected_probe(entry, probe["record"])
-    return helper, entry, {
-        "registry_path": ADMISSION_REGISTRY,
-        "registry_sha256": hashlib.sha256(registry_bytes).hexdigest(),
-        "helper_path": ADMISSION_HELPER,
-        "helper_sha256": ADMISSION_HELPER_SHA256,
-        "entry_name": entry["name"],
-        "type_expression_sha256": entry["type_expression_sha256"],
-        "printed_type_sha256": entry["printed_type_sha256"],
-    }
+    if path not in LITERATURE_FILE_INDEX:
+        return list(findings), []
+    axiom_rows = [row for row in findings
+                  if row.get("token") == "axiom" and row.get("severity") == "reject"]
+    if len(axiom_rows) != 1:
+        raise ValueError(f"Literature file must contain exactly one axiom token: {path} has {len(axiom_rows)}")
+    target = axiom_rows[0]
+    return [row for row in findings if row is not target], [dict(target)]
 
 
+def load_literature_registry(root: Path):
+    """Optional exact registry cross-check; its absence admits nothing beyond the file allowlist.
 
-UFD_ADMISSION_REGISTRY = "audit/regular_local_ufd_admission.json"
-UFD_ADMISSION_HELPER = "scripts/regular_local_ufd_admission.py"
-UFD_ADMISSION_HELPER_SHA256 = "5121a9a8eb4ad9952dcd91727804e6329e6ef48c2bf9288dbc75024be4870b7f"
-
-
-def load_regular_local_ufd_admission(root: Path):
-    """Exact optional second literal admission; no namespace or source exemption."""
-    registry = root / UFD_ADMISSION_REGISTRY
-    if not registry.exists():
-        return None
-    helper_path = Path(__file__).resolve().with_name("regular_local_ufd_admission.py")
-    helper_bytes = helper_path.read_bytes()
-    if hashlib.sha256(helper_bytes).hexdigest() != UFD_ADMISSION_HELPER_SHA256:
-        raise ValueError("Regular-local UFD helper differs from its externally reviewed code hash")
-    helper = ModuleType("_reviewed_literal_regular_local_ufd_admission")
-    helper.__file__ = str(helper_path)
-    exec(compile(helper_bytes, str(helper_path), "exec"), helper.__dict__)
-    registry_bytes = registry.read_bytes()
-    entry = helper.load_reviewed_registry(registry_bytes)
-    helper.verify_meaning_bytes(entry, lambda name: (root / name).read_bytes())
-    probe_bytes = (root / entry["expected_type_probe"]["compiled_evidence_path"]).read_bytes()
-    review_bytes = (root / entry["root_review_evidence_path"]).read_bytes()
-    helper.verify_evidence_bytes(entry, probe_bytes, review_bytes)
-    helper.verify_expected_probe(entry, json.loads(probe_bytes)["record"])
-    return helper, entry, {
-        "registry_path": UFD_ADMISSION_REGISTRY,
-        "registry_sha256": hashlib.sha256(registry_bytes).hexdigest(),
-        "helper_path": UFD_ADMISSION_HELPER,
-        "helper_sha256": UFD_ADMISSION_HELPER_SHA256,
-        "entry_name": entry["name"],
-        "type_expression_sha256": entry["type_expression_sha256"],
-        "printed_type_sha256": entry["printed_type_sha256"],
-    }
-
-
-
-PROPER_ADMISSION_REGISTRY = "audit/proper_cohomology_admission.json"
-PROPER_ADMISSION_HELPER = "scripts/proper_cohomology_admission.py"
-PROPER_ADMISSION_HELPER_SHA256 = "296ee799c66cb09f49ba71710303d6c482f6a6ec580d1305e13f578e970a7f26"
-
-
-def load_proper_cohomology_admission(root: Path):
-    """Exact optional third literal admission; no namespace or source exemption."""
-    registry = root / PROPER_ADMISSION_REGISTRY
-    if not registry.exists():
-        return None
-    helper_path = Path(__file__).resolve().with_name("proper_cohomology_admission.py")
-    helper_bytes = helper_path.read_bytes()
-    if hashlib.sha256(helper_bytes).hexdigest() != PROPER_ADMISSION_HELPER_SHA256:
-        raise ValueError("Proper-cohomology helper differs from its externally reviewed code hash")
-    helper = ModuleType("_reviewed_literal_proper_cohomology_admission")
-    helper.__file__ = str(helper_path)
-    exec(compile(helper_bytes, str(helper_path), "exec"), helper.__dict__)
-    registry_bytes = registry.read_bytes()
-    entry = helper.load_reviewed_registry(registry_bytes)
-    helper.verify_meaning_bytes(entry, lambda name: (root / name).read_bytes())
-    evidence_bytes = (root / entry["qualification_evidence"]["path"]).read_bytes()
-    review_bytes = (root / entry["root_review_evidence_path"]).read_bytes()
-    evidence = helper.verify_qualification_bytes(entry, evidence_bytes, review_bytes)
-    helper.verify_control_report((root / evidence["control_report_path"]).read_bytes())
-    return helper, entry, {
-        "registry_path": PROPER_ADMISSION_REGISTRY,
-        "registry_sha256": hashlib.sha256(registry_bytes).hexdigest(),
-        "helper_path": PROPER_ADMISSION_HELPER,
-        "helper_sha256": PROPER_ADMISSION_HELPER_SHA256,
-        "entry_name": entry["name"],
-        "type_expression_sha256": entry["type_expression_sha256"],
-        "printed_type_sha256": entry["printed_type_sha256"],
-    }
-
-CURVE_ADMISSION_REGISTRY = "audit/curve_tensor_degree_admission.json"
-CURVE_ADMISSION_HELPER = "scripts/curve_tensor_degree_admission.py"
-CURVE_ADMISSION_HELPER_SHA256 = "780d1284127439082505ee4cfc243a786b6b2f913d6da4a735c67e5c88f8abe6"
-
-
-def load_curve_tensor_degree_admission(root: Path):
-    """Exact optional fourth literal admission; no namespace or source exemption."""
-    registry = root / CURVE_ADMISSION_REGISTRY
-    if not registry.exists():
-        return None
-    helper_path = Path(__file__).resolve().with_name("curve_tensor_degree_admission.py")
-    helper_bytes = helper_path.read_bytes()
-    if hashlib.sha256(helper_bytes).hexdigest() != CURVE_ADMISSION_HELPER_SHA256:
-        raise ValueError("Curve-tensor-degree helper differs from its externally reviewed code hash")
-    helper = ModuleType("_reviewed_literal_curve_tensor_degree_admission")
-    helper.__file__ = str(helper_path)
-    exec(compile(helper_bytes, str(helper_path), "exec"), helper.__dict__)
-    registry_bytes = registry.read_bytes()
-    entry = helper.load_reviewed_registry(registry_bytes)
-    helper.verify_meaning_bytes(entry, lambda name: (root / name).read_bytes())
-    evidence_bytes = (root / entry["qualification_evidence"]["path"]).read_bytes()
-    review_bytes = (root / entry["root_review_evidence_path"]).read_bytes()
-    helper.verify_qualification_bytes(entry, evidence_bytes, review_bytes)
-    return helper, entry, {
-        "registry_path": CURVE_ADMISSION_REGISTRY,
-        "registry_sha256": hashlib.sha256(registry_bytes).hexdigest(),
-        "helper_path": CURVE_ADMISSION_HELPER,
-        "helper_sha256": CURVE_ADMISSION_HELPER_SHA256,
-        "entry_name": entry["name"],
-        "type_expression_sha256": entry["type_expression_sha256"],
-        "printed_type_sha256": entry["printed_type_sha256"],
-    }
-
-def load_admissions(root: Path):
-    """Empty and field-only fixtures retain their strict historical source checks.
-
-    Full four-entry production acceptance is separately required by the parser.
-    The second entry cannot replace the unchanged field-J2 registry.
+    Production acceptance additionally requires the registry bound in both build manifests
+    by the compiled-audit parser. Returns (sha256, entries) or None.
     """
-    field = load_admission(root)
-    ufd = load_regular_local_ufd_admission(root)
-    if ufd is not None and field is None:
-        raise ValueError("The second literal admission requires the unchanged field-J2 registry")
-    proper = load_proper_cohomology_admission(root)
-    if proper is not None and (field is None or ufd is None):
-        raise ValueError("The third literal requires both unchanged earlier admissions")
-    curve = load_curve_tensor_degree_admission(root)
-    if curve is not None and (field is None or ufd is None or proper is None):
-        raise ValueError("The fourth literal requires all three unchanged earlier admissions")
-    return [entry for entry in (field, ufd, proper, curve) if entry is not None]
+    registry = root / LITERATURE_REGISTRY
+    if not registry.exists():
+        return None
+    raw = registry.read_bytes()
+    record = json.loads(raw.decode("utf-8"), object_pairs_hook=unique_object)
+    if not isinstance(record, dict) or record.get("schema") != LITERATURE_REGISTRY_SCHEMA or \
+            record.get("policy") != SOURCE_POLICY_PROFILE:
+        raise ValueError("Literature registry schema or policy profile differs from this source gate")
+    entries = record.get("active_literature_axioms")
+    if not isinstance(entries, list) or [(e.get("source_path"), e.get("name")) for e in entries] != \
+            list(LITERATURE_AXIOM_FILES):
+        raise ValueError("Literature registry entries differ from the exact twenty-eight-file allowlist")
+    return hashlib.sha256(raw).hexdigest(), entries
 
 
 def main() -> int:
@@ -594,7 +571,8 @@ def main() -> int:
         files.append(root / "KltDP.lean")
     if not files:
         parser.error(f"no Lean source files below {root}")
-    admissions = load_admissions(root)
+    registry = load_literature_registry(root)
+    registry_sha256 = None if registry is None else registry[0]
     rows = []
     remaining_by_path = {}
     admitted_findings = []
@@ -611,25 +589,28 @@ def main() -> int:
         raw_findings = findings(source)
         remaining_by_path[relative.as_posix()] = raw_findings
         if not tooling:
-            for helper, entry, admission_record in admissions:
-                remaining, discharged = helper.discharge_exact_axiom_token(
-                    entry, relative.as_posix(), file.read_bytes(),
-                    remaining_by_path[relative.as_posix()])
-                remaining_by_path[relative.as_posix()] = remaining
-                admitted_findings.extend({
-                    "file": relative.as_posix(), "name": entry["name"],
-                    "registry_sha256": admission_record["registry_sha256"], "finding": item,
-                } for item in discharged)
+            remaining, discharged = discharge_literature_axiom(relative.as_posix(), raw_findings)
+            remaining_by_path[relative.as_posix()] = remaining
+            admitted_findings.extend({
+                "file": relative.as_posix(), "name": LITERATURE_FILE_INDEX[relative.as_posix()],
+                "registry_sha256": registry_sha256, "finding": item,
+            } for item in discharged)
         rows.append({
             "path": relative.as_posix(),
             "sha256": hashlib.sha256(file.read_bytes()).hexdigest(),
             "scope": "audit_tooling" if tooling else "mathematical_source",
             "findings": raw_findings,
         })
-    if len(admitted_findings) != len(admissions) or sorted(
-            row["name"] for row in admitted_findings) != sorted(
-            entry[1]["name"] for entry in admissions):
-        raise ValueError("An exact approved axiom source/token is absent or duplicated")
+    file_hashes = {row["path"]: row["sha256"] for row in rows}
+    if len(admitted_findings) != len({row["file"] for row in admitted_findings}):
+        raise ValueError("An approved axiom token was discharged twice for one file")
+    if registry is not None:
+        for entry in registry[1]:
+            actual = file_hashes.get(entry["source_path"])
+            if actual != entry.get("source_sha256"):
+                raise ValueError("Literature registry source hash differs from the scanned file: " + entry["source_path"])
+        if len(admitted_findings) != len(LITERATURE_AXIOM_FILES):
+            raise ValueError("The registry requires every one of the twenty-eight literature files to be present")
     rejected = [dict(file=row["path"], **finding)
                 for row in rows if row["scope"] == "mathematical_source"
                 for finding in remaining_by_path[row["path"]] if finding["severity"] == "reject"]
@@ -642,8 +623,13 @@ def main() -> int:
         "source_policy_profile": SOURCE_POLICY_PROFILE,
         "linter_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "proof_status": "not_assessed_by_source_lint",
-        "literature_axiom_allowlist": [entry[1]["name"] for entry in admissions],
-        "literature_admission": [entry[2] for entry in admissions],
+        "literature_axiom_allowlist": LITERATURE_NAMES,
+        "literature_admission": {
+            "registry_path": LITERATURE_REGISTRY,
+            "registry_sha256": registry_sha256,
+            "files": [{"path": path, "name": name, "sha256": file_hashes.get(path)}
+                      for path, name in LITERATURE_AXIOM_FILES],
+        },
         "admitted_literature_findings": admitted_findings,
         "lexical_policy": {
             "rejected_leaf_names": sorted(REJECT),

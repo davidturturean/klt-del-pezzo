@@ -1,0 +1,1 @@
+lake env python3 scripts/summarize_trust_report.py /home/david/klt-final-cmp/runner/builds/20260918T062905Z-1962699/build.log /home/david/klt-final-cmp/evidence/trust_summary.json /home/david/klt-final-cmp/evidence/allowlist.json 

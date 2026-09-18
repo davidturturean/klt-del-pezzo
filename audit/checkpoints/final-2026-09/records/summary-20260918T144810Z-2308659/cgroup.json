@@ -1,0 +1,20 @@
+{
+  "pid": 2308713,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/klt-build-20260918T144810Z-2308659.scope",
+  "limits": {
+    "cpu.max": "400000 100000",
+    "memory.max": "274877906944",
+    "memory.swap.max": "0"
+  },
+  "argv": [
+    "lake",
+    "env",
+    "python3",
+    "scripts/summarize_trust_report.py",
+    "/home/david/klt-final-cmp/runner/builds/20260918T062905Z-1962699/build.log",
+    "/home/david/klt-final-cmp/evidence/trust_summary.json",
+    "/home/david/klt-final-cmp/evidence/allowlist.json"
+  ],
+  "verified": true,
+  "proof_status": "Resource evidence only"
+}

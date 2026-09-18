@@ -1,180 +1,295 @@
 {
-  "schema": "klt-literature-assumptions-v2",
-  "snapshot_date": "2026-09-17",
+  "schema": "klt-literature-assumptions-v7",
+  "policy": "lean419_logical_boundary_twentyeight_admissions_v7",
   "ordinary_axioms": [
     "propext",
     "Classical.choice",
     "Quot.sound"
   ],
-  "main_theorem": "KltDP.Manuscript.uniformSevenPointBound",
-  "axiom_report": "audit/axiom-report.txt",
   "active_literature_axioms": [
     {
       "name": "KltDP.Literature.Hartshorne.castelnuovo_contraction_literal",
       "module": "KltDP.Literature.HartshorneCastelnuovoLiteral",
       "source_path": "KltDP/Literature/HartshorneCastelnuovoLiteral.lean",
       "source_sha256": "738dea533ea208a6d900e5db1921e5e5eb201253f8e588ac1fa8af3637db42eb",
-      "declaration_line": 18,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "1a7be67607d03eeea3ee7116d45c1c549cb9c1a11dedc40d4ed921a3c598de57",
+      "printed_type_sha256": "d47291e2a2f66c52703028a0abbe62dfb716cf1f9b4ce261a2de4689ad2a1198",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Theorem V.5.7 (Castelnuovo's contraction criterion)",
+        "page": "414"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.hasContractionLifts_instance",
       "module": "KltDP.Literature.Hartshorne.StrictTransformInstance",
       "source_path": "KltDP/Literature/Hartshorne/StrictTransformInstance.lean",
       "source_sha256": "e1040d1c04da01aad51729d142a7b5b62d5b8bbe6095c017c8ffe8f16b1ddb52",
-      "declaration_line": 43,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "manuscript lane (2026-09-16)"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "88c05a75266491fd62c37d2665d95218e09f3ee9084e386b06b2c4bcd00eee45",
+      "printed_type_sha256": "8353be316c641d57469c7af63df1d170afa7eebde260f4c5d766ee843007321a",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Proposition V.3.6, Corollary II.7.15 and Proposition II.7.13, with Proposition V.5.3 (strict transforms under the contraction of a (-1)-curve), admitted as an instance",
+        "admitted": "2026-09-16"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance",
       "module": "KltDP.Literature.Hartshorne.HurwitzDegreeTwoInstance",
       "source_path": "KltDP/Literature/Hartshorne/HurwitzDegreeTwoInstance.lean",
       "source_sha256": "a19bbf5d6d0c6bca68ff02228f052404b243d7bbdc4248f45ac642c1be77b88d",
-      "declaration_line": 51,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "manuscript lane (2026-09-16)"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "bafeac536d35c9c42ce5b0ea5feda8224c57111eaf18a31425fbc910245375c0",
+      "printed_type_sha256": "2b97827322bf7e5c07627d5ed18de0d415d2bbdae807ac19304fbf9c689499ec",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Corollary IV.2.4 (Hurwitz) and Proposition IV.2.2(b), degree-two P^1 -> P^1 instance in characteristic p > 2",
+        "also": "Stacks Project Tag 0C1B",
+        "admitted": "2026-09-16"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.integral_numerical_group_free_finite_literal",
       "module": "KltDP.Literature.Hartshorne.IntegralNumericalGroup",
       "source_path": "KltDP/Literature/Hartshorne/IntegralNumericalGroup.lean",
       "source_sha256": "879c08b36a102d6314a93343e9ba45654a6c7a1ed76bdf7e39a7c8324ba14de1",
-      "declaration_line": 25,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "4e387509a61eca168aa14e448e5e12b118e83f7814bab34c3c6b3fac416c4acc",
+      "printed_type_sha256": "46357a602c2fec8fc7627e6e459dbe72d4f2e8834d96fd12a2301f6b80a81d21",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Chapter V, Remark 1.9.1",
+        "page": "364",
+        "doi": "10.1007/978-1-4757-3849-0",
+        "source_sha256": "55cee9c730cfb03ed9ecac25444c87579fe411077ddb14bc4b31c98cc3be2d5e"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.minimal_surface_classification_literal",
       "module": "KltDP.Literature.Hartshorne.MinimalSurfaceClassification",
       "source_path": "KltDP/Literature/Hartshorne/MinimalSurfaceClassification.lean",
       "source_sha256": "dc76b5d2689b57de6060976d1e8fd65efd682e292a8a8ffd306db9459ff93478",
-      "declaration_line": 20,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "e929e0218b190302a0784b96628cb685ea0fdb1602fe9404275b7d3779cc3e6a",
+      "printed_type_sha256": "28244c9f875c3e5c536b5035fc7a8d8b678317bafe2532d5838da138020a632a",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Theorem V.6.1"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.nonsingular_complete_surface_projective_literal",
       "module": "KltDP.Literature.Hartshorne.SurfaceProjectivity",
       "source_path": "KltDP/Literature/Hartshorne/SurfaceProjectivity.lean",
       "source_sha256": "43a90d171da6fe5e136d5580edecfd1c27e43528307f4420d29fca4d0e74117b",
-      "declaration_line": 29,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "34387851e4b36b4c1effdea9bb332d84c8fb98cb89c0ca7e721658b73c7d79f8",
+      "printed_type_sha256": "18d632e850ec177abc16a632ff5c7c31352bb6093b363d40876eaf297b8bd449",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Chapter II, Remark 4.10.2(b)",
+        "page": "105",
+        "doi": "10.1007/978-1-4757-3849-0",
+        "source_sha256": "55cee9c730cfb03ed9ecac25444c87579fe411077ddb14bc4b31c98cc3be2d5e"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.point_blowup_structure_cohomology_literal",
       "module": "KltDP.Literature.Hartshorne.PointBlowupCohomology",
       "source_path": "KltDP/Literature/Hartshorne/PointBlowupCohomology.lean",
       "source_sha256": "6170e6eaa06c89bc53ba9817dc891c3f821caabf898b4782b8baa4be6d9e7840",
-      "declaration_line": 25,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "4b3d40de098511b2f1ab97641066b4945de9d83d2f63dc527e9ddcc44171f8c3",
+      "printed_type_sha256": "20a4476e5d7fcd6da122bea44a1e35c9925c18cd871d7df469f3372b020ed199",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Proposition V.3.4",
+        "page": "387-388"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.ruled_surface_genus_literal",
       "module": "KltDP.Literature.Hartshorne.RuledSurfaceGenus",
       "source_path": "KltDP/Literature/Hartshorne/RuledSurfaceGenus.lean",
       "source_sha256": "df5a3ce47d215297a810a9865a27455d088a2cbca41261c90e1fef85be3a1ed6",
-      "declaration_line": 20,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "0c7d1a32306c3e7d1cddff5c7efc1f4f75e96555cebea04c6727968cfba9aac0",
+      "printed_type_sha256": "dc6d14c6180dbeb90bf300c745f23090b31f54bc0182b1ed2de7a6c406a433e0",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Corollary V.2.5"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.ruled_surface_picard_literal",
       "module": "KltDP.Literature.Hartshorne.RuledSurfacePicard",
       "source_path": "KltDP/Literature/Hartshorne/RuledSurfacePicard.lean",
       "source_sha256": "823a118fccd8a602fc2d932c26501cb24c384c1e8bfe04e8f28a8ca1c86bc6d8",
-      "declaration_line": 20,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "b0a16ff6fa1e7511684d1cacfa6b23525bb27fba2f342761e9d9ea5786fa8efc",
+      "printed_type_sha256": "84d7c650019a3c07e316572636ea0bc3aa43a89fba935d063ec324fb9320147b",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Proposition V.2.3"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.surface_hodge_index_literal",
       "module": "KltDP.Literature.Hartshorne.SurfaceHodgeIndex",
       "source_path": "KltDP/Literature/Hartshorne/SurfaceHodgeIndex.lean",
       "source_sha256": "04d1c8225f0ec8d6112cd1040c39ae82e0efcead7a0796a5aa98f5a4113145c9",
-      "declaration_line": 25,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "2d4e23bdc8c65df71edb3206a28ea0130b38e2eb5a6dc8acbaba7154c909aeb1",
+      "printed_type_sha256": "423873639e905d08e97a763740130e37210c02e8717bad7a06b49caf7bf58c94",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Theorem V.1.9 (Hodge index theorem)",
+        "page": "364",
+        "doi": "10.1007/978-1-4757-3849-0",
+        "source_sha256": "55cee9c730cfb03ed9ecac25444c87579fe411077ddb14bc4b31c98cc3be2d5e"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.surface_nakai_moishezon_literal",
       "module": "KltDP.Literature.Hartshorne.SurfaceNakaiMoishezon",
       "source_path": "KltDP/Literature/Hartshorne/SurfaceNakaiMoishezon.lean",
       "source_sha256": "656cf05ccba031c0876a9768281039418e6ec987709da760e3324f4db8ba3fff",
-      "declaration_line": 28,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "e5479c75d1ae934d4c351eb3540e6996f9e3e53c9b890940dd4c3b262fe6f99f",
+      "printed_type_sha256": "3f07e8b0f83076a9dd41780a5f1ffb6455cef70b5c20ef1791da56d15e65835f",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Theorem V.1.10 (Nakai-Moishezon criterion)",
+        "page": "365",
+        "doi": "10.1007/978-1-4757-3849-0",
+        "source_sha256": "55cee9c730cfb03ed9ecac25444c87579fe411077ddb14bc4b31c98cc3be2d5e"
+      }
     },
     {
       "name": "KltDP.Literature.Hartshorne.surface_riemannRoch_literal",
       "module": "KltDP.Literature.Hartshorne.SurfaceRiemannRoch",
       "source_path": "KltDP/Literature/Hartshorne/SurfaceRiemannRoch.lean",
       "source_sha256": "835d5da4a1950cf10981fffbbda61402f527849c507163e2ef6c98641f5285e2",
-      "declaration_line": 25,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "624e4205d7917213bc84b45c406351ac9217bc9ff6f6ab82b920cf3c85804b00",
+      "printed_type_sha256": "8ef75d430079cc18d8b9c3ea5e97750cfc1367f8f72524bbce94caea4f5b06d3",
+      "published_source": {
+        "reference": "R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "theorem": "Theorem V.1.6 (Riemann-Roch for surfaces)",
+        "page": "362",
+        "doi": "10.1007/978-1-4757-3849-0",
+        "source_sha256": "55cee9c730cfb03ed9ecac25444c87579fe411077ddb14bc4b31c98cc3be2d5e"
+      }
     },
     {
       "name": "KltDP.Literature.Keel.semiampleness_completeSystem_literal",
       "module": "KltDP.Literature.KeelCompleteSystem",
       "source_path": "KltDP/Literature/KeelCompleteSystem.lean",
       "source_sha256": "0b75babc8caa2a6be4d0ea62eeb1c17230390dc96dac82b9415588efc899fa0e",
-      "declaration_line": 29,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "9b10c643a3609852f5cc2138a20e5e3d93b38eda11b2bd78bc8e158fc6a5a40a",
+      "printed_type_sha256": "96cfed376605b45f1dfe4dc24f88bae58fa2baa52e1ec0b97dec8572870c239c",
+      "published_source": {
+        "reference": "S. Keel, Basepoint freeness for nef and big line bundles in positive characteristic, Annals of Mathematics 149 (1999), 253-286",
+        "theorem": "Theorem 0.2",
+        "page": "254",
+        "doi": "10.2307/121025",
+        "source_sha256": "4d87c752091896d480e6fdf3829f59db4c152e26568a6eb3a4297384ee98e272"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.affine_morphism_cohomology_literal",
       "module": "KltDP.Literature.Stacks.AffineMorphismCohomology",
       "source_path": "KltDP/Literature/Stacks/AffineMorphismCohomology.lean",
       "source_sha256": "fc2b9ffdffd503f1003b8eada0a9dbe75f22a4dac7aa8eabb56801100948252e",
-      "declaration_line": 29,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "e57b546888da23900bf77ce39d761ef72343380e9149be56d08f5b4fcb8e93c9",
+      "printed_type_sha256": "b6b9f7a3014278aa30dc537a34d2f3a7ccf05b73bf98027f66b2939516086a5a",
+      "published_source": {
+        "reference": "The Stacks Project",
+        "tag": "089W",
+        "lemma": "30.2.4",
+        "commit": "540451b3e79a131df8eca4c4187448e49dcb262d"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.blowupRegularPoint_literal",
       "module": "KltDP.Literature.Stacks.BlowupRegularPointAdmitted",
       "source_path": "KltDP/Literature/Stacks/BlowupRegularPointAdmitted.lean",
       "source_sha256": "ae662426238162bb3f8c8c791fc894a26bb8aa1bb8ebc8fb1449fe7126320f46",
-      "declaration_line": 29,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "manuscript lane (2026-09-16)"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "4e41a51f4565e750c196cae9d94483b749dfd152994603ca0a58c47c608e590b",
+      "printed_type_sha256": "1c32d5ed17ffa041518fdf7862e168ce20f6d8791b402506e77c993046c9de51",
+      "published_source": {
+        "reference": "The Stacks Project; R. Hartshorne, Algebraic Geometry, GTM 52, Springer (1977)",
+        "tags": [
+          "0AGQ",
+          "0AGR",
+          "0C5P"
+        ],
+        "theorem": "Hartshorne Proposition V.3.1",
+        "admitted": "2026-09-16"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.closed_point_blowups_dominate_proper_literal",
       "module": "KltDP.Literature.StacksPointBlowupDomination",
       "source_path": "KltDP/Literature/StacksPointBlowupDomination.lean",
       "source_sha256": "033c084d5e450d8be07620a4b397ab9d85b2687eb18ee7e44f2ea189238e1d2c",
-      "declaration_line": 25,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "328248e804cebe250defebca0469109886b3f47e9c6b41fa7506d503c1653a4b",
+      "printed_type_sha256": "1d13a719eb14a660037bf1376c98f1f7fb5cf9b8ca664184e7337695a3fc5835",
+      "published_source": {
+        "reference": "The Stacks Project",
+        "tag": "0AHI",
+        "file": "resolve.tex",
+        "lines": [
+          928,
+          941
+        ],
+        "commit": "a04446e57ec1fbc252a871afcec7752fb2807b14",
+        "license": "GFDL-1.2-or-later"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.field_isJ2",
       "module": "KltDP.Literature.Stacks.FieldJ2",
       "source_path": "KltDP/Literature/Stacks/FieldJ2.lean",
       "source_sha256": "c325d0d6f6f882ac4233020bad309d976e5baad69a32cd429d7dc493aa3bad37",
-      "declaration_line": 14,
       "universe_parameters": [
         "u",
         "v"
@@ -193,25 +308,29 @@
       "original_registry": {
         "path": "audit/field_j2_admission.json",
         "sha256": "b341fef779503eac029e5543911d27851c7d12c829c28a0bc2707f61e724d997"
-      },
-      "admitted_at": "candidate1559"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.lipman_resolution_of_normal_completions_literal",
       "module": "KltDP.Literature.LipmanResolutionLiteral",
       "source_path": "KltDP/Literature/LipmanResolutionLiteral.lean",
       "source_sha256": "3aff165d9d078f04d73fc64fc6e1a768fdc5417eba93e9e53516b26ffb214754",
-      "declaration_line": 15,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "44a8e83586289e8f48590331b90dff47aab886b54af572ea22fd338aa33a5505",
+      "printed_type_sha256": "99b540e1935c780399b03e344305a7bc868b83f08e55429314d56654ec3b0bba",
+      "published_source": {
+        "reference": "The Stacks Project",
+        "tag": "0BGP",
+        "theorem": "Theorem 54.14.5, implication (4) => (2)"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.properCohomology_finite",
       "module": "KltDP.Literature.Stacks.ProperCohomologyFinite",
       "source_path": "KltDP/Literature/Stacks/ProperCohomologyFinite.lean",
       "source_sha256": "ccc0cb94fc3344aad666076bf701f576a3ee167cc87ae677d535e64c0a8fea5d",
-      "declaration_line": 26,
       "universe_parameters": [
         "u"
       ],
@@ -226,35 +345,52 @@
       "original_registry": {
         "path": "audit/proper_cohomology_admission.json",
         "sha256": "0639cd7244af87b8b102eab28a43916650207b7b9c8ad8d563c2ad81aea20dde"
-      },
-      "admitted_at": "candidate1559"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.properFlat_fiberEuler_literal",
       "module": "KltDP.Literature.Stacks.ProperFlatFiberEuler",
       "source_path": "KltDP/Literature/Stacks/ProperFlatFiberEuler.lean",
       "source_sha256": "184632e54e89787da67d2338dc022a21f968b74a030c2140711ac5486d02c712",
-      "declaration_line": 25,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "26fa3f729615c10800709e5186876d93e6bf75edef6cce5347026f34014d91c7",
+      "printed_type_sha256": "5d7e13b892074b584bade95c43b249214e901df6f25767ca992e4497d6a05290",
+      "published_source": {
+        "reference": "The Stacks Project",
+        "tag": "0B9T",
+        "lemma": "36.32.2",
+        "file": "perfect.tex",
+        "lines": [
+          7960,
+          7983
+        ],
+        "commit": "540451b3e79a131df8eca4c4187448e49dcb262d"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.proper_curve_pullback_degree_literal",
       "module": "KltDP.Literature.ProperCurvePullbackDegreeLiteral",
       "source_path": "KltDP/Literature/ProperCurvePullbackDegreeLiteral.lean",
       "source_sha256": "3a47c7b4e33d29b63fa08a2d23ca4dfdebf3cb6205aa406fdf64e2c14345eadc",
-      "declaration_line": 19,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "8b80358ae1968d62897dd4967d369ea54add9d58fb40905188742202d3effe25",
+      "printed_type_sha256": "ceb96e92f7bc614b297c76d599fe63e4c088a37ed396f5d3e22518b157ab9fee",
+      "published_source": {
+        "reference": "The Stacks Project",
+        "tag": "0AYZ",
+        "degree_definition_tag": "0AYR",
+        "field_degree_tag": "02NY"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal",
       "module": "KltDP.Literature.Stacks.CurveTensorDegreeLiteral",
       "source_path": "KltDP/Literature/Stacks/CurveTensorDegreeLiteral.lean",
       "source_sha256": "fdbff47f231d00fa5ef478c20986efc48a176a8194d073275bf8f19072662543",
-      "declaration_line": 43,
       "universe_parameters": [
         "u"
       ],
@@ -282,15 +418,13 @@
       "original_registry": {
         "path": "audit/curve_tensor_degree_admission.json",
         "sha256": "436db9c3a61f6db0f9adc818ade10cd7abae36d1f11b62be4764e65228f0e635"
-      },
-      "admitted_at": "candidate1559"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.regularLocal_isUFD",
       "module": "KltDP.Literature.Stacks.RegularLocalUFD",
       "source_path": "KltDP/Literature/Stacks/RegularLocalUFD.lean",
       "source_sha256": "c04596613b6835a686c6c5f827badf96b5a946ca79f56e3f840458b769042ac5",
-      "declaration_line": 16,
       "universe_parameters": [
         "u"
       ],
@@ -313,71 +447,94 @@
       "original_registry": {
         "path": "audit/regular_local_ufd_admission.json",
         "sha256": "258ffdd90ad110c7d58572908c547e2f28efc4e3d5172597efe080df907e92ba"
-      },
-      "admitted_at": "candidate1559"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.regular_smooth_loci_perfect_literal",
       "module": "KltDP.Literature.RegularSmoothLociLiteral",
       "source_path": "KltDP/Literature/RegularSmoothLociLiteral.lean",
       "source_sha256": "98d15f296dbca8664df35212e7a7c5ba50f80c77ff9b7e7bc5453ee3b5f42461",
-      "declaration_line": 14,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "d9535c712061d12f0f9faa8d2dae6c7a3e9e68486df879f29394a70ccc16b12e",
+      "printed_type_sha256": "6352416520f61866860978f7351e8f700cb3198606b0c5bd07aaea79dc2573d3",
+      "published_source": {
+        "reference": "The Stacks Project",
+        "tag": "0B8X",
+        "lemma": "33.25.8",
+        "commit": "a04446e57ec1fbc252a871afcec7752fb2807b14"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.smooth_standardSmooth_cover_literal",
       "module": "KltDP.Literature.SmoothStandardCoverLiteral",
       "source_path": "KltDP/Literature/SmoothStandardCoverLiteral.lean",
       "source_sha256": "66feadf08b087a57f711139a37942c336b7325d536ae47b3179e56d3140ef204",
-      "declaration_line": 12,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "0124654e569eedb972e818a67b8983d456a679b0dfd5818107d9f4a7a09c5ce4",
+      "printed_type_sha256": "fc49e3a046b89cae514b87cbf6f289f598fc7b95f8a8d6f36f3e1e91dee6b84c",
+      "published_source": {
+        "reference": "The Stacks Project",
+        "tag": "00TA",
+        "lemma": "10.137.9, first cover assertion",
+        "commit": "a04446e57ec1fbc252a871afcec7752fb2807b14"
+      }
     },
     {
       "name": "KltDP.Literature.Stacks.steinFactorization_noetherian_literal",
       "module": "KltDP.Literature.SteinFactorizationNoetherian",
       "source_path": "KltDP/Literature/SteinFactorizationNoetherian.lean",
       "source_sha256": "7e4e29ac9ed9f9d2eed0169c21a858c11d5ef32ff2c44cba562b4b3f362afa96",
-      "declaration_line": 16,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "0feed53a402f5f6d64db8e614346b1db99fed434d6d7c0c0c33780f48aa332fd",
+      "printed_type_sha256": "1a9bac18e2d33d78a19e900fef96dab06c78e9babd3b886ff599ecd7c451a585",
+      "published_source": {
+        "reference": "The Stacks Project",
+        "tag": "03H0",
+        "relative_normalization_tag": "035H",
+        "commit": "540451b3e79a131df8eca4c4187448e49dcb262d"
+      }
     },
     {
       "name": "KltDP.Literature.Tanaka.contraction_44_instance",
       "module": "KltDP.Literature.Tanaka.ContractionTheorem",
       "source_path": "KltDP/Literature/Tanaka/ContractionTheorem.lean",
       "source_sha256": "ef684d4ef83ed9afc980646519289b1b25132c6a44b1864b6e9c335cf5bede08",
-      "declaration_line": 78,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "manuscript lane (2026-09-16)"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "80f4f6b82d8388ffb15176c7e3f6dadfc7c444e4950323a0fc68917c2d93e053",
+      "printed_type_sha256": "c36651103ff1e2d9a9a92a22f8f89b24d811607a216cf3b9485403b640adf1bc",
+      "published_source": {
+        "reference": "H. Tanaka, Minimal model program for excellent surfaces, Annales de l'Institut Fourier 68 (2018), no. 1, 345-376",
+        "theorem": "Theorem 4.4, instance with B = S = Spec k, Delta = 0, conclusions (1), (2), (4)",
+        "page": "365",
+        "doi": "10.5802/aif.3163",
+        "admitted": "2026-09-16"
+      }
     },
     {
       "name": "KltDP.Literature.Zariski.closedPoint_normal_completion_literal",
       "module": "KltDP.Literature.ZariskiNormalCompletion",
       "source_path": "KltDP/Literature/ZariskiNormalCompletion.lean",
       "source_sha256": "36595617aa6285f018c2739813465f25bb649a97f86e10e8e7e82cbfb7df4dae",
-      "declaration_line": 12,
-      "published_source": null,
-      "documentation": "The module docstring records the published statement, its source and every specialisation.",
-      "admitted_at": "union base library"
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "6d9b0ab1f62cf4bedf6e734de6f9fb76d14d7280096d7ef1424648a345fc5af4",
+      "printed_type_sha256": "89e37416afd73fe450f811c645f7078664f41a26fa4bb48ad7bcb399bcb9cf0e",
+      "published_source": {
+        "reference": "O. Zariski, Sur la normalite analytique des varietes normales, Annales de l'Institut Fourier 2 (1950)",
+        "theorem": "Theorem 2",
+        "page": "162"
+      }
     }
   ],
-  "proof_status": "Literature statements are assumptions; their local consumers have separate proofs. The main theorem depends on exactly these 28 statements and the three ordinary axioms.",
-  "history": {
-    "candidate1559": {
-      "authority": "Exact four-entry accepted candidate1559 certificate and root acceptance",
-      "proof_status": "Literature statements are assumptions; their local consumers have separate proofs.",
-      "active_literature_axioms": [
-        "KltDP.Literature.Stacks.field_isJ2",
-        "KltDP.Literature.Stacks.regularLocal_isUFD",
-        "KltDP.Literature.Stacks.properCohomology_finite",
-        "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal"
-      ]
-    }
-  }
+  "authority": "Policy v7 registry for the complete 3,525-module snapshot: the four historical Stacks admissions (candidate1559 certificate, original registries pinned) and the twenty-four further published inputs; type hashes were taken from KltDP.Audit.Trust.declarationJson on the same sources and are re-verified against the production trust report by the parser.",
+  "proof_status": "Literature statements are assumptions; their local consumers have separate proofs. No manuscript completion is asserted by this registry."
 }

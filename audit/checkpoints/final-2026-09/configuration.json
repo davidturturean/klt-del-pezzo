@@ -1,0 +1,25 @@
+{
+ "schema": "klt-final-comparator-configuration-v1",
+ "profile": "memory256cpu4",
+ "runner_root": "/home/david/klt-final-cmp/runner",
+ "project_files": {
+  "lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+  "lakefile.toml": "53eb2adc759189d8a273ac6c4ad3227e8ae29e8442ef8a6883ac766fa92b36b1",
+  "lake-manifest.json": "5fb3e9391704de617f21fdb8c2ccb8ef226dadacc1a1bdecc0563a82935464a1",
+  "KltDP.lean": "785dcf0f0c7845e3c0bd90f64f7797fe25a5f852c517994ba177cd8a6f084334",
+  "KltDP/Audit/Trust.lean": "c5f4646aaccc523bcdc4e626fd3387575c3260c1a867468a2b28665170e39bce",
+  "audit/CompiledTrust.lean": "be82fe238892c7279abb14e2c608afecc87fbd0abcbe02bbf8994d67b3ad0f2a",
+  "audit/literature-assumptions.json": "78b23d3f9adec6e4a00422ff1866f0a682d725cd1842f0994206481549f951c1",
+  "audit/source_lint.json": "730c1d176c5a146c7dde9f5472318a216833ea1a62f38e67703ff8515a96b708",
+  "audit/FinalAxiomsProbe.lean": "577fd2611234e5bae0216875c83c51fb0544c5b1c91ede8fb8aa2285e587bfe6",
+  "scripts/parse_compiled_audit256cpu4.py": "a304f940fc571398dd03b36a162221fa2a8baf52435024f38fbba671cf49c101",
+  "scripts/audit_sources.py": "011042a01c2e6389ed4182c6917db345e4a68b1889c5cde8806548800f6c9af3"
+ },
+ "runner_files": {
+  "/home/david/klt_lean/run_build256cpu4.sh": "4a8d748a43a912672b60dd296ea46674263f777f55e5f08f8acb85f9245aa7b1",
+  "/home/david/klt_lean/scope_exec256cpu4.py": "80a0b1d2063f2d32eece71e973436b46bd51ef61e2a3dd6b9d177b2edb695109",
+  "/home/david/klt_lean/manifest.py": "be4f65d5281f4866d86a68e59ffd06f72d276936ec203f616a0b2a62386a7456"
+ },
+ "mathlib": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+ "lean": "leanprover/lean4:v4.19.0"
+}

@@ -32,13 +32,103 @@ open Lean Elab Command
 /-- These are foundational Lean axioms, not results attributed to the literature. -/
 def foundationalAxioms : Array Name := #[`propext, `Classical.choice, `Quot.sound]
 
-/-- Exactly four literal Stacks entries. This candidate remains inactive until root promotion. -/
-def literatureAxioms : Array Name := #[`KltDP.Literature.Stacks.field_isJ2,
-  `KltDP.Literature.Stacks.regularLocal_isUFD,
+/-- The twenty-eight literature admissions of the final snapshot (policy v7), in canonical
+lexicographic name order: the four historical Stacks literals of the v6 four-entry certificate
+and the twenty-four further published inputs used by the complete library. Every entry is an
+`axiom` declared in the module listed by `literatureModules`; the exact source and type hashes
+are pinned by the production parser through `audit/literature-assumptions.json`. -/
+def literatureAxioms : Array Name := #[
+  `KltDP.Literature.Hartshorne.castelnuovo_contraction_literal,
+  `KltDP.Literature.Hartshorne.hasContractionLifts_instance,
+  `KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance,
+  `KltDP.Literature.Hartshorne.integral_numerical_group_free_finite_literal,
+  `KltDP.Literature.Hartshorne.minimal_surface_classification_literal,
+  `KltDP.Literature.Hartshorne.nonsingular_complete_surface_projective_literal,
+  `KltDP.Literature.Hartshorne.point_blowup_structure_cohomology_literal,
+  `KltDP.Literature.Hartshorne.ruled_surface_genus_literal,
+  `KltDP.Literature.Hartshorne.ruled_surface_picard_literal,
+  `KltDP.Literature.Hartshorne.surface_hodge_index_literal,
+  `KltDP.Literature.Hartshorne.surface_nakai_moishezon_literal,
+  `KltDP.Literature.Hartshorne.surface_riemannRoch_literal,
+  `KltDP.Literature.Keel.semiampleness_completeSystem_literal,
+  `KltDP.Literature.Stacks.affine_morphism_cohomology_literal,
+  `KltDP.Literature.Stacks.blowupRegularPoint_literal,
+  `KltDP.Literature.Stacks.closed_point_blowups_dominate_proper_literal,
+  `KltDP.Literature.Stacks.field_isJ2,
+  `KltDP.Literature.Stacks.lipman_resolution_of_normal_completions_literal,
   `KltDP.Literature.Stacks.properCohomology_finite,
-  `KltDP.Literature.Stacks.proper_curve_tensor_degree_literal]
+  `KltDP.Literature.Stacks.properFlat_fiberEuler_literal,
+  `KltDP.Literature.Stacks.proper_curve_pullback_degree_literal,
+  `KltDP.Literature.Stacks.proper_curve_tensor_degree_literal,
+  `KltDP.Literature.Stacks.regularLocal_isUFD,
+  `KltDP.Literature.Stacks.regular_smooth_loci_perfect_literal,
+  `KltDP.Literature.Stacks.smooth_standardSmooth_cover_literal,
+  `KltDP.Literature.Stacks.steinFactorization_noetherian_literal,
+  `KltDP.Literature.Tanaka.contraction_44_instance,
+  `KltDP.Literature.Zariski.closedPoint_normal_completion_literal]
 
-def compilerCachePolicy : String := "lean419_logical_boundary_four_stacks_v6"
+/-- Explicit expected owning module of each literature admission, in the same order as
+`literatureAxioms`. Ownership is checked through the environment's module index, not the
+declaration's namespace. -/
+def literatureModules : Array (Name × Name) := #[
+  (`KltDP.Literature.Hartshorne.castelnuovo_contraction_literal,
+    `KltDP.Literature.HartshorneCastelnuovoLiteral),
+  (`KltDP.Literature.Hartshorne.hasContractionLifts_instance,
+    `KltDP.Literature.Hartshorne.StrictTransformInstance),
+  (`KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance,
+    `KltDP.Literature.Hartshorne.HurwitzDegreeTwoInstance),
+  (`KltDP.Literature.Hartshorne.integral_numerical_group_free_finite_literal,
+    `KltDP.Literature.Hartshorne.IntegralNumericalGroup),
+  (`KltDP.Literature.Hartshorne.minimal_surface_classification_literal,
+    `KltDP.Literature.Hartshorne.MinimalSurfaceClassification),
+  (`KltDP.Literature.Hartshorne.nonsingular_complete_surface_projective_literal,
+    `KltDP.Literature.Hartshorne.SurfaceProjectivity),
+  (`KltDP.Literature.Hartshorne.point_blowup_structure_cohomology_literal,
+    `KltDP.Literature.Hartshorne.PointBlowupCohomology),
+  (`KltDP.Literature.Hartshorne.ruled_surface_genus_literal,
+    `KltDP.Literature.Hartshorne.RuledSurfaceGenus),
+  (`KltDP.Literature.Hartshorne.ruled_surface_picard_literal,
+    `KltDP.Literature.Hartshorne.RuledSurfacePicard),
+  (`KltDP.Literature.Hartshorne.surface_hodge_index_literal,
+    `KltDP.Literature.Hartshorne.SurfaceHodgeIndex),
+  (`KltDP.Literature.Hartshorne.surface_nakai_moishezon_literal,
+    `KltDP.Literature.Hartshorne.SurfaceNakaiMoishezon),
+  (`KltDP.Literature.Hartshorne.surface_riemannRoch_literal,
+    `KltDP.Literature.Hartshorne.SurfaceRiemannRoch),
+  (`KltDP.Literature.Keel.semiampleness_completeSystem_literal,
+    `KltDP.Literature.KeelCompleteSystem),
+  (`KltDP.Literature.Stacks.affine_morphism_cohomology_literal,
+    `KltDP.Literature.Stacks.AffineMorphismCohomology),
+  (`KltDP.Literature.Stacks.blowupRegularPoint_literal,
+    `KltDP.Literature.Stacks.BlowupRegularPointAdmitted),
+  (`KltDP.Literature.Stacks.closed_point_blowups_dominate_proper_literal,
+    `KltDP.Literature.StacksPointBlowupDomination),
+  (`KltDP.Literature.Stacks.field_isJ2,
+    `KltDP.Literature.Stacks.FieldJ2),
+  (`KltDP.Literature.Stacks.lipman_resolution_of_normal_completions_literal,
+    `KltDP.Literature.LipmanResolutionLiteral),
+  (`KltDP.Literature.Stacks.properCohomology_finite,
+    `KltDP.Literature.Stacks.ProperCohomologyFinite),
+  (`KltDP.Literature.Stacks.properFlat_fiberEuler_literal,
+    `KltDP.Literature.Stacks.ProperFlatFiberEuler),
+  (`KltDP.Literature.Stacks.proper_curve_pullback_degree_literal,
+    `KltDP.Literature.ProperCurvePullbackDegreeLiteral),
+  (`KltDP.Literature.Stacks.proper_curve_tensor_degree_literal,
+    `KltDP.Literature.Stacks.CurveTensorDegreeLiteral),
+  (`KltDP.Literature.Stacks.regularLocal_isUFD,
+    `KltDP.Literature.Stacks.RegularLocalUFD),
+  (`KltDP.Literature.Stacks.regular_smooth_loci_perfect_literal,
+    `KltDP.Literature.RegularSmoothLociLiteral),
+  (`KltDP.Literature.Stacks.smooth_standardSmooth_cover_literal,
+    `KltDP.Literature.SmoothStandardCoverLiteral),
+  (`KltDP.Literature.Stacks.steinFactorization_noetherian_literal,
+    `KltDP.Literature.SteinFactorizationNoetherian),
+  (`KltDP.Literature.Tanaka.contraction_44_instance,
+    `KltDP.Literature.Tanaka.ContractionTheorem),
+  (`KltDP.Literature.Zariski.closedPoint_normal_completion_literal,
+    `KltDP.Literature.ZariskiNormalCompletion)]
+
+def compilerCachePolicy : String := "lean419_logical_boundary_twentyeight_admissions_v7"
 
 def allowedAxiom (n : Name) : Bool :=
   foundationalAxioms.contains n || literatureAxioms.contains n
@@ -2996,9 +3086,23 @@ def curveTensorDegreeExpectedType : Expr :=
       (Lean.BinderInfo.instImplicit))
     (Lean.BinderInfo.implicit)
 
-/-- Validate the literal declaration when present. Isolated tooling fixtures may
-omit entries; the production parser requires all four exact approved entries. -/
+/-- Validate every literature admission (policy v7). Each of the twenty-eight names must be
+present in the checked environment as a safe `axiom` with a declaration range, owned by the
+module listed in `literatureModules`. The four historical Stacks entries additionally keep
+their independently reviewed literal types below. The production parser separately pins each
+entry's source and type hashes through `audit/literature-assumptions.json`. A driver whose
+environment lacks any admission (an isolated fixture) fails here by design. -/
 def validateLiteratureShape (env : Environment) : CommandElabM Unit := do
+  unless literatureModules.map (·.1) == literatureAxioms do
+    throwError "Literature module table does not list exactly the admitted names in order"
+  for (admitted, module) in literatureModules do
+    let some ci := env.checked.get.find? admitted
+      | throwError "Literature admission {admitted} is absent from the checked environment"
+    let .axiomInfo actual := ci
+      | throwError "Literature admission {admitted} is not an axiom declaration"
+    unless !actual.isUnsafe && declarationModule env admitted == module &&
+        (declRangeExt.find? env admitted).isSome do
+      throwError "Literature admission {admitted} is unsafe, lacks a source range, or is not owned by {module}"
   let name := `KltDP.Literature.Stacks.field_isJ2
   if let some ci := env.checked.get.find? name then
     let .axiomInfo actual := ci

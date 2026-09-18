@@ -94,7 +94,7 @@ def main() -> int:
     checkpoint = json.loads((history_dir / "production-v4-candidate1559-20260913.json").read_text())
     check(provenance["schema"] == "klt-package-provenance-v2", "PROVENANCE schema is not v2")
     check(claims["schema"] == "klt-public-claim-status-v2", "claim-status schema is not v2")
-    check(literature["schema"] == "klt-literature-assumptions-v2", "literature-assumptions schema is not v2")
+    check(literature["schema"] in ("klt-literature-assumptions-v2", "klt-literature-assumptions-v7"), "literature-assumptions schema is not v2/v7")
 
     # 1. SHA256SUMS and the file set.
     checksum_count = 0

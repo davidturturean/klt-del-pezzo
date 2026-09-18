@@ -5,6 +5,28 @@ This certifies record consistency and the emitted dependency policy only. It
 does not certify statement fidelity, inhabitance, or manuscript completion.
 The complete parsed inventory is written beside --output as *.records.json.
 
+Policy v7 (lean419_logical_boundary_twentyeight_admissions_v7): the literature
+allowlist is the exact twenty-eight-entry registry audit/literature-assumptions.json,
+which binds each admitted axiom's name, owning module, source hash and both type
+hashes; the four historical Stacks registries are retained as history. Every other
+record, closure, cache, source-gate and native-type check is unchanged from v6.
+
+One scoped alternative mode exists, --itemize-nonroot-failures ROOT...: it emits a
+certificate with status passed_with_itemized_nonroot_failures if and only if every
+KLT_TRUST_FAILURE is a source-level `partial def` companion (`_unsafe_rec`, failing only
+through its own partial safety) that lies outside the dependency closure of every listed
+logical ROOT, and every source-lint rejection is an `elab`/`partial` token; all such
+items are listed in the certificate. Any other failure or rejection keeps the refusal.
+Without the flag the strict certificate is unchanged.
+
+Module completeness: every library module must own at least one inventory row, except
+that a module whose exact archived source is declaration-free (only import, open,
+namespace, section, end, universe, variable, set_option, #check and #print lines, in their
+one-line forms, after the reviewed linter masks comments, docstrings and strings) is
+accepted and itemized under declaration_free_modules with its source hash. #eval,
+#guard_msgs, every declaration and every `in` combinator keep the module subject to the
+rule. This applies in both modes.
+
 The canonical five-line #klt_trust_report driver is recognized byte-for-byte.
 Historical separate-command drivers also require --driver-format-record: a
 JSON object with schema "klt-audit-driver-format-v1", format
@@ -54,7 +76,7 @@ LEGACY_DRIVER_FORMAT = "separate_inventory_audit_v1"
 STREAM_REPORT_DRIVER_FORMAT = "combined_report_streaming_stderr_v1"
 STREAM_TOOLING_SHA256 = "763c1464cb9261e033995594fa6524b8f8641af489aaf2f5daef3e8f904185e4"
 NATIVE_REPORT_DRIVER_FORMAT = "combined_report_streaming_native_types_v2"
-NATIVE_TOOLING_SHA256 = "21e6b2d583ea6f35a0abc7a20967f74f47622fb6f13c45acdf0b1b39d0d7461f"
+NATIVE_TOOLING_SHA256 = "c5f4646aaccc523bcdc4e626fd3387575c3260c1a867468a2b28665170e39bce"
 NATIVE_TYPE_SCHEMA = "klt-compiled-trust-native-types-v2"
 NATIVE_TYPE_ENCODING = "lean419-olean-constant-type-v1"
 REPORT_DRIVER = (
@@ -96,69 +118,101 @@ LEGACY_GENERATED_DRIVER = (
     "#klt_trust_audit\n"
 ).encode("utf-8")
 SCHEMA = "klt-compiled-trust-v1"
-CACHE_POLICY = "lean419_logical_boundary_four_stacks_v6"
+CACHE_POLICY = "lean419_logical_boundary_twentyeight_admissions_v7"
 SOURCE_LINTER = "scripts/audit_sources.py"
 SOURCE_LINT_REPORT = "audit/source_lint.json"
-# Reviewed literal/import/source gate for the intentional v2 logical boundary.
+# Reviewed literal/import/source gate for the v7 logical boundary (28-file axiom allowlist).
 # Changing this digest requires review of the new script, not merely a rehash.
-SOURCE_LINTER_SHA256 = "e8eb9601f98de0a0730a8e2ba38cbce7b55d09ae59db2d0124818bed40722c5f"
-ADMISSION_HELPER = "scripts/literature_admission.py"
-ADMISSION_HELPER_SHA256 = "42380106c8e033ee53349998f99ab75e7358c87191f814e2225b0bd8b4277d85"
-ADMISSION_REGISTRY = "audit/field_j2_admission.json"
-ADMISSION_REGISTRY_SHA256 = "b341fef779503eac029e5543911d27851c7d12c829c28a0bc2707f61e724d997"
-ADMISSION_NAME = "KltDP.Literature.Stacks.field_isJ2"
-ADMISSION_MODULE = "KltDP.Literature.Stacks.FieldJ2"
-ADMISSION_SOURCE = "KltDP/Literature/Stacks/FieldJ2.lean"
-ADMISSION_PROBE = "audit/tooling_candidates/field_j2_admission/ExpectedFieldJ2Type.lean"
-ADMISSION_SOURCE_CONTRACT = "audit/tooling_candidates/field_j2_admission/source_contract.json"
-ADMISSION_ALLOWLIST = "audit/literature_allowlist.json"
-UFD_HELPER = "scripts/regular_local_ufd_admission.py"
-UFD_HELPER_SHA256 = "5121a9a8eb4ad9952dcd91727804e6329e6ef48c2bf9288dbc75024be4870b7f"
-UFD_REGISTRY = "audit/regular_local_ufd_admission.json"
-UFD_REGISTRY_SHA256 = "258ffdd90ad110c7d58572908c547e2f28efc4e3d5172597efe080df907e92ba"
-UFD_NAME = "KltDP.Literature.Stacks.regularLocal_isUFD"
-UFD_MODULE = "KltDP.Literature.Stacks.RegularLocalUFD"
-UFD_SOURCE = "KltDP/Literature/Stacks/RegularLocalUFD.lean"
-UFD_PROBE = "audit/literature_candidates/regular_local_factoriality/RegularLocalFactorialityTypeProbe.lean"
-UFD_SOURCE_CONTRACT = "audit/tooling_candidates/regular_local_ufd_admission/source_contract.json"
-UFD_SOURCE_CONTRACT_SHA256 = "b48d3fe86adb5af655aab23723b9bd594a5902817b68b6d50bd36c02b436aec1"
-UFD_COMPILED_EXPRESSION_SHA256 = "42fd8a7aafee320f2d932501c94abc20579708ed6598fdb605a62e2a4dfcac3e"
-UFD_COMPILED_EXPRESSION = "audit/literature_candidates/regular_local_factoriality/compiled_probe_expression.json"
-PROPER_NAME = "KltDP.Literature.Stacks.properCohomology_finite"
-PROPER_MODULE = "KltDP.Literature.Stacks.ProperCohomologyFinite"
-PROPER_SOURCE = "KltDP/Literature/Stacks/ProperCohomologyFinite.lean"
-PROPER_HELPER = "scripts/proper_cohomology_admission.py"
-PROPER_HELPER_SHA256 = "296ee799c66cb09f49ba71710303d6c482f6a6ec580d1305e13f578e970a7f26"
-PROPER_REGISTRY = "audit/proper_cohomology_admission.json"
-PROPER_REGISTRY_SHA256 = "0639cd7244af87b8b102eab28a43916650207b7b9c8ad8d563c2ad81aea20dde"
-CURVE_NAME = "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal"
-CURVE_MODULE = "KltDP.Literature.Stacks.CurveTensorDegreeLiteral"
-CURVE_SOURCE = "KltDP/Literature/Stacks/CurveTensorDegreeLiteral.lean"
-CURVE_HELPER = "scripts/curve_tensor_degree_admission.py"
-CURVE_HELPER_SHA256 = "780d1284127439082505ee4cfc243a786b6b2f913d6da4a735c67e5c88f8abe6"
-CURVE_REGISTRY = "audit/curve_tensor_degree_admission.json"
-CURVE_REGISTRY_SHA256 = "436db9c3a61f6db0f9adc818ade10cd7abae36d1f11b62be4764e65228f0e635"
-# Production copies of the probe sources live under audit/ (the source lint rejects
-# `elab` under KltDP/); they were compiled on the dev project at the snapshot paths.
-CURVE_EXPECTED_PROBE = "audit/literature_candidates/curve_tensor_degree/probes/CurveTensorDegreeExpectedType.lean"
-CURVE_EXPECTED_PROBE_SNAPSHOT = "KltDP/AdmissionProbe/CurveTensorDegreeExpectedType.lean"
-CURVE_EXPECTED_PROBE_MODULE = "KltDP.AdmissionProbe.CurveTensorDegreeExpectedType"
-CURVE_NO_NEW_AXIOM_PROBE = "audit/literature_candidates/curve_tensor_degree/probes/CurveTensorDegreeNoNewAxiom.lean"
-CURVE_NO_NEW_AXIOM_PROBE_SNAPSHOT = "KltDP/AdmissionProbe/CurveTensorDegreeNoNewAxiom.lean"
-CURVE_NO_NEW_AXIOM_PROBE_MODULE = "KltDP.AdmissionProbe.CurveTensorDegreeNoNewAxiom"
-# Both fourth-entry probes were single-module `lake build` runs on the dedicated
-# dev runner; its cgroup caps differ from the production profiles and apply to
-# these two roles only, never to the library or audit records.
-CAPS128CPU16 = {"cpu.max": "1600000 100000", "memory.max": "137438953472",
-                "memory.swap.max": "0"}
-CURVE_PROBE_RESOURCE_PROFILE = "dev128cpu16"
-CURVE_PROBE_ROLES = {"curve_tensor_degree_type_probe": ["lake", "build", CURVE_EXPECTED_PROBE_MODULE],
-                     "curve_tensor_degree_no_new_axiom_probe": ["lake", "build", CURVE_NO_NEW_AXIOM_PROBE_MODULE]}
-LITERATURE_NAMES = [ADMISSION_NAME, UFD_NAME, PROPER_NAME, CURVE_NAME]
+SOURCE_LINTER_SHA256 = "011042a01c2e6389ed4182c6917db345e4a68b1889c5cde8806548800f6c9af3"
+LITERATURE_REGISTRY = "audit/literature-assumptions.json"
+LITERATURE_REGISTRY_SCHEMA = "klt-literature-assumptions-v7"
+# The twenty-eight literature admissions of policy v7 in canonical (lexicographic) name order,
+# each with the module that must own the axiom; the source path is that module's file. Policy
+# v6 admitted only the four Stacks entries listed in HISTORICAL_REGISTRIES, whose original
+# registries are retained as history and rehashed when present.
+LITERATURE_ADMISSIONS = (
+    ("KltDP.Literature.Hartshorne.castelnuovo_contraction_literal",
+     "KltDP.Literature.HartshorneCastelnuovoLiteral"),
+    ("KltDP.Literature.Hartshorne.hasContractionLifts_instance",
+     "KltDP.Literature.Hartshorne.StrictTransformInstance"),
+    ("KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance",
+     "KltDP.Literature.Hartshorne.HurwitzDegreeTwoInstance"),
+    ("KltDP.Literature.Hartshorne.integral_numerical_group_free_finite_literal",
+     "KltDP.Literature.Hartshorne.IntegralNumericalGroup"),
+    ("KltDP.Literature.Hartshorne.minimal_surface_classification_literal",
+     "KltDP.Literature.Hartshorne.MinimalSurfaceClassification"),
+    ("KltDP.Literature.Hartshorne.nonsingular_complete_surface_projective_literal",
+     "KltDP.Literature.Hartshorne.SurfaceProjectivity"),
+    ("KltDP.Literature.Hartshorne.point_blowup_structure_cohomology_literal",
+     "KltDP.Literature.Hartshorne.PointBlowupCohomology"),
+    ("KltDP.Literature.Hartshorne.ruled_surface_genus_literal",
+     "KltDP.Literature.Hartshorne.RuledSurfaceGenus"),
+    ("KltDP.Literature.Hartshorne.ruled_surface_picard_literal",
+     "KltDP.Literature.Hartshorne.RuledSurfacePicard"),
+    ("KltDP.Literature.Hartshorne.surface_hodge_index_literal",
+     "KltDP.Literature.Hartshorne.SurfaceHodgeIndex"),
+    ("KltDP.Literature.Hartshorne.surface_nakai_moishezon_literal",
+     "KltDP.Literature.Hartshorne.SurfaceNakaiMoishezon"),
+    ("KltDP.Literature.Hartshorne.surface_riemannRoch_literal",
+     "KltDP.Literature.Hartshorne.SurfaceRiemannRoch"),
+    ("KltDP.Literature.Keel.semiampleness_completeSystem_literal",
+     "KltDP.Literature.KeelCompleteSystem"),
+    ("KltDP.Literature.Stacks.affine_morphism_cohomology_literal",
+     "KltDP.Literature.Stacks.AffineMorphismCohomology"),
+    ("KltDP.Literature.Stacks.blowupRegularPoint_literal",
+     "KltDP.Literature.Stacks.BlowupRegularPointAdmitted"),
+    ("KltDP.Literature.Stacks.closed_point_blowups_dominate_proper_literal",
+     "KltDP.Literature.StacksPointBlowupDomination"),
+    ("KltDP.Literature.Stacks.field_isJ2",
+     "KltDP.Literature.Stacks.FieldJ2"),
+    ("KltDP.Literature.Stacks.lipman_resolution_of_normal_completions_literal",
+     "KltDP.Literature.LipmanResolutionLiteral"),
+    ("KltDP.Literature.Stacks.properCohomology_finite",
+     "KltDP.Literature.Stacks.ProperCohomologyFinite"),
+    ("KltDP.Literature.Stacks.properFlat_fiberEuler_literal",
+     "KltDP.Literature.Stacks.ProperFlatFiberEuler"),
+    ("KltDP.Literature.Stacks.proper_curve_pullback_degree_literal",
+     "KltDP.Literature.ProperCurvePullbackDegreeLiteral"),
+    ("KltDP.Literature.Stacks.proper_curve_tensor_degree_literal",
+     "KltDP.Literature.Stacks.CurveTensorDegreeLiteral"),
+    ("KltDP.Literature.Stacks.regularLocal_isUFD",
+     "KltDP.Literature.Stacks.RegularLocalUFD"),
+    ("KltDP.Literature.Stacks.regular_smooth_loci_perfect_literal",
+     "KltDP.Literature.RegularSmoothLociLiteral"),
+    ("KltDP.Literature.Stacks.smooth_standardSmooth_cover_literal",
+     "KltDP.Literature.SmoothStandardCoverLiteral"),
+    ("KltDP.Literature.Stacks.steinFactorization_noetherian_literal",
+     "KltDP.Literature.SteinFactorizationNoetherian"),
+    ("KltDP.Literature.Tanaka.contraction_44_instance",
+     "KltDP.Literature.Tanaka.ContractionTheorem"),
+    ("KltDP.Literature.Zariski.closedPoint_normal_completion_literal",
+     "KltDP.Literature.ZariskiNormalCompletion"),
+)
+LITERATURE_MODULES = dict(LITERATURE_ADMISSIONS)
+LITERATURE_NAMES = [name for name, _ in LITERATURE_ADMISSIONS]
+HISTORICAL_REGISTRIES = {
+    "KltDP.Literature.Stacks.field_isJ2":
+        ("audit/field_j2_admission.json", "b341fef779503eac029e5543911d27851c7d12c829c28a0bc2707f61e724d997"),
+    "KltDP.Literature.Stacks.regularLocal_isUFD":
+        ("audit/regular_local_ufd_admission.json", "258ffdd90ad110c7d58572908c547e2f28efc4e3d5172597efe080df907e92ba"),
+    "KltDP.Literature.Stacks.properCohomology_finite":
+        ("audit/proper_cohomology_admission.json", "0639cd7244af87b8b102eab28a43916650207b7b9c8ad8d563c2ad81aea20dde"),
+    "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal":
+        ("audit/curve_tensor_degree_admission.json", "436db9c3a61f6db0f9adc818ade10cd7abae36d1f11b62be4764e65228f0e635"),
+}
+REGISTRY_ENTRY_KEYS = {"name", "module", "source_path", "source_sha256", "universe_parameters",
+                       "type_expression_sha256", "printed_type_sha256", "published_source"}
 DECLARATION_KINDS = {"axiom", "definition", "theorem", "opaque", "quotient_primitive",
                      "inductive", "constructor", "recursor"}
 TAGS = {"KLT_TRUST_INVENTORY_BEGIN", "KLT_TRUST_DECL",
         "KLT_TRUST_INVENTORY_END", "KLT_TRUST_AUDIT", "KLT_TRUST_FAILURE"}
+ITEMIZED_STATUS = "passed_with_itemized_nonroot_failures"
+ITEMIZED_SOURCE_TOKENS = {"elab", "partial"}
+UNSAFE_REC_SUFFIX = "._unsafe_rec"
+# The exact rejection message of KltDP.Audit.Trust.process, as printed by `lean` for the driver.
+REJECTION_MESSAGE = re.compile(r"^(?:\./)*" + re.escape(AUDIT_DRIVER) +
+                               r":\d+:\d+: error: KLT trust audit rejected (\d+) mathematical declarations; "
+                               r"inspect KLT_TRUST_FAILURE records\s*$")
 RECORD_FILES = ("inputs.json", "outputs.json", "cgroup.json", "build.log",
                 "command.sh", "exit_code.txt", "started_at.txt", "completed_at.txt",
                 "project.txt")
@@ -183,6 +237,120 @@ def unique_object(pairs: list[tuple[str, object]]) -> dict:
         require(key not in result, f"Duplicate JSON object key: {key}")
         result[key] = value
     return result
+
+
+def reviewed_linter(project: Path, data: bytes | None = None) -> ModuleType:
+    """Load the reviewed source gate from hash-checked bytes.
+
+    Loading is safe only because the bytes match the reviewed constant. The compiled
+    bytes are executed directly: Python import loaders may otherwise execute a
+    timestamp-valid .pyc that was never reviewed. The __main__ entry point is not
+    invoked and no report is written.
+    """
+    if data is None:
+        data = (project / SOURCE_LINTER).read_bytes()
+    require(sha256(data) == SOURCE_LINTER_SHA256, "Source-gate implementation differs from the reviewed linter")
+    linter = ModuleType("_klt_reviewed_source_gate")
+    linter.__file__ = str(project / SOURCE_LINTER)
+    exec(compile(data, linter.__file__, "exec"), linter.__dict__)
+    require(linter.SOURCE_POLICY_PROFILE == CACHE_POLICY, "Reviewed source-gate profile differs")
+    return linter
+
+
+# A library module with no inventory row is accepted only when its exact archived source,
+# after the reviewed linter masks comments, docstrings and strings, consists solely of these
+# one-line command forms (ASCII identifiers; a single optionally @-prefixed identifier as the
+# #check/#print argument; no `in` combinators). Such a module declares nothing, so the compiled
+# trust report legitimately has no row for it. Anything else leaves the module subject to the
+# unchanged completeness rule. This is a conservative line-form check, not a Lean parser.
+_IDENT = r"[A-Za-z_][A-Za-z0-9_'!?]*(?:\.[A-Za-z_][A-Za-z0-9_'!?]*)*"
+DECLARATION_FREE_FORMS = {
+    "import": rf"import(?:[ \t]+{_IDENT})+",
+    "open": rf"open(?:[ \t]+{_IDENT})+",
+    "namespace": rf"namespace[ \t]+{_IDENT}",
+    "section": rf"section(?:[ \t]+{_IDENT})?",
+    "end": rf"end(?:[ \t]+{_IDENT})?",
+    "universe": rf"universe(?:[ \t]+{_IDENT})+",
+    "variable": r"variable(?:[ \t]+[(\[{][^()\[\]{}:=]*(?::[^()\[\]{}:=]*)?[)\]}])+",
+    "set_option": rf"set_option[ \t]+{_IDENT}[ \t]+(?:{_IDENT}|[0-9]+)",
+    "#check": rf"#check[ \t]+@?{_IDENT}",
+    "#print": rf"#print[ \t]+(?:axioms[ \t]+)?{_IDENT}",
+}
+# Command, declaration and combinator keywords that must not occur anywhere in the masked
+# code of a declaration-free module; redundant with the line forms, and `in` also excludes
+# the `open ... in` / `set_option ... in` command combinators.
+DECLARATION_KEYWORDS = frozenset({
+    "theorem", "lemma", "def", "abbrev", "instance", "example", "axiom", "structure", "class",
+    "inductive", "opaque", "constant", "macro", "macro_rules", "syntax", "elab", "elab_rules",
+    "notation", "infix", "infixl", "infixr", "prefix", "postfix", "declare_syntax_cat", "attribute",
+    "noncomputable", "private", "protected", "partial", "unsafe", "mutual", "deriving", "initialize",
+    "builtin_initialize", "run_cmd", "run_tac", "alias", "export", "add_decl_doc", "register_option",
+    "local", "scoped", "in", "where", "let", "have", "fun", "match", "do", "by", "sorry", "omit", "include",
+})
+
+
+def declaration_free_commands(source: str, linter: ModuleType) -> dict[str, int] | None:
+    """Count the command forms of a declaration-free source; None if any other code is present.
+
+    Comments, docstrings and strings are masked with the reviewed linter's lexer, so a
+    declaration keyword inside a docstring does not count and a masked string never hides
+    code. Any line outside DECLARATION_FREE_FORMS, or any DECLARATION_KEYWORDS token in the
+    masked code, makes the module ineligible.
+    """
+    masked = linter.mask_noncode(source)
+    for token in re.finditer(r"[A-Za-z_][A-Za-z0-9_'!?.]*", masked):
+        if token.group() in DECLARATION_KEYWORDS:
+            return None
+    counts: dict[str, int] = {}
+    for line in masked.split("\n"):
+        text = line.strip()
+        if not text:
+            continue
+        for command, form in DECLARATION_FREE_FORMS.items():
+            if re.fullmatch(form, text):
+                counts[command] = counts.get(command, 0) + 1
+                break
+        else:
+            return None
+    return counts
+
+
+def validate_module_completeness(project: Path, sources: dict[str, str], modules: dict[str, str],
+                                 inventory: dict, linter: ModuleType) -> dict:
+    """Every library module needs an inventory row unless its exact source is declaration-free.
+
+    ``modules`` maps each library module to its archived source path and ``sources`` holds
+    the archived hashes. A module with no mathematical or companion row is accepted only if
+    declaration_free_commands accepts its source and no inventory row of any scope names it;
+    such modules are itemized with their source hashes. Every other module stays subject to
+    the unchanged completeness rule, and the inventory may not name modules outside the
+    archived snapshot or the library.
+    """
+    represented = {d["module"] for d in inventory["mathematical"] + inventory["companions"]}
+    all_inventory_modules = {d["module"] for d in inventory["declarations"]}
+    archived_modules = {name[:-5].replace("/", ".") for name in sources}
+    require(all_inventory_modules <= archived_modules,
+            "Inventory contains declaration modules outside the archived source snapshot: " +
+            ", ".join(sorted(all_inventory_modules - archived_modules)))
+    declaration_free, absent = [], []
+    for name in sorted(set(modules) - represented):
+        path = modules[name]
+        data = (project / path).read_bytes()
+        require(sha256(data) == sources[path], f"Audited source changed locally: {path}")
+        commands = declaration_free_commands(data.decode("utf-8"), linter)
+        if commands is None:
+            absent.append(name)
+            continue
+        require(name not in all_inventory_modules, f"Declaration-free source has inventory rows: {name}")
+        declaration_free.append({"module": name, "source": path, "sha256": sources[path], "commands": commands})
+    require(not absent, "Library mathematical modules absent from inventory: " + ", ".join(absent))
+    require(represented <= set(modules) | {"KltDP"},
+            "Inventory contains modules outside library snapshot: " + ", ".join(sorted(represented - set(modules) - {"KltDP"})))
+    return {"count": len(declaration_free), "modules": declaration_free,
+            "accepted_command_forms": dict(DECLARATION_FREE_FORMS),
+            "scope": "Library modules with no inventory row whose exact archived source, after the reviewed linter "
+                     "masks comments, docstrings and strings, consists only of the listed one-line command forms; "
+                     "they declare nothing and are listed here, not exempted from any other check"}
 
 
 def loads(data: str) -> object:
@@ -278,25 +446,29 @@ def validate_metadata(metadata: dict, label: str) -> None:
 
 
 def resource_caps(role: str, canonical_resource_profile: str = "standard26") -> dict:
-    require(role in {"library", "audit", "field_j2_type_probe", "regular_local_ufd_type_probe"} or
-            role in CURVE_PROBE_ROLES, "Unknown build-record role")
-    if role in CURVE_PROBE_ROLES:
-        require(canonical_resource_profile == CURVE_PROBE_RESOURCE_PROFILE,
-                "Curve-tensor-degree probes were built under the dev128cpu16 lane profile only")
-        return CAPS128CPU16
+    require(role in {"library", "audit"}, "Unknown build-record role")
     require(canonical_resource_profile in CANONICAL_RESOURCE_PROFILES,
             "Unknown canonical resource profile")
-    require(role in {"library", "audit"} or canonical_resource_profile == "standard26",
-            "Historical literature type probes require the original standard26 profile")
     return CAPS if canonical_resource_profile == "standard26" else CAPS256CPU4
 
 
-def load_record(path: Path, role: str, *, canonical_resource_profile: str = "standard26") -> dict:
+def source_path(name: str) -> str:
+    """The exact source file of an admitted axiom is its owning module's file."""
+    return LITERATURE_MODULES[name].replace(".", "/") + ".lean"
+
+
+def load_record(path: Path, role: str, *, canonical_resource_profile: str = "standard26",
+                allow_audit_rejection: bool = False) -> dict:
     expected_caps = resource_caps(role, canonical_resource_profile)
     require(path.is_dir(), f"{role}: missing build record directory: {path}")
     for name in RECORD_FILES:
         require((path / name).is_file(), f"{role}: missing {name}")
-    require((path / "exit_code.txt").read_text().strip() == "0", f"{role}: exit was not zero")
+    exit_code = (path / "exit_code.txt").read_text().strip()
+    if role == "audit" and allow_audit_rejection:
+        # Lean exits with status 1 when #klt_trust_report throws its rejection error.
+        require(exit_code in {"0", "1"}, f"{role}: exit was neither zero nor the Lean error status")
+    else:
+        require(exit_code == "0", f"{role}: exit was not zero")
     before = loads((path / "inputs.json").read_text())
     after = loads((path / "outputs.json").read_text())
     require(isinstance(before, dict) and isinstance(after, dict), f"{role}: malformed metadata")
@@ -312,13 +484,9 @@ def load_record(path: Path, role: str, *, canonical_resource_profile: str = "sta
             f"{role}: resource caps were not verified exactly")
     argv = cgroup.get("argv", [])
     require(isinstance(argv, list), f"{role}: command arguments missing")
-    require(role in {"library", "audit", "field_j2_type_probe", "regular_local_ufd_type_probe"} or
-            role in CURVE_PROBE_ROLES, "Unknown build-record role")
-    expected_argv = ({"library": ["lake", "build", "KltDP", TOOLING_MODULE],
-                      "audit": ["lake", "env", "lean", AUDIT_DRIVER],
-                      "field_j2_type_probe": ["lake", "env", "lean", ADMISSION_PROBE],
-                      "regular_local_ufd_type_probe": ["lake", "env", "lean", UFD_PROBE],
-                      **CURVE_PROBE_ROLES}[role])
+    require(role in {"library", "audit"}, "Unknown build-record role")
+    expected_argv = {"library": ["lake", "build", "KltDP", TOOLING_MODULE],
+                     "audit": ["lake", "env", "lean", AUDIT_DRIVER]}[role]
     require(argv == expected_argv, f"{role}: unexpected command or targets: {argv}")
     require(shlex.split((path / "command.sh").read_text()) == expected_argv,
             f"{role}: command.sh differs from cgroup command")
@@ -328,7 +496,7 @@ def load_record(path: Path, role: str, *, canonical_resource_profile: str = "sta
             datetime.fromisoformat(end.replace("Z", "+00:00")), f"{role}: invalid timestamps")
     return {"directory": str(path.resolve()), "inputs": before, "outputs": after,
             "sources": sources, "cgroup": cgroup, "started_at": start, "completed_at": end,
-            "log_path": str((path / "build.log").resolve()),
+            "exit_code": exit_code, "log_path": str((path / "build.log").resolve()),
             "artifacts": {name: artifact(path / name) for name in RECORD_FILES}}
 
 
@@ -535,17 +703,31 @@ def validate_unsafe_implementation(declaration: dict) -> None:
             f"{name}: unsafe implementation's full unsafe closure was suppressed")
 
 
-def parse_inventory(log: str | Iterable[str], admission: dict) -> dict:
+def parse_inventory(log: str | Iterable[str], admission: dict, itemize: dict | None = None) -> dict:
+    """Validate the complete trust report.
+
+    `itemize` is None for the strict certificate. In the scoped itemize mode it is
+    {"roots": [logical root names], "exit_code": audit exit status}; KLT_TRUST_FAILURE
+    records are then admitted only under the exact conditions of validate_itemized_failures.
+    """
     require(isinstance(admission.get("entries"), list) and
-            all(isinstance(entry, dict) and isinstance(entry.get("entry"), dict)
-                for entry in admission["entries"]) and
-            [entry["entry"].get("name") for entry in admission["entries"]] == LITERATURE_NAMES,
-            "Inventory requires both independently validated admission contracts")
+            all(isinstance(entry, dict) for entry in admission["entries"]) and
+            [entry.get("name") for entry in admission["entries"]] == LITERATURE_NAMES,
+            "Inventory requires the validated twenty-eight-entry literature registry")
     records = []
+    rejection_lines, other_error_lines = [], []
     lines = log.splitlines() if isinstance(log, str) else log
     for line_number, line in enumerate(lines, 1):
+        # The auditor's own rejection message quotes the KLT_TRUST_FAILURE tag; classify it first.
+        rejection = REJECTION_MESSAGE.match(line)
+        if rejection is not None:
+            require(itemize is not None, f"Audit log contains the trust rejection message on line {line_number}")
+            rejection_lines.append(int(rejection.group(1)))
+            continue
         match = re.search(r"\b(KLT_TRUST_[A-Z_]+)\b", line)
         if match is None:
+            if itemize is not None and re.search(r"(^|: )error:", line) is not None:
+                other_error_lines.append(line_number)
             continue
         tag = match.group(1)
         require(tag in TAGS, f"Unknown trust tag on line {line_number}: {tag}")
@@ -554,13 +736,24 @@ def parse_inventory(log: str | Iterable[str], admission: dict) -> dict:
         records.append({"tag": tag, "log_line": line_number, "payload": payload})
     require(records, "No compiled trust records in audit log")
     grouped = {tag: [r for r in records if r["tag"] == tag] for tag in TAGS}
-    require(not grouped["KLT_TRUST_FAILURE"], "Audit emitted KLT_TRUST_FAILURE")
+    failures = [r["payload"] for r in grouped["KLT_TRUST_FAILURE"]]
+    if itemize is None:
+        require(not failures, "Audit emitted KLT_TRUST_FAILURE")
+    else:
+        require(not other_error_lines, "Audit log has Lean errors other than the trust rejection: lines " +
+                ", ".join(str(n) for n in other_error_lines[:5]))
+        if failures:
+            require(itemize.get("exit_code") == "1" and rejection_lines == [len(failures)],
+                    "Failed audit must exit with Lean status 1 and print exactly one rejection message naming the failure count")
+        else:
+            require(itemize.get("exit_code") == "0" and not rejection_lines,
+                    "Audit without failures must exit zero without a rejection message")
     for tag in ("KLT_TRUST_INVENTORY_BEGIN", "KLT_TRUST_INVENTORY_END", "KLT_TRUST_AUDIT"):
         require(len(grouped[tag]) == 1, f"Expected exactly one {tag}")
     declarations = [r["payload"] for r in grouped["KLT_TRUST_DECL"]]
     require([r["tag"] for r in records] == ["KLT_TRUST_INVENTORY_BEGIN"] +
             ["KLT_TRUST_DECL"] * len(declarations) +
-            ["KLT_TRUST_INVENTORY_END", "KLT_TRUST_AUDIT"],
+            ["KLT_TRUST_INVENTORY_END"] + ["KLT_TRUST_FAILURE"] * len(failures) + ["KLT_TRUST_AUDIT"],
             "Trust markers out of order, duplicated, or truncated")
     begin = grouped["KLT_TRUST_INVENTORY_BEGIN"][0]["payload"]
     end = grouped["KLT_TRUST_INVENTORY_END"][0]["payload"]
@@ -583,7 +776,7 @@ def parse_inventory(log: str | Iterable[str], admission: dict) -> dict:
     require(string_set(begin.get("foundational_axioms"), "Foundations") == FOUNDATIONS,
             "Foundational allowlist differs from expected policy")
     require(begin.get("literature_axioms") == summary.get("literature_axioms") == LITERATURE_NAMES,
-            "Literature lists differ from the two exact externally reviewed admissions")
+            "Literature lists differ from the twenty-eight registered admissions")
     by_name = dict(zip(names, declarations))
     legacy_type_names = set(LITERATURE_NAMES)
     if native_types:
@@ -599,7 +792,11 @@ def parse_inventory(log: str | Iterable[str], admission: dict) -> dict:
             else:
                 validate_native_type_reference(declaration)
     for approved in admission["entries"]:
-        approved["helper"].verify_declared_axiom(approved["entry"], declarations)
+        verify_declared_axiom(approved, declarations)
+    failed_names = [failure.get("name") for failure in failures]
+    require(all(isinstance(n, str) and n in by_name for n in failed_names) and
+            len(set(failed_names)) == len(failed_names), "Failure records name unknown or duplicated declarations")
+    failed = set(failed_names)
     mathematical, companions, tooling, caches, unsafe_implementations = [], [], [], [], []
     all_axioms = set()
     for declaration in declarations:
@@ -621,6 +818,14 @@ def parse_inventory(log: str | Iterable[str], admission: dict) -> dict:
             continue
         require(scope in {"mathematical_declaration", "safe_definition_runtime_companion"},
                 f"Unknown declaration scope: {name}")
+        if name in failed:
+            require(scope == "mathematical_declaration" and declaration.get("root_policy_passes") is False,
+                    f"Failure record does not match a rejected logical root: {name}")
+            closure = declaration.get("closure")
+            require(isinstance(closure, dict), f"Missing dependency closure: {name}")
+            all_axioms.update(string_set(closure.get("transitive_axioms"), f"{name} axioms"))
+            mathematical.append(declaration)
+            continue
         require(declaration.get("root_policy_passes") is True, f"Root policy rejected {name}")
         require(declaration.get("unsafe") is False, f"Unsafe root: {name}")
         closure = declaration.get("closure")
@@ -652,15 +857,113 @@ def parse_inventory(log: str | Iterable[str], admission: dict) -> dict:
             summary.get("compiler_stage_cache_count") == len(caches) and
             summary.get("unsafe_implementation_count") == len(unsafe_implementations),
             "Summary logical/nonlogical declaration count mismatch")
-    require(summary.get("status") == "dependency_policy_passed" and
-            summary.get("failed_declaration_count") == 0, "No successful dependency-policy summary")
+    if failures:
+        require(summary.get("status") == "dependency_policy_failed" and
+                summary.get("failed_declaration_count") == len(failures), "Failure summary differs from failure records")
+    else:
+        require(summary.get("status") == "dependency_policy_passed" and
+                summary.get("failed_declaration_count") == 0, "No successful dependency-policy summary")
     require(string_set(summary.get("transitive_axioms"), "Summary axioms") == all_axioms,
             "Summary axiom set differs from declaration closures")
     require(summary.get("manuscript_completeness") == "not_assessed_by_dependency_audit",
             "Unexpected semantic-completion claim in audit record")
+    itemized = None
+    if itemize is not None:
+        itemized = validate_itemized_failures(itemize["roots"], failures, by_name)
     return {"records": records, "begin": begin, "summary": summary, "declarations": declarations,
             "mathematical": mathematical, "companions": companions, "tooling": tooling,
-            "compiler_stage_caches": caches, "unsafe_implementations": unsafe_implementations}
+            "compiler_stage_caches": caches, "unsafe_implementations": unsafe_implementations,
+            "itemized_nonroot_failures": itemized}
+
+
+def reachable_project_declarations(root: str, by_name: dict) -> set[str]:
+    """Project declarations reachable from a root along the exported direct-dependency edges.
+
+    Every dependency path from a project declaration to another project declaration
+    passes through project declarations only: the pinned Mathlib/core constants were
+    compiled before the project and cannot refer to it. The inventory exports the same
+    direct edges the auditor traverses, so this is an independent replay of the auditor's
+    reachability restricted to the project.
+    """
+    seen, pending = set(), [root]
+    while pending:
+        name = pending.pop()
+        if name in seen or name not in by_name:
+            continue
+        seen.add(name)
+        pending.extend(by_name[name].get("direct_dependencies", []))
+    return seen
+
+
+def validate_itemized_failures(roots: list[str], failures: list[dict], by_name: dict) -> dict:
+    """The scoped criterion of --itemize-nonroot-failures; every clause is necessary.
+
+    Each failed declaration must be the `_unsafe_rec` companion Lean generates for a
+    source-level `partial def`: a partial, safe-flagged definition whose owner (the name
+    without the suffix) is the checked opaque wrapper in the same module and itself passes
+    the policy, and whose closure fails only through partial dependencies that are
+    themselves such companions (no forbidden axiom, missing, unsafe or tooling
+    dependency). Each listed root must pass the policy with an empty partial-dependency
+    list, and no failed declaration may be reachable from it along the exported edges.
+    This lists failures; it does not approve the metaprogramming code that produced them.
+    """
+    require(isinstance(roots, list) and roots and all(isinstance(r, str) and r for r in roots) and
+            len(set(roots)) == len(roots), "Itemize mode requires a nonempty list of distinct logical roots")
+    failed = {failure["name"] for failure in failures}
+    rows = []
+    for failure in failures:
+        name = failure["name"]
+        row = by_name[name]
+        require(set(failure) == {"name", "closure"} and failure["closure"] == row.get("closure"),
+                f"Failure record differs from the declaration's own closure: {name}")
+        require(name.endswith(UNSAFE_REC_SUFFIX) and len(name) > len(UNSAFE_REC_SUFFIX),
+                f"Failed declaration is not a partial-definition companion: {name}")
+        owner_name = name[:-len(UNSAFE_REC_SUFFIX)]
+        owner = by_name.get(owner_name)
+        require(isinstance(owner, dict) and owner.get("kind") == "opaque" and
+                owner.get("module") == row.get("module") and
+                owner.get("scope") == "mathematical_declaration" and owner.get("root_policy_passes") is True,
+                f"Companion owner is not a passing opaque wrapper in the same module: {name}")
+        require(row.get("kind") == "definition" and row.get("partial") is True and row.get("unsafe") is False,
+                f"Failed companion is not a partial safe-flagged definition: {name}")
+        closure = row["closure"]
+        require(closure.get("passes") is False, f"Failed companion reports a passing closure: {name}")
+        for key in ("forbidden_axioms", "missing_checked_declarations", "unsafe_dependencies",
+                    "audit_tooling_dependencies"):
+            require(closure.get(key) == [], f"Failed companion has a non-partial failure cause: {name}: {key}")
+        partials = string_set(closure.get("partial_dependencies"), f"{name}: partial_dependencies")
+        require(partials and partials <= failed,
+                f"Failed companion depends on a partial declaration that is not itself an itemized companion: {name}")
+        require(string_set(closure.get("transitive_axioms"), f"{name} axioms") <= FOUNDATIONS | set(LITERATURE_NAMES),
+                f"Failed companion has a forbidden transitive axiom: {name}")
+        rows.append({"name": name, "module": row["module"], "kind": row["kind"], "owner": owner_name,
+                     "owner_kind": owner["kind"], "partial_dependencies": sorted(partials),
+                     "transitive_axioms": closure["transitive_axioms"],
+                     "transitive_dependency_count_including_root": closure["transitive_dependency_count_including_root"]})
+    root_rows = []
+    for root in roots:
+        row = by_name.get(root)
+        require(isinstance(row, dict), f"Listed logical root is absent from the inventory: {root}")
+        closure = row.get("closure") or {}
+        require(row.get("scope") == "mathematical_declaration" and row.get("root_policy_passes") is True and
+                closure.get("passes") is True and closure.get("partial_dependencies") == [] and
+                closure.get("unsafe_dependencies") == [] and closure.get("missing_checked_declarations") == [] and
+                closure.get("forbidden_axioms") == [] and closure.get("audit_tooling_dependencies") == [],
+                f"Listed logical root does not pass the policy with a clean closure: {root}")
+        reachable = reachable_project_declarations(root, by_name)
+        hits = sorted(failed & reachable)
+        require(not hits, f"Listed logical root reaches an itemized failure along exported edges: {root}: {hits}")
+        modules = {by_name[n]["module"] for n in reachable}
+        root_rows.append({"name": root, "module": row["module"], "kind": row["kind"],
+                          "transitive_axioms": closure["transitive_axioms"],
+                          "transitive_dependency_count_including_root": closure["transitive_dependency_count_including_root"],
+                          "reachable_project_declarations": len(reachable),
+                          "reachable_project_modules": len(modules),
+                          "reachable_declarations_in_failure_modules": sorted(
+                              n for n in reachable if by_name[n]["module"] in {r["module"] for r in rows})})
+    return {"criterion": "Every failed declaration is a source-level partial-definition companion (`_unsafe_rec`) whose only failure cause is partial safety, and no listed logical root reaches any of them",
+            "failures": rows, "failure_count": len(rows),
+            "failure_modules": sorted({r["module"] for r in rows}), "roots": root_rows}
 
 
 def native_type_name(parts: object) -> str:
@@ -860,622 +1163,96 @@ def bind_admission_artifact(library: dict, audit: dict, project: Path,
     return data, info
 
 
-def validate_field_j2_admission(library: dict, audit: dict, project: Path) -> dict:
-    """Validate one literal reviewed axiom; no Lean or arbitrary Python is run.
+def verify_declared_axiom(entry: dict, declarations: list[dict]) -> dict:
+    """The registered axiom must occur exactly once with the registered module, safety and types."""
+    name = entry["name"]
+    matches = [row for row in declarations if row.get("name") == name]
+    require(len(matches) == 1, f"Admitted axiom must occur exactly once in the full inventory: {name}")
+    row = matches[0]
+    require(row.get("user_name") == name and row.get("module") == entry["module"] and
+            row.get("kind") == "axiom" and row.get("checked") is True and
+            row.get("unsafe") is False and row.get("partial") is False and
+            row.get("scope") == "mathematical_declaration" and
+            row.get("source_range_present") is True and
+            row.get("universe_parameters") == entry["universe_parameters"],
+            f"Admitted axiom has wrong module, kind, safety, scope or universe telescope: {name}")
+    for field, binding in (("type_expression", "type_expression_sha256"), ("type", "printed_type_sha256")):
+        require(isinstance(row.get(field), str) and
+                sha256(row[field].encode("utf-8")) == entry[binding],
+                f"Admitted axiom {field} differs from the registered type hash: {name}")
+    return row
 
-    The externally pinned helper is executed from captured bytes. The probe
-    predates the axiom and has its own complete, independently pinned build
-    evidence. Its historical missing non-Lean evidence remains explicit; all
-    meaning/evidence files must occur in the new production snapshots.
-    """
-    for label, digest in (("helper", ADMISSION_HELPER_SHA256),
-                          ("registry", ADMISSION_REGISTRY_SHA256)):
-        require(isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest) is not None,
-                f"Admission {label} has no externally reviewed digest")
-    captured, artifacts = {}, {}
-
-    def bind(name, expected=None):
-        data, info = bind_admission_artifact(library, audit, project, name, expected)
-        if name in captured:
-            require(data == captured[name], f"Admission artifact changed during validation: {name}")
-        captured[name], artifacts[name] = data, info
-        return data
-
-    helper_bytes = bind(ADMISSION_HELPER, ADMISSION_HELPER_SHA256)
-    registry_bytes = bind(ADMISSION_REGISTRY, ADMISSION_REGISTRY_SHA256)
-    helper = ModuleType("_klt_reviewed_field_j2_admission")
-    helper.__file__ = str(project / ADMISSION_HELPER)
-    exec(compile(helper_bytes, helper.__file__, "exec"), helper.__dict__)
-    require(helper.REVIEWED_REGISTRY_SHA256 == ADMISSION_REGISTRY_SHA256 and
-            helper.NAME == ADMISSION_NAME and helper.MODULE == ADMISSION_MODULE and
-            helper.SOURCE == ADMISSION_SOURCE and helper.REGISTRY_PATH == ADMISSION_REGISTRY and
-            helper.FOUNDATIONS == FOUNDATIONS, "Admission helper's external contract differs")
-    entry = helper.load_reviewed_registry(registry_bytes, ADMISSION_REGISTRY_SHA256)
-    for binding in entry["meaning_bindings"]:
-        bind(binding["path"], binding["sha256"])
-    probe_spec = entry["expected_type_probe"]
-    bind(probe_spec["source_path"], probe_spec["source_sha256"])
-    helper.verify_meaning_bytes(entry, lambda name: captured[name])
-    source_bytes = bind(ADMISSION_SOURCE, entry["source_sha256"])
-    require(library["sources"].get(ADMISSION_SOURCE) == audit["sources"].get(ADMISSION_SOURCE) ==
-            entry["source_sha256"], "Approved axiom is absent from the compiled mathematical snapshot")
-    evidence_bytes = bind(probe_spec["compiled_evidence_path"], probe_spec["compiled_evidence_sha256"])
-    review_bytes = bind(entry["root_review_evidence_path"], entry["root_review_evidence_sha256"])
-    helper.verify_evidence_bytes(entry, evidence_bytes, review_bytes)
-    evidence = loads(evidence_bytes.decode("utf-8"))
-    review = loads(review_bytes.decode("utf-8"))
-    require(isinstance(evidence, dict) and isinstance(review, dict), "Malformed admission evidence")
-    require(evidence.get("schema") == "klt-field-j2-type-probe-evidence-v1" and
-            evidence.get("status") == "axiom_free_type_probe_succeeded" and
-            type(evidence.get("exit_code")) is int and evidence["exit_code"] == 0 and
-            evidence.get("no_axiom_declaration_observed_or_created") is True,
-            "Independent probe did not establish its axiom-free type contract")
-    require(evidence.get("build_record_path") == probe_spec["build_record_path"] and
-            evidence.get("probe_source_path") == probe_spec["source_path"] and
-            evidence.get("probe_source_sha256") == probe_spec["source_sha256"] and
-            evidence.get("raw_type_expression_sha256") == entry["type_expression_sha256"] and
-            evidence.get("printed_type_sha256") == entry["printed_type_sha256"],
-            "Probe evidence does not match reviewed source/build/type")
-    require(isinstance(evidence.get("record"), dict), "Independent probe type record missing")
-    helper.verify_expected_probe(entry, evidence["record"])
-    require(isinstance(evidence.get("artifacts"), dict) and
-            set(evidence["artifacts"]) == set(RECORD_FILES), "Probe build evidence is incomplete")
-    for filename in RECORD_FILES:
-        name = probe_spec["build_record_path"] + "/" + filename
-        expected = evidence["artifacts"][filename]
-        require(isinstance(expected, dict) and set(expected) == {"path", "bytes", "sha256"} and
-                expected["path"] == name and type(expected["bytes"]) is int,
-                f"Malformed probe evidence artifact: {filename}")
-        data = bind(name, expected["sha256"])
-        require(len(data) == expected["bytes"], f"Probe evidence size mismatch: {filename}")
-    probe = load_record(project / probe_spec["build_record_path"], "field_j2_type_probe")
-    for filename in RECORD_FILES:
-        require(probe["artifacts"][filename] == artifacts[probe_spec["build_record_path"] + "/" + filename],
-                f"Probe evidence changed while loading: {filename}")
-    build_id = evidence.get("build_id")
-    require(isinstance(build_id, str) and re.fullmatch(r"[0-9]{8}T[0-9]{6}Z-[0-9]+", build_id) and
-            probe["cgroup"].get("cgroup", "").endswith("/klt-build-" + build_id + ".scope"),
-            "Independent probe build identity differs")
-    require(datetime.fromisoformat(probe["completed_at"].replace("Z", "+00:00")) <=
-            datetime.fromisoformat(library["started_at"].replace("Z", "+00:00")),
-            "Independent expected-type probe must precede the library build")
-    require(ADMISSION_SOURCE not in probe["sources"] and
-            ADMISSION_SOURCE not in probe["inputs"]["files"] and
-            ADMISSION_SOURCE not in probe["outputs"]["files"],
-            "Independent type probe snapshot already contains the admitted axiom")
-    for phase in ("inputs", "outputs"):
-        require(probe[phase]["files"].get(ADMISSION_PROBE, {}).get("sha256") == probe_spec["source_sha256"] and
-                probe[phase]["files"].get(ADMISSION_PROBE, {}).get("bytes") == len(captured[ADMISSION_PROBE]),
-                "Independent probe source differs from its compiled snapshot")
-    probe_rows = []
-    for line in record_log_lines(probe):
-        match = re.search(r"\bKLT_EXPECTED_FIELD_J2_TYPE\b", line)
-        if match:
-            require(line.startswith("KLT_EXPECTED_FIELD_J2_TYPE "), "Unexpected type-probe log marker")
-            probe_rows.append(loads(line[match.end():].strip()))
-    require(probe_rows == [evidence["record"]], "Expected exactly one matching independent type-probe record")
-    helper.verify_expected_probe(entry, probe_rows[0])
-    require(review.get("schema") == "klt-field-j2-typed-review-v1" and
-            review.get("status") == "independent_type_contract_review_passed_admission_not_activated" and
-            review.get("build_id") == build_id and review.get("expected_qualified_name") == ADMISSION_NAME and
-            review.get("probe_evidence_sha256") == sha256(evidence_bytes) and
-            review.get("universe_parameters") == entry["universe_parameters"] and
-            review.get("raw_type_expression_sha256") == entry["type_expression_sha256"] and
-            review.get("printed_type_sha256") == entry["printed_type_sha256"] and
-            review.get("no_extra_outer_binders") is True and
-            review.get("no_surface_or_dimension_or_characteristic_hypothesis") is True,
-            "Independent typed review does not match the validated probe contract")
-    require(review.get("outer_binders") == [
-                {"name": "k", "kind": "explicit", "type": "Type u"},
-                {"name": "instField", "kind": "instance_implicit", "type": "Field.{u} k"}] and
-            review.get("actual_instance_expression") ==
-                "EuclideanDomain.toCommRing (Field.toEuclideanDomain instField)" and
-            review.get("instance_source_review", {}).get("mathlib_commit") == DEPENDENCIES["mathlib"],
-            "Typed review has a different telescope or field-instance projection")
-    require(review.get("source_contract_path") == ADMISSION_SOURCE_CONTRACT,
-            "Typed review identifies an unexpected source contract")
-    contract_bytes = bind(ADMISSION_SOURCE_CONTRACT, review.get("source_contract_sha256"))
-    contract = loads(contract_bytes.decode("utf-8"))
-    require(contract.get("schema") == "klt-field-j2-source-contract-v1" and
-            contract.get("proposed_path") == ADMISSION_SOURCE and
-            contract.get("proposed_module") == ADMISSION_MODULE and
-            contract.get("qualified_name") == ADMISSION_NAME and
-            contract.get("source_sha256") == entry["source_sha256"] and
-            contract.get("axiom_finding") == entry["axiom_finding"] and
-            contract.get("utf8_source", "").encode("utf-8") == source_bytes,
-            "Actual axiom source differs from independently reviewed source text")
-    in_probe, local_only = [], []
-    for binding in entry["meaning_bindings"]:
-        name = binding["path"]
-        if name in probe["inputs"]["files"] or name in probe["outputs"]["files"]:
-            for phase in ("inputs", "outputs"):
-                info = probe[phase]["files"].get(name, {})
-                require(info.get("sha256") == binding["sha256"] and
-                        type(info.get("bytes")) is int and info["bytes"] == len(captured[name]),
-                        f"Meaning source differs from independent probe snapshot: {name}")
-            in_probe.append(binding)
-        else:
-            require(not is_source(name), f"Mathematical meaning source absent from independent probe: {name}")
-            local_only.append(binding)
-    require(review.get("meaning_bindings_present_in_probe_inputs_and_outputs") == in_probe and
-            review.get("meaning_bindings_rehashed_locally_not_in_probe_manifest") == local_only,
-            "Historical probe source coverage differs from the exact typed review")
-    source_contract = {"registry_path": ADMISSION_REGISTRY,
-                       "registry_sha256": ADMISSION_REGISTRY_SHA256,
-                       "helper_path": ADMISSION_HELPER, "helper_sha256": ADMISSION_HELPER_SHA256,
-                       "entry_name": ADMISSION_NAME,
-                       "type_expression_sha256": entry["type_expression_sha256"],
-                       "printed_type_sha256": entry["printed_type_sha256"]}
-    return {"helper": helper, "entry": entry, "source_report_contract": source_contract,
-            "public_evidence": {"policy": CACHE_POLICY, "entry": entry,
-                                "source_report_contract": source_contract,
-                                "artifacts": artifacts, "probe_build_id": build_id,
-                                "probe_record": evidence["record"],
-                                "scope": "Literal field-J2 admission and exact evidence/snapshot consistency; local use-site and manuscript semantic completion are not assessed"}}
-
-
-def validate_regular_local_ufd_admission(library: dict, audit: dict, project: Path) -> dict:
-    """Validate the second literal statement against its pre-admission VM probe.
-
-    The old field-J2 helper, registry and evidence contract remain independent.
-    Only externally pinned Python is loaded; the Lean probe is replayed as data.
-    """
-    for label, digest in (("helper", UFD_HELPER_SHA256), ("registry", UFD_REGISTRY_SHA256),
-                          ("source contract", UFD_SOURCE_CONTRACT_SHA256),
-                          ("compiled expression", UFD_COMPILED_EXPRESSION_SHA256)):
-        require(isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest) is not None,
-                f"Regular-local-UFD {label} has no externally reviewed digest")
-    captured, artifacts = {}, {}
-
-    def bind(name, expected=None):
-        data, info = bind_admission_artifact(library, audit, project, name, expected)
-        if name in captured:
-            require(data == captured[name], f"UFD artifact changed during validation: {name}")
-        captured[name], artifacts[name] = data, info
-        return data
-
-    helper_bytes = bind(UFD_HELPER, UFD_HELPER_SHA256)
-    registry_bytes = bind(UFD_REGISTRY, UFD_REGISTRY_SHA256)
-    helper = ModuleType("_klt_reviewed_regular_local_ufd_admission")
-    helper.__file__ = str(project / UFD_HELPER)
-    exec(compile(helper_bytes, helper.__file__, "exec"), helper.__dict__)
-    require(helper.REVIEWED_REGISTRY_SHA256 == UFD_REGISTRY_SHA256 and
-            helper.NAME == UFD_NAME and helper.MODULE == UFD_MODULE and
-            helper.SOURCE == UFD_SOURCE and helper.REGISTRY_PATH == UFD_REGISTRY and
-            helper.FOUNDATIONS == FOUNDATIONS, "UFD helper's external contract differs")
-    entry = helper.load_reviewed_registry(registry_bytes, UFD_REGISTRY_SHA256)
-    for binding in entry["meaning_bindings"]:
-        bind(binding["path"], binding["sha256"])
-    probe_spec = entry["expected_type_probe"]
-    require(probe_spec["source_path"] == UFD_PROBE, "Unexpected UFD probe source path")
-    bind(UFD_PROBE, probe_spec["source_sha256"])
-    helper.verify_meaning_bytes(entry, lambda name: captured[name])
-    source_bytes = bind(UFD_SOURCE, entry["source_sha256"])
-    require(library["sources"].get(UFD_SOURCE) == audit["sources"].get(UFD_SOURCE) ==
-            entry["source_sha256"], "UFD axiom is absent from the compiled mathematical snapshot")
-    evidence_bytes = bind(probe_spec["compiled_evidence_path"], probe_spec["compiled_evidence_sha256"])
-    review_bytes = bind(entry["root_review_evidence_path"], entry["root_review_evidence_sha256"])
-    helper.verify_evidence_bytes(entry, evidence_bytes, review_bytes)
-    evidence = loads(evidence_bytes.decode("utf-8"))
-    review = loads(review_bytes.decode("utf-8"))
-    require(isinstance(evidence, dict) and isinstance(review, dict), "Malformed UFD evidence")
-    require(evidence.get("schema") == "klt-regular-local-ufd-type-probe-evidence-v1" and
-            evidence.get("status") == "axiom_free_type_probe_succeeded" and
-            type(evidence.get("exit_code")) is int and evidence["exit_code"] == 0 and
-            evidence.get("no_axiom_declaration_observed_or_created") is True,
-            "UFD probe did not establish its axiom-free type contract")
-    require(evidence.get("build_record_path") == probe_spec["build_record_path"] and
-            evidence.get("probe_source_path") == UFD_PROBE and
-            evidence.get("probe_source_sha256") == probe_spec["source_sha256"] and
-            evidence.get("raw_type_expression_sha256") == entry["type_expression_sha256"] and
-            evidence.get("printed_type_sha256") == entry["printed_type_sha256"],
-            "UFD probe evidence differs from reviewed source/build/type")
-    require(isinstance(evidence.get("record"), dict), "UFD probe type record missing")
-    helper.verify_expected_probe(entry, evidence["record"])
-    expression_bytes = bind(UFD_COMPILED_EXPRESSION, UFD_COMPILED_EXPRESSION_SHA256)
-    require(loads(expression_bytes.decode("utf-8")) == evidence["record"],
-            "UFD standalone compiled expression differs from probe evidence")
-    require(isinstance(evidence.get("artifacts"), dict) and
-            set(evidence["artifacts"]) == set(RECORD_FILES), "UFD probe build evidence is incomplete")
-    for filename in RECORD_FILES:
-        name = probe_spec["build_record_path"] + "/" + filename
-        expected = evidence["artifacts"][filename]
-        require(isinstance(expected, dict) and set(expected) == {"path", "bytes", "sha256"} and
-                expected["path"] == name and type(expected["bytes"]) is int,
-                f"Malformed UFD probe artifact: {filename}")
-        data = bind(name, expected["sha256"])
-        require(len(data) == expected["bytes"], f"UFD probe evidence size mismatch: {filename}")
-    probe = load_record(project / probe_spec["build_record_path"], "regular_local_ufd_type_probe")
-    for filename in RECORD_FILES:
-        require(probe["artifacts"][filename] == artifacts[probe_spec["build_record_path"] + "/" + filename],
-                f"UFD probe evidence changed while loading: {filename}")
-    build_id = evidence.get("build_id")
-    require(isinstance(build_id, str) and re.fullmatch(r"[0-9]{8}T[0-9]{6}Z-[0-9]+", build_id) and
-            probe["cgroup"].get("cgroup", "").endswith("/klt-build-" + build_id + ".scope"),
-            "UFD probe build identity differs")
-    require(datetime.fromisoformat(probe["completed_at"].replace("Z", "+00:00")) <=
-            datetime.fromisoformat(library["started_at"].replace("Z", "+00:00")),
-            "UFD expected-type probe must precede the library build")
-    require(UFD_SOURCE not in probe["sources"] and
-            UFD_SOURCE not in probe["inputs"]["files"] and UFD_SOURCE not in probe["outputs"]["files"],
-            "UFD probe snapshot already contains the new admitted axiom")
-    for phase in ("inputs", "outputs"):
-        info = probe[phase]["files"].get(UFD_PROBE, {})
-        require(info.get("sha256") == probe_spec["source_sha256"] and
-                type(info.get("bytes")) is int and info["bytes"] == len(captured[UFD_PROBE]),
-                "UFD probe source differs from its compiled snapshot")
-    probe_rows = []
-    for line in record_log_lines(probe):
-        match = re.search(r"\bKLT_EXPECTED_REGULAR_LOCAL_FACTORIALITY_TYPE\b", line)
-        if match:
-            require(line.startswith("KLT_EXPECTED_REGULAR_LOCAL_FACTORIALITY_TYPE "),
-                    "Unexpected UFD type-probe log marker")
-            probe_rows.append(loads(line[match.end():].strip()))
-    require(probe_rows == [evidence["record"]], "Expected exactly one matching UFD type-probe record")
-    helper.verify_expected_probe(entry, probe_rows[0])
-    require(review.get("schema") == "klt-regular-local-factoriality-compiled-type-independent-review-v1" and
-            review.get("verdict") == "pass_prerequisite_type_and_conditional_adapter_review_only" and
-            review.get("literature_admitted") is False and
-            review.get("unconditional_factoriality_proved") is False and
-            review.get("checked_export") == evidence["record"],
-            "Independent UFD typed review differs from the prerequisite probe contract")
-    require(review.get("probe_source") == {"path": UFD_PROBE, "bytes": len(captured[UFD_PROBE]),
-                                           "sha256": probe_spec["source_sha256"]},
-            "Independent UFD typed review has different probe bytes")
-    build_review = review.get("build", {})
-    require(build_review.get("id") == build_id and
-            build_review.get("directory") == probe_spec["build_record_path"] and
-            type(build_review.get("exit_code")) is int and build_review["exit_code"] == 0 and
-            build_review.get("started_at") == probe["started_at"] and
-            build_review.get("completed_at") == probe["completed_at"] and
-            build_review.get("command") == "lake env lean " + UFD_PROBE and
-            build_review.get("input_output_identical") is True and
-            captured[probe_spec["build_record_path"] + "/inputs.json"] ==
-            captured[probe_spec["build_record_path"] + "/outputs.json"],
-            "UFD typed review identifies a different or mutated probe build")
-    expected_hashes = {key: sha256(evidence["record"][key].encode("utf-8"))
-                       for key in ("type_expression", "type", "adapter_type_expression", "adapter_type")}
-    require(review.get("checked_expression_hashes") == expected_hashes,
-            "UFD typed review expression hashes differ")
-    require(build_review.get("verified_dependencies") == probe["inputs"]["verified_dependencies"] and
-            build_review.get("lean_version") == probe["inputs"]["lean_version"]["stdout"].strip(),
-            "UFD typed review dependency pins differ")
-    reviewed_records = build_review.get("records")
-    require(isinstance(reviewed_records, list) and reviewed_records and
-            len({row.get("path") for row in reviewed_records}) == len(reviewed_records),
-            "UFD typed review record list is missing or duplicated")
-    for row in reviewed_records:
-        require(isinstance(row, dict) and set(row) == {"path", "bytes", "sha256"} and
-                type(row["bytes"]) is int and
-                row in list(evidence["artifacts"].values()), "UFD typed review record differs")
-    source_contract_bytes = bind(UFD_SOURCE_CONTRACT, UFD_SOURCE_CONTRACT_SHA256)
-    contract = loads(source_contract_bytes.decode("utf-8"))
-    require(isinstance(contract, dict) and
-            contract.get("schema") == "klt-regular-local-ufd-source-contract-v1" and
-            contract.get("proposed_path") == UFD_SOURCE and contract.get("proposed_module") == UFD_MODULE and
-            contract.get("qualified_name") == UFD_NAME and
-            contract.get("source_sha256") == entry["source_sha256"] and
-            contract.get("axiom_finding") == entry["axiom_finding"] and
-            contract.get("utf8_source", "").encode("utf-8") == source_bytes,
-            "UFD actual source differs from the reviewed literal source contract")
-    in_probe, local_only = [], []
-    for binding in entry["meaning_bindings"]:
-        name = binding["path"]
-        if name in probe["inputs"]["files"] or name in probe["outputs"]["files"]:
-            for phase in ("inputs", "outputs"):
-                info = probe[phase]["files"].get(name, {})
-                require(info.get("sha256") == binding["sha256"] and
-                        type(info.get("bytes")) is int and info["bytes"] == len(captured[name]),
-                        f"UFD meaning source differs from probe snapshot: {name}")
-            in_probe.append(binding)
-        else:
-            require(not is_source(name), f"UFD mathematical meaning source absent from probe: {name}")
-            local_only.append(binding)
-    for binding in review.get("project_source_pins", []):
-        require(isinstance(binding, dict) and binding.get("matches_vm_input_and_output") is True,
-                "Malformed UFD reviewed project source binding")
-        name = binding.get("path")
-        data = bind(name, binding.get("sha256"))
-        require(type(binding.get("bytes")) is int and len(data) == binding["bytes"],
-                "UFD reviewed project source size differs")
-        for phase in ("inputs", "outputs"):
-            require(probe[phase]["files"].get(name, {}).get("sha256") == binding["sha256"] and
-                    probe[phase]["files"].get(name, {}).get("bytes") == binding["bytes"],
-                    "UFD reviewed project source differs from probe snapshot")
-    source_contract = {"registry_path": UFD_REGISTRY, "registry_sha256": UFD_REGISTRY_SHA256,
-                       "helper_path": UFD_HELPER, "helper_sha256": UFD_HELPER_SHA256,
-                       "entry_name": UFD_NAME, "type_expression_sha256": entry["type_expression_sha256"],
-                       "printed_type_sha256": entry["printed_type_sha256"]}
-    return {"helper": helper, "entry": entry, "source_report_contract": source_contract,
-            "public_evidence": {"policy": CACHE_POLICY, "entry": entry,
-                                "source_report_contract": source_contract, "artifacts": artifacts,
-                                "probe_build_id": build_id, "probe_record": evidence["record"],
-                                "meaning_bindings_present_in_probe": in_probe,
-                                "meaning_bindings_local_only": local_only,
-                                "scope": "Literal Stacks 0AG0 admission and exact evidence/snapshot consistency; geometric use sites and manuscript completion are not assessed"}}
-
-
-def validate_proper_cohomology_admission(library: dict, audit: dict, project: Path) -> dict:
-    """Bind the third exact entry; replay the existing isolated probe validators.
-
-    The production parser/resource/native-type protocol remains this current
-    file. Historical 96-GiB probe records keep their own reviewed validators.
-    """
-    import contextlib
-    import io
-
-    captured, artifacts = {}, {}
-
-    def bind(name, expected=None):
-        data, info = bind_admission_artifact(library, audit, project, name, expected)
-        if name in captured:
-            require(data == captured[name], "Proper-cohomology artifact changed during validation: " + name)
-        captured[name], artifacts[name] = data, info
-        return data
-
-    helper_bytes = bind(PROPER_HELPER, PROPER_HELPER_SHA256)
-    registry_bytes = bind(PROPER_REGISTRY, PROPER_REGISTRY_SHA256)
-    helper = ModuleType("_klt_reviewed_proper_cohomology_admission")
-    helper.__file__ = str(project / PROPER_HELPER)
-    exec(compile(helper_bytes, helper.__file__, "exec"), helper.__dict__)
-    require(helper.REVIEWED_REGISTRY_SHA256 == PROPER_REGISTRY_SHA256 and
-            (helper.NAME, helper.MODULE, helper.SOURCE, helper.REGISTRY_PATH) ==
-            (PROPER_NAME, PROPER_MODULE, PROPER_SOURCE, PROPER_REGISTRY) and
-            helper.FOUNDATIONS == FOUNDATIONS, "Proper-cohomology helper external contract differs")
-    entry = helper.load_reviewed_registry(registry_bytes, PROPER_REGISTRY_SHA256)
-    for row in entry["meaning_bindings"]:
-        bind(row["path"], row["sha256"])
-    helper.verify_meaning_bytes(entry, lambda name: captured[name])
-    bind(PROPER_SOURCE, entry["source_sha256"])
-    require(library["sources"].get(PROPER_SOURCE) == audit["sources"].get(PROPER_SOURCE) ==
-            entry["source_sha256"], "Literal is absent from the current compiled mathematical snapshot")
-    specification = entry["qualification_evidence"]
-    evidence_bytes = bind(specification["path"], specification["sha256"])
-    review_bytes = bind(entry["root_review_evidence_path"], entry["root_review_evidence_sha256"])
-    evidence = helper.verify_qualification_bytes(entry, evidence_bytes, review_bytes)
-    for row in evidence["artifacts"]:
-        require(len(bind(row["path"], row["sha256"])) == row["bytes"], "Qualification artifact size differs")
-    helper.verify_control_report(captured[evidence["control_report_path"]])
-
-    def check_pair(spec, phase):
-        checker_path = spec["checker_path"]
-        checker = ModuleType("_klt_proper_historical_capture_checker")
-        checker.__file__ = str(project / checker_path)
-        exec(compile(captured[checker_path], checker.__file__, "exec"), checker.__dict__)
-        previous_argv, output = sys.argv, io.StringIO()
-        try:
-            sys.argv = [checker.__file__, phase, str(project / spec["build_record_path"]),
-                        str(project / spec["capture_record_path"])]
-            with contextlib.redirect_stdout(output):
-                checker.main()
-        finally:
-            sys.argv = previous_argv
-        result = loads(output.getvalue())
-        end_path = spec["capture_record_path"] + "/completed_at.txt"
-        require(datetime.fromisoformat(captured[end_path].decode().strip().replace("Z", "+00:00")) <=
-                datetime.fromisoformat(library["started_at"].replace("Z", "+00:00")),
-                "Proper-cohomology qualification must precede the production library build")
-        return result
-
-    pair_results = {phase: check_pair(spec, phase) for phase, spec in evidence["pairs"].items()}
-    independent = check_pair(evidence["independent_ordinary"], "ordinary")
-    require(independent["selected_declaration_count"] == 1 and
-            independent["records"][0]["name"] ==
-            "KltDP.AdmissionProbe.ProperCohomologyIndependentOrdinary.zero_add",
-            "Wrong independent ordinary regression record")
-    raw_records = {}
-    for phase, spec in evidence["pairs"].items():
-        declarations, values = {}, {}
-        for line in captured[spec["capture_record_path"] + "/build.log"].decode().splitlines():
-            for tag, target in (("KLT_02O6_DECL ", declarations), ("KLT_02O6_VALUE ", values)):
-                if tag in line:
-                    row = loads(line.split(tag, 1)[1])
-                    require(row["name"] not in target, "Duplicate proper-cohomology capture record")
-                    target[row["name"]] = row
-        raw_records[phase] = declarations, values
-        for row in entry["meaning_bindings"]:
-            if is_source(row["path"]) and row["path"] != PROPER_SOURCE:
-                for action in ("build_record_path", "capture_record_path"):
-                    for moment in ("inputs.json", "outputs.json"):
-                        snapshot = loads(captured[spec[action] + "/" + moment].decode())
-                        if phase == "candidate":
-                            require(row["path"] in snapshot["files"],
-                                    "Mathematical meaning source absent from candidate qualification snapshot")
-                        if row["path"] in snapshot["files"]:
-                            require(snapshot["files"][row["path"]]["sha256"] == row["sha256"],
-                                    "Meaning source differs from actual qualification snapshot: " + row["path"])
-    ordinary, candidate = raw_records["ordinary"], raw_records["candidate"]
-    require(all(ordinary[index][name] == candidate[index][name]
-                for index in (0, 1) for name in ordinary[index]), "Original five ordinary records changed")
-    helper.verify_declared_axiom(entry, list(candidate[0].values()))
-    literal_value = candidate[1][PROPER_NAME]
-    require(literal_value["kind"] == "axiom" and literal_value["value_present"] is False and
-            literal_value["value_expression"] is None, "Literal raw capture has a value or wrong kind")
-    source_contract = {"registry_path": PROPER_REGISTRY, "registry_sha256": PROPER_REGISTRY_SHA256,
-                       "helper_path": PROPER_HELPER, "helper_sha256": PROPER_HELPER_SHA256,
-                       "entry_name": PROPER_NAME, "type_expression_sha256": entry["type_expression_sha256"],
-                       "printed_type_sha256": entry["printed_type_sha256"]}
-    return {"helper": helper, "entry": entry, "source_report_contract": source_contract,
-            "public_evidence": {"policy": CACHE_POLICY, "entry": entry, "source_report_contract": source_contract,
-                                "artifacts": artifacts, "historical_probe_pairs": pair_results,
-                                "independent_ordinary": independent,
-                                "scope": "Literal Stacks 02O6 and exact qualification evidence; no vanishing, Euler truncation or manuscript completion"}}
-
-def validate_curve_tensor_degree_admission(library: dict, audit: dict, project: Path) -> dict:
-    """Bind the fourth exact entry: independent expected-type probe and packet sweep.
-
-    Both probes are complete dev-runner build records. The expected-type probe
-    never imports the literal; the no-new-axiom probe imports the whole packet,
-    captures the actual axiom beside the expected type and sweeps every owned
-    declaration. Nothing here is a mathematical verdict on the published lemma.
-    """
-    for label, digest in (("helper", CURVE_HELPER_SHA256), ("registry", CURVE_REGISTRY_SHA256)):
-        require(isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest) is not None,
-                f"Curve-tensor-degree {label} has no externally reviewed digest")
-    captured, artifacts = {}, {}
-
-    def bind(name, expected=None):
-        data, info = bind_admission_artifact(library, audit, project, name, expected)
-        if name in captured:
-            require(data == captured[name], "Curve-tensor-degree artifact changed during validation: " + name)
-        captured[name], artifacts[name] = data, info
-        return data
-
-    helper_bytes = bind(CURVE_HELPER, CURVE_HELPER_SHA256)
-    registry_bytes = bind(CURVE_REGISTRY, CURVE_REGISTRY_SHA256)
-    helper = ModuleType("_klt_reviewed_curve_tensor_degree_admission")
-    helper.__file__ = str(project / CURVE_HELPER)
-    exec(compile(helper_bytes, helper.__file__, "exec"), helper.__dict__)
-    require(helper.REVIEWED_REGISTRY_SHA256 == CURVE_REGISTRY_SHA256 and
-            (helper.NAME, helper.MODULE, helper.SOURCE, helper.REGISTRY_PATH) ==
-            (CURVE_NAME, CURVE_MODULE, CURVE_SOURCE, CURVE_REGISTRY) and
-            helper.FOUNDATIONS == FOUNDATIONS and
-            helper.EARLIER_LITERATURE == [ADMISSION_NAME, UFD_NAME, PROPER_NAME] and
-            (helper.EXPECTED_PROBE_SOURCE, helper.NO_NEW_AXIOM_PROBE_SOURCE) ==
-            (CURVE_EXPECTED_PROBE, CURVE_NO_NEW_AXIOM_PROBE) and
-            (helper.EXPECTED_PROBE_SNAPSHOT_PATH, helper.NO_NEW_AXIOM_PROBE_SNAPSHOT_PATH) ==
-            (CURVE_EXPECTED_PROBE_SNAPSHOT, CURVE_NO_NEW_AXIOM_PROBE_SNAPSHOT) and
-            (helper.EXPECTED_PROBE_MODULE, helper.NO_NEW_AXIOM_PROBE_MODULE) ==
-            (CURVE_EXPECTED_PROBE_MODULE, CURVE_NO_NEW_AXIOM_PROBE_MODULE),
-            "Curve-tensor-degree helper external contract differs")
-    entry = helper.load_reviewed_registry(registry_bytes, CURVE_REGISTRY_SHA256)
-    for row in entry["meaning_bindings"]:
-        bind(row["path"], row["sha256"])
-    for key in ("expected_type_probe", "no_new_axiom_probe"):
-        bind(entry[key]["source_path"], entry[key]["source_sha256"])
-    helper.verify_meaning_bytes(entry, lambda name: captured[name])
-    bind(CURVE_SOURCE, entry["source_sha256"])
-    require(library["sources"].get(CURVE_SOURCE) == audit["sources"].get(CURVE_SOURCE) ==
-            entry["source_sha256"], "Literal is absent from the current compiled mathematical snapshot")
-    specification = entry["qualification_evidence"]
-    evidence_bytes = bind(specification["path"], specification["sha256"])
-    review_bytes = bind(entry["root_review_evidence_path"], entry["root_review_evidence_sha256"])
-    evidence = helper.verify_qualification_bytes(entry, evidence_bytes, review_bytes)
-    for row in evidence["artifacts"]:
-        require(len(bind(row["path"], row["sha256"])) == row["bytes"], "Qualification artifact size differs")
-    imports = re.findall(r"(?m)^import[ \t]+(\S+)", captured[CURVE_EXPECTED_PROBE].decode("utf-8"))
-    require(all(module not in {CURVE_MODULE, "KltDP.Literature.Stacks.CurveTensorDegree",
-                               CURVE_NO_NEW_AXIOM_PROBE_MODULE,
-                               "KltDP.AdmissionProbe.CurveTensorDegreeConsumers",
-                               "KltDP.Geometry.WeilRestrictionDegreeBilinear"} for module in imports),
-            "Independent expected-type probe imports the literal or one of its consumers")
-
-    def load_probe(spec, role, build_id):
-        probe = load_record(project / spec["build_record_path"], role,
-                            canonical_resource_profile=CURVE_PROBE_RESOURCE_PROFILE)
-        for filename in RECORD_FILES:
-            require(probe["artifacts"][filename] == artifacts[spec["build_record_path"] + "/" + filename],
-                    "Probe evidence changed while loading: " + filename)
-        require(isinstance(build_id, str) and re.fullmatch(r"[0-9]{8}T[0-9]{6}Z-[0-9]+", build_id) and
-                probe["cgroup"].get("cgroup", "").endswith("/klt-build-" + build_id + ".scope"),
-                "Curve-tensor-degree probe build identity differs")
-        require(datetime.fromisoformat(probe["completed_at"].replace("Z", "+00:00")) <=
-                datetime.fromisoformat(library["started_at"].replace("Z", "+00:00")),
-                "Curve-tensor-degree probes must precede the library build")
-        for phase in ("inputs", "outputs"):
-            info = probe[phase]["files"].get(spec["snapshot_path"], {})
-            require(info.get("sha256") == spec["source_sha256"] and
-                    info.get("bytes") == len(captured[spec["source_path"]]),
-                    "Probe source differs from its compiled snapshot")
-            for binding in entry["meaning_bindings"]:
-                if is_source(binding["path"]):
-                    info = probe[phase]["files"].get(binding["path"], {})
-                    require(info.get("sha256") == binding["sha256"] and
-                            info.get("bytes") == len(captured[binding["path"]]),
-                            "Meaning source differs from probe snapshot: " + binding["path"])
-        require(probe["sources"].get(CURVE_SOURCE) == entry["source_sha256"],
-                "Probe snapshot carries a different literal source")
-        return probe
-
-    expected_spec = evidence["expected_type_probe"]
-    probe = load_probe(entry["expected_type_probe"], "curve_tensor_degree_type_probe", expected_spec["build_id"])
-    tag = helper.EXPECTED_TAG + " "
-    rows = [loads(line.split(tag, 1)[1].strip()) for line in record_log_lines(probe) if tag in line]
-    require(rows == [expected_spec["record"]], "Expected exactly one matching independent type-probe record")
-    helper.verify_expected_probe(entry, rows[0])
-    sweep_spec = evidence["no_new_axiom_probe"]
-    sweep = load_probe(entry["no_new_axiom_probe"], "curve_tensor_degree_no_new_axiom_probe", sweep_spec["build_id"])
-    literal_rows, declaration_rows, summaries, printed = [], [], [], []
-    # Lake replays retained messages of already-built dependencies, and long
-    # `#print axioms` lists wrap onto indented continuation lines; only complete
-    # messages emitted by the probe file itself are cross-checked.
-    axiom_message = re.compile(re.escape(PurePosixPath(CURVE_NO_NEW_AXIOM_PROBE).name) +
-                               r":\d+:\d+: '([^']+)' (depends on axioms: \[([^\]]*)\]|does not depend on any axioms)")
-
-    def flush(message):
-        match = axiom_message.search(message) if message else None
-        if match:
-            names = [name.strip() for name in (match.group(3) or "").split(",") if name.strip()]
-            printed.append({"name": match.group(1), "axioms": names})
-
-    pending = None
-    for line in record_log_lines(sweep):
-        for marker, target in ((helper.LITERAL_TAG + " ", literal_rows), (helper.DECL_TAG + " ", declaration_rows),
-                               (helper.SUMMARY_TAG + " ", summaries)):
-            if marker in line:
-                target.append(loads(line.split(marker, 1)[1].strip()))
-        if line[:1].isspace() and pending is not None:
-            pending += " " + line.strip()
-        else:
-            flush(pending)
-            pending = line
-    flush(pending)
-    require(literal_rows == [sweep_spec["literal_record"]] and declaration_rows == sweep_spec["declarations"] and
-            summaries == [sweep_spec["summary"]], "No-new-axiom probe log differs from the qualification evidence")
-    helper.verify_literal_capture(entry, literal_rows[0])
-    helper.verify_declaration_rows(entry, declaration_rows, summaries[0])
-    require(printed and all(set(row["axioms"]) <= set(helper.ALLOWED_AXIOMS) for row in printed) and
-            any(row["name"] == CURVE_NAME and row["axioms"] == [CURVE_NAME] for row in printed),
-            "Built-in #print axioms output is missing or lists a forbidden axiom")
-    listed = {CURVE_NAME} | {name for group in ("ordinary_adapters", "consumers")
-                             for module_row in entry[group] for name in module_row["declarations"]}
-    require({row["name"] for row in printed} == listed and len(printed) == len(listed),
-            "Built-in #print axioms output does not cover exactly the literal and every listed declaration")
-    by_name = {row["name"]: row for row in declaration_rows}
-    for row in printed:
-        require(row["name"] in by_name and set(row["axioms"]) == set(by_name[row["name"]]["transitive_axioms"]),
-                "Built-in #print axioms disagrees with the sweep: " + row["name"])
-    source_contract = {"registry_path": CURVE_REGISTRY, "registry_sha256": CURVE_REGISTRY_SHA256,
-                       "helper_path": CURVE_HELPER, "helper_sha256": CURVE_HELPER_SHA256,
-                       "entry_name": CURVE_NAME, "type_expression_sha256": entry["type_expression_sha256"],
-                       "printed_type_sha256": entry["printed_type_sha256"]}
-    return {"helper": helper, "entry": entry, "source_report_contract": source_contract,
-            "public_evidence": {"policy": CACHE_POLICY, "entry": entry, "source_report_contract": source_contract,
-                                "artifacts": artifacts, "expected_type_probe_build_id": expected_spec["build_id"],
-                                "no_new_axiom_probe_build_id": sweep_spec["build_id"],
-                                "expected_type_record": rows[0], "packet_declaration_count": len(declaration_rows),
-                                "scope": "Literal Stacks 0AYX and exact probe evidence; no Riemann-Roch, intersection symmetry or manuscript completion"}}
 
 def validate_literature_admission(library: dict, audit: dict, project: Path) -> dict:
-    """All four exact independent admission contracts are mandatory; no wildcard."""
-    entries = [validate_field_j2_admission(library, audit, project),
-               validate_regular_local_ufd_admission(library, audit, project),
-               validate_proper_cohomology_admission(library, audit, project),
-               validate_curve_tensor_degree_admission(library, audit, project)]
-    allowlist_bytes, allowlist_artifact = bind_admission_artifact(library, audit, project, ADMISSION_ALLOWLIST)
-    allowlist = loads(allowlist_bytes.decode("utf-8"))
-    expected_registries = [{"path": ADMISSION_REGISTRY, "sha256": ADMISSION_REGISTRY_SHA256},
-                           {"path": UFD_REGISTRY, "sha256": UFD_REGISTRY_SHA256},
-                           {"path": PROPER_REGISTRY, "sha256": PROPER_REGISTRY_SHA256},
-                           {"path": CURVE_REGISTRY, "sha256": CURVE_REGISTRY_SHA256}]
-    require(isinstance(allowlist, dict) and
-            string_set(allowlist.get("ordinary_axioms"), "Admission foundations") == FOUNDATIONS and
-            allowlist.get("active_literature_axioms") == LITERATURE_NAMES and
-            allowlist.get("admission_registries") == expected_registries,
-            "Literature allowlist differs from the four exact registries")
-    contracts = [entry["source_report_contract"] for entry in entries]
-    return {"entries": entries, "source_report_contract": contracts,
-            "public_evidence": {"policy": CACHE_POLICY, "entries": [entry["public_evidence"] for entry in entries],
-                                "source_report_contract": contracts, "allowlist": allowlist_artifact,
-                                "scope": "Four exact literal literature admissions; no additional namespace, axioms, use-site semantics or manuscript completion authorized"}}
+    """Bind the single v7 registry: exact names, modules, source and type hashes for all 28.
+
+    The registry bytes must be identical in both build snapshots and locally. Each entry's
+    source hash must equal the archived and current source; the type hashes are checked
+    against the emitted inventory rows by verify_declared_axiom. The four historical
+    registries are pinned pointers and are rehashed when present. Nothing here assesses
+    the mathematical meaning of an admission or manuscript completion.
+    """
+    registry_bytes, registry_artifact = bind_admission_artifact(library, audit, project, LITERATURE_REGISTRY)
+    registry = loads(registry_bytes.decode("utf-8"))
+    require(isinstance(registry, dict) and registry.get("schema") == LITERATURE_REGISTRY_SCHEMA and
+            registry.get("policy") == CACHE_POLICY, "Literature registry schema or policy differs")
+    require(string_set(registry.get("ordinary_axioms"), "Registry foundations") == FOUNDATIONS,
+            "Registry foundational axioms differ from the fixed policy")
+    entries = registry.get("active_literature_axioms")
+    require(isinstance(entries, list) and all(isinstance(entry, dict) for entry in entries) and
+            [entry.get("name") for entry in entries] == LITERATURE_NAMES,
+            "Registry entries differ from the twenty-eight admissions in canonical order")
+    history = []
+    for entry in entries:
+        name = entry["name"]
+        require(REGISTRY_ENTRY_KEYS <= set(entry) <= REGISTRY_ENTRY_KEYS | {"original_registry"},
+                f"Registry entry has missing or unknown fields: {name}")
+        source = source_path(name)
+        require(entry["module"] == LITERATURE_MODULES[name] and entry["source_path"] == source,
+                f"Registry module or source path differs from the admission table: {name}")
+        for field in ("source_sha256", "type_expression_sha256", "printed_type_sha256"):
+            require(isinstance(entry[field], str) and re.fullmatch(r"[0-9a-f]{64}", entry[field]) is not None,
+                    f"Registry entry has an invalid {field}: {name}")
+        string_set(entry["universe_parameters"], f"{name}: universe_parameters")
+        require(library["sources"].get(source) == audit["sources"].get(source) == entry["source_sha256"],
+                f"Admitted axiom source is absent from or differs in the compiled snapshot: {name}")
+        require(sha256((project / source).read_bytes()) == entry["source_sha256"],
+                f"Admitted axiom source differs locally: {name}")
+        published = entry["published_source"]
+        require(isinstance(published, dict) and bool(published) and
+                all(isinstance(key, str) and bool(key) for key in published),
+                f"Registry entry lacks a published source: {name}")
+        if name in HISTORICAL_REGISTRIES:
+            path, digest = HISTORICAL_REGISTRIES[name]
+            require(entry.get("original_registry") == {"path": path, "sha256": digest},
+                    f"Historical registry pointer differs from its pinned hash: {name}")
+            present = (project / path).is_file()
+            if present:
+                require(sha256((project / path).read_bytes()) == digest,
+                        f"Historical registry file differs from its pinned hash: {path}")
+            history.append({"name": name, "path": path, "sha256": digest, "present_locally": present})
+        else:
+            require("original_registry" not in entry, f"Unexpected historical registry pointer: {name}")
+    contract = {"registry_path": LITERATURE_REGISTRY, "registry_sha256": registry_artifact["sha256"],
+                "files": [{"path": source_path(name), "name": name, "sha256": library["sources"][source_path(name)]}
+                          for name in LITERATURE_NAMES]}
+    return {"entries": entries, "source_report_contract": contract,
+            "public_evidence": {"policy": CACHE_POLICY, "registry": registry_artifact, "entries": entries,
+                                "historical_registries": history, "source_report_contract": contract,
+                                "scope": "Twenty-eight exact literature admissions bound by name, module, source hash and type hashes; no use-site semantics or manuscript completion authorized"}}
 
 
-def validate_source_lint(library: dict, audit: dict, project: Path, admission: dict) -> dict:
+def validate_source_lint(library: dict, audit: dict, project: Path, admission: dict,
+                         itemize: bool = False) -> dict:
     """Bind and reproduce the reviewed Python source gate; never execute Lean.
 
     Reproduction is restricted to the archived Lean snapshot. Additional local
     project modules remain unaudited and are reported by validate_sources.
     No Python module is loaded until its bytes match the reviewed digest.
+    In itemize mode the report may carry rejections whose tokens are exactly `elab`
+    or `partial` (custom elaborator code) and review findings; all are reproduced from
+    the bound bytes and listed in the returned record. Any other rejection, and any
+    import-gate rejection, still refuses.
     """
     require(isinstance(SOURCE_LINTER_SHA256, str) and
             re.fullmatch(r"[0-9a-f]{64}", SOURCE_LINTER_SHA256) is not None,
@@ -1501,14 +1278,23 @@ def validate_source_lint(library: dict, audit: dict, project: Path, admission: d
     require(isinstance(report, dict), "Source-lint report must be a JSON object")
     require(report.get("schema") == "klt-source-lint-v1" and
             report.get("source_policy_profile") == CACHE_POLICY and
-            report.get("status") == "source_lint_passed" and
+            report.get("status") in ({"source_lint_passed", "source_lint_rejected", "source_policy_review_required"}
+                                     if itemize else {"source_lint_passed"}) and
             report.get("linter_sha256") == SOURCE_LINTER_SHA256,
             "Source-lint schema/profile/status/linter binding is invalid")
     require(report.get("proof_status") == "not_assessed_by_source_lint" and
             report.get("literature_axiom_allowlist") == LITERATURE_NAMES,
             "Source lint claims proof completion or an unauthorized literature allowlist")
-    for key in ("mathematical_source_rejections", "mathematical_source_reviews", "import_policy_rejections"):
-        require(report.get(key) == [], f"Source-lint admission has missing or nonempty {key}")
+    require(report.get("import_policy_rejections") == [], "Source-lint admission has missing or nonempty import_policy_rejections")
+    for key in ("mathematical_source_rejections", "mathematical_source_reviews"):
+        recorded = report.get(key)
+        require(isinstance(recorded, list) and all(isinstance(row, dict) for row in recorded),
+                f"Source-lint report has a malformed {key}")
+        if not itemize:
+            require(recorded == [], f"Source-lint admission has nonempty {key}")
+    require(all(row.get("severity") == "reject" and row.get("token") in ITEMIZED_SOURCE_TOKENS
+                for row in report["mathematical_source_rejections"]),
+            "Source-lint rejections other than elab/partial elaborator code cannot be itemized")
     rows = report.get("files")
     require(isinstance(rows, list) and all(isinstance(row, dict) for row in rows),
             "Source-lint source inventory is missing or malformed")
@@ -1529,14 +1315,7 @@ def validate_source_lint(library: dict, audit: dict, project: Path, admission: d
         require(row["scope"] == expected_scope and isinstance(row["findings"], list),
                 f"Invalid source-lint scope or findings: {name}")
 
-    # Loading is safe only because the script bytes above match the reviewed
-    # constant. Its __main__ entry point is not invoked and no report is written.
-    linter = ModuleType("_klt_reviewed_source_gate")
-    linter.__file__ = str(project / SOURCE_LINTER)
-    # Compile the captured, hash-checked bytes directly. Python import loaders
-    # may otherwise execute a timestamp-valid .pyc that was never reviewed.
-    exec(compile(artifact_bytes[SOURCE_LINTER], linter.__file__, "exec"), linter.__dict__)
-    require(linter.SOURCE_POLICY_PROFILE == CACHE_POLICY, "Reviewed source-gate profile differs")
+    linter = reviewed_linter(project, artifact_bytes[SOURCE_LINTER])
     expected_lexical = {
         "rejected_leaf_names": sorted(linter.REJECT),
         "rejected_leaf_prefixes": sorted(linter.REJECT_PREFIXES),
@@ -1550,35 +1329,30 @@ def validate_source_lint(library: dict, audit: dict, project: Path, admission: d
             "Reported lexical policy differs from the reviewed source gate")
     require(report.get("literature_admission") == admission["source_report_contract"],
             "Source-report literature admission differs from validated registry/helper/type")
-    require(linter.ADMISSION_HELPER_SHA256 == ADMISSION_HELPER_SHA256 and
-            linter.ADMISSION_REGISTRY == ADMISSION_REGISTRY and
-            linter.ADMISSION_HELPER == ADMISSION_HELPER,
-            "Source-gate field-J2 admission helper contract differs")
-    require(linter.UFD_ADMISSION_HELPER_SHA256 == UFD_HELPER_SHA256 and
-            linter.UFD_ADMISSION_REGISTRY == UFD_REGISTRY and linter.UFD_ADMISSION_HELPER == UFD_HELPER,
-            "Source-gate regular-local-UFD admission helper contract differs")
-    require(linter.PROPER_ADMISSION_HELPER_SHA256 == PROPER_HELPER_SHA256 and
-            linter.PROPER_ADMISSION_REGISTRY == PROPER_REGISTRY and linter.PROPER_ADMISSION_HELPER == PROPER_HELPER,
-            "Source-gate proper-cohomology admission helper contract differs")
-    require(linter.CURVE_ADMISSION_HELPER_SHA256 == CURVE_HELPER_SHA256 and
-            linter.CURVE_ADMISSION_REGISTRY == CURVE_REGISTRY and linter.CURVE_ADMISSION_HELPER == CURVE_HELPER,
-            "Source-gate curve-tensor-degree admission helper contract differs")
+    require(list(linter.LITERATURE_AXIOM_FILES) == [(source_path(name), name) for name in LITERATURE_NAMES] and
+            linter.LITERATURE_REGISTRY == LITERATURE_REGISTRY and
+            linter.LITERATURE_REGISTRY_SCHEMA == LITERATURE_REGISTRY_SCHEMA,
+            "Source-gate literature allowlist differs from the parser's twenty-eight admissions")
     imports, admitted_findings = [], []
+    reproduced_rejections, reproduced_reviews = [], []
     for row in rows:
         name = row["path"]
         source = source_texts[name]
         require(row["findings"] == linter.findings(source),
                 f"Recorded source findings fail reproduction: {name}")
         if name != TOOLING_SOURCE:
-            remaining = row["findings"]
-            for approved in admission["entries"]:
-                remaining, discharged = approved["helper"].discharge_exact_axiom_token(
-                    approved["entry"], name, source.encode("utf-8"), remaining)
-                contract = approved["source_report_contract"]
-                admitted_findings.extend({"file": name, "name": approved["entry"]["name"],
-                                         "registry_sha256": contract["registry_sha256"],
-                                         "finding": item} for item in discharged)
-            require(remaining == [], f"Source-lint findings were not discharged: {name}")
+            remaining, discharged = linter.discharge_literature_axiom(name, row["findings"])
+            admitted_findings.extend({"file": name, "name": linter.LITERATURE_FILE_INDEX[name],
+                                      "registry_sha256": admission["source_report_contract"]["registry_sha256"],
+                                      "finding": item} for item in discharged)
+            if itemize:
+                for finding in remaining:
+                    require(finding["severity"] == "review" or finding["token"] in ITEMIZED_SOURCE_TOKENS,
+                            f"Source-lint rejection cannot be itemized: {name}: {finding['token']}")
+                    (reproduced_rejections if finding["severity"] == "reject" else reproduced_reviews).append(
+                        dict(file=name, **finding))
+            else:
+                require(remaining == [], f"Source-lint findings were not discharged: {name}")
         entries, problems = linter.inspect_imports(project, Path(name), source, set(paths))
         imports.extend(entries)
         if name != TOOLING_SOURCE:
@@ -1588,15 +1362,29 @@ def validate_source_lint(library: dict, audit: dict, project: Path, admission: d
             report.get("admitted_literature_findings") == admitted_findings,
             "Source-report exact axiom-token discharge is missing, duplicated or changed")
     require(report.get("imports") == imports, "Recorded import inventory fails exact reproduction")
-    return {"profile": CACHE_POLICY, "status": "source_lint_passed",
-            "linter": artifacts[SOURCE_LINTER], "report": artifacts[SOURCE_LINT_REPORT],
-            "reviewed_linter_sha256": SOURCE_LINTER_SHA256,
-            "reproduced_source_count": len(rows), "reproduced_import_count": len(imports),
-            "scope": "Exact archived Lean sources; reviewed Python lexical/import checks reproduced; no Lean execution"}
+    require(report["mathematical_source_rejections"] == reproduced_rejections and
+            report["mathematical_source_reviews"] == reproduced_reviews,
+            "Recorded rejection/review arrays fail exact reproduction")
+    require(linter.source_policy_status(reproduced_rejections, reproduced_reviews) == report["status"],
+            "Recorded source-lint status fails reproduction")
+    result = {"profile": CACHE_POLICY, "status": report["status"],
+              "linter": artifacts[SOURCE_LINTER], "report": artifacts[SOURCE_LINT_REPORT],
+              "reviewed_linter_sha256": SOURCE_LINTER_SHA256,
+              "reproduced_source_count": len(rows), "reproduced_import_count": len(imports),
+              "scope": "Exact archived Lean sources; reviewed Python lexical/import checks reproduced; no Lean execution"}
+    if itemize:
+        result["itemized_findings"] = {
+            "rejections": reproduced_rejections, "rejection_count": len(reproduced_rejections),
+            "rejection_files": sorted({row["file"] for row in reproduced_rejections}),
+            "reviews": reproduced_reviews, "review_count": len(reproduced_reviews),
+            "review_files": sorted({row["file"] for row in reproduced_reviews}),
+            "scope": "Rejections are exactly elab/partial elaborator-code tokens and review findings; they are listed, not discharged or approved"}
+    return result
 
 
 def validate_sources(library: dict, audit: dict, project: Path, inventory: dict,
-                     driver_format_record: Path | None = None, admission: dict | None = None) -> dict:
+                     driver_format_record: Path | None = None, admission: dict | None = None,
+                     itemize: bool = False) -> dict:
     require(library["sources"] == audit["sources"],
             "Library and audit snapshots have different Lean sources")
     sources = library["sources"]
@@ -1615,7 +1403,7 @@ def validate_sources(library: dict, audit: dict, project: Path, inventory: dict,
                 f"Build configuration differs across snapshots/current source: {name}")
     driver = validate_driver(audit, project, driver_format_record)
     require(admission is not None, "Missing independently validated literature admission")
-    source_lint = validate_source_lint(library, audit, project, admission)
+    source_lint = validate_source_lint(library, audit, project, admission, itemize)
     current = {p.relative_to(project).as_posix(): sha256(p.read_bytes())
                for p in (project / "KltDP").rglob("*.lean")
                if is_source(p.relative_to(project).as_posix())}
@@ -1623,18 +1411,10 @@ def validate_sources(library: dict, audit: dict, project: Path, inventory: dict,
     unaudited = {name: value for name, value in sorted(current.items()) if name not in sources}
     modules = {name[:-5].replace("/", "."): name for name in sources
                if name not in {"KltDP.lean", TOOLING_SOURCE}}
-    represented = {d["module"] for d in inventory["mathematical"] + inventory["companions"]}
-    all_inventory_modules = {d["module"] for d in inventory["declarations"]}
-    archived_modules = {name[:-5].replace("/", ".") for name in sources}
-    require(all_inventory_modules <= archived_modules,
-            "Inventory contains declaration modules outside the archived source snapshot: " +
-            ", ".join(sorted(all_inventory_modules - archived_modules)))
-    require(set(modules) <= represented,
-            "Library mathematical modules absent from inventory: " + ", ".join(sorted(set(modules) - represented)))
-    require(represented <= set(modules) | {"KltDP"},
-            "Inventory contains modules outside library snapshot: " + ", ".join(sorted(represented - set(modules) - {"KltDP"})))
+    completeness = validate_module_completeness(project, sources, modules, inventory, reviewed_linter(project))
     return {"audited_sources": dict(sorted(sources.items())),
             "mathematical_modules": dict(sorted(modules.items())),
+            "declaration_free_modules": completeness,
             "import_entry_point": "KltDP.lean", "audit_tooling_source": TOOLING_SOURCE,
             "audit_driver": driver["artifact"], "audit_driver_format": driver["format"],
             "audit_driver_explicit_format_record": driver["explicit_format_record"],
@@ -1658,7 +1438,13 @@ def main() -> int:
                         help="Existing complete source/object observation before this audit")
     parser.add_argument("--native-type-objects-after", type=Path,
                         help="Existing matching source/object observation after this audit")
+    parser.add_argument("--itemize-nonroot-failures", nargs="+", metavar="ROOT", default=None,
+                        help="Scoped mode: accept an audit whose only failed declarations are partial-def "
+                             "companions (_unsafe_rec) outside the dependency closure of every listed logical ROOT "
+                             "and whose source-lint rejections are only elab/partial tokens; all are itemized and the "
+                             "certificate status becomes " + ITEMIZED_STATUS + ". Without this flag the strict certificate is unchanged.")
     args = parser.parse_args()
+    itemize_roots = args.itemize_nonroot_failures
     project = args.project.resolve()
     output = args.output.resolve()
     full_output = output.with_name(output.stem + ".records.json")
@@ -1666,10 +1452,15 @@ def main() -> int:
     library = load_record(args.build_record.resolve(), "library",
                           canonical_resource_profile=args.canonical_resource_profile)
     audit = load_record(args.audit_record.resolve(), "audit",
-                        canonical_resource_profile=args.canonical_resource_profile)
+                        canonical_resource_profile=args.canonical_resource_profile,
+                        allow_audit_rejection=itemize_roots is not None)
     admission = validate_literature_admission(library, audit, project)
-    inventory = parse_inventory(record_log_lines(audit), admission)
-    sources = validate_sources(library, audit, project, inventory, args.driver_format_record, admission)
+    inventory = parse_inventory(record_log_lines(audit), admission,
+                                None if itemize_roots is None else
+                                {"roots": itemize_roots, "exit_code": audit["exit_code"]})
+    sources = validate_sources(library, audit, project, inventory, args.driver_format_record, admission,
+                               itemize_roots is not None)
+    declaration_free = sources.pop("declaration_free_modules")
     native_types = validate_native_type_objects(library, audit, project, inventory,
         args.native_type_objects_before, args.native_type_objects_after, args.canonical_resource_profile)
     require((sources["audit_driver_format"]["format"] == NATIVE_REPORT_DRIVER_FORMAT) == (native_types is not None),
@@ -1687,7 +1478,9 @@ def main() -> int:
     report = {
         "schema": "klt-compiled-audit-validation-v1",
         "validated_at": datetime.now(timezone.utc).isoformat(),
-        "status": "snapshot_dependency_policy_validated",
+        "status": "snapshot_dependency_policy_validated" if itemize_roots is None else ITEMIZED_STATUS,
+        "dependency_policy_status": inventory["summary"]["status"],
+        "audit_exit_code": audit["exit_code"],
         "manuscript_completeness": "not_assessed",
         "semantic_statement_fidelity": "not_assessed",
         "scope": "Archived library snapshot and emitted compiled-environment dependency policy",
@@ -1701,7 +1494,8 @@ def main() -> int:
         "library_record": {k: library[k] for k in ("directory", "started_at", "completed_at", "artifacts")},
         "audit_record": {k: audit[k] for k in ("directory", "started_at", "completed_at", "artifacts")},
         "literature_admission": admission["public_evidence"],
-        "sources": sources, "inventory_summary": inventory["summary"],
+        "sources": sources, "declaration_free_modules": declaration_free,
+        "inventory_summary": inventory["summary"],
         "declaration_count": len(inventory["declarations"]),
         "public_declaration_index": index,
         "compiler_stage_cache_index": [{"name": d["name"], "module": d["module"],
@@ -1715,10 +1509,18 @@ def main() -> int:
     }
     if native_types is not None:
         report["native_type_references"] = native_types
+    if itemize_roots is not None:
+        report["itemized_nonroot_failures"] = inventory["itemized_nonroot_failures"]
+        report["itemized_source_findings"] = sources["source_lint"]["itemized_findings"]
+        report["itemized_scope"] = ("The whole-library dependency policy is NOT passed: the listed failed declarations "
+                                    "and source findings are itemized, not approved. The listed logical roots pass the "
+                                    "policy and reach none of the failures along the exported dependency edges.")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
     print(json.dumps({"status": report["status"], "output": str(output),
                       "declaration_count": report["declaration_count"],
+                      "failed_declaration_count": inventory["summary"]["failed_declaration_count"],
+                      "declaration_free_module_count": declaration_free["count"],
                       "unaudited_local_source_count": len(sources["unaudited_local_sources"])}))
     return 0
 

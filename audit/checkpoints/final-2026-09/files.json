@@ -1,0 +1,82 @@
+[
+ {
+  "path": "KltDP/Audit/Trust.lean",
+  "sha256": "c5f4646aaccc523bcdc4e626fd3387575c3260c1a867468a2b28665170e39bce",
+  "bytes": 274324
+ },
+ {
+  "path": "scripts/audit_sources.py",
+  "sha256": "011042a01c2e6389ed4182c6917db345e4a68b1889c5cde8806548800f6c9af3",
+  "bytes": 37813
+ },
+ {
+  "path": "scripts/parse_compiled_audit256cpu4.py",
+  "sha256": "a495c23e5e1bf4a61af41b396e304d9aa1296295f110e5961d2ec633bd35fa16",
+  "bytes": 93886
+ },
+ {
+  "path": "scripts/test_parse_compiled_audit_v7.py",
+  "sha256": "f839d79313169f25cbc076bf9f61e6cd920399ad62e4358ef4c9499dfe64af50",
+  "bytes": 42550
+ },
+ {
+  "path": "scripts/summarize_trust_report.py",
+  "sha256": "bcc767e014239f8b4d72d99f1fffaf9015decf491a16288e32bf6866e27733b7",
+  "bytes": 5555
+ },
+ {
+  "path": "audit/literature-assumptions.json",
+  "sha256": "78b23d3f9adec6e4a00422ff1866f0a682d725cd1842f0994206481549f951c1",
+  "bytes": 25005
+ },
+ {
+  "path": "audit/FinalAxiomsProbe.lean",
+  "sha256": "577fd2611234e5bae0216875c83c51fb0544c5b1c91ede8fb8aa2285e587bfe6",
+  "bytes": 246
+ },
+ {
+  "path": "audit/CompiledTrust.lean",
+  "sha256": "be82fe238892c7279abb14e2c608afecc87fbd0abcbe02bbf8994d67b3ad0f2a",
+  "bytes": 249
+ },
+ {
+  "path": "audit/source_lint.json",
+  "sha256": "730c1d176c5a146c7dde9f5472318a216833ea1a62f38e67703ff8515a96b708",
+  "bytes": 2946131
+ },
+ {
+  "path": "audit/checkpoints/final-2026-09/production_v5_final_validation.json",
+  "sha256": "456335f5557e5e9e9606dc5be43fc8d5015ce94568f834fa995c0da521a65a39",
+  "bytes": 29017042
+ },
+ {
+  "path": "audit/checkpoints/final-2026-09/production_v5_final_validation.json.gz",
+  "sha256": "85bcea78bf1802bbc059c0f338e8fab51ff7e5ae81da190a38ee6792e1182fda",
+  "bytes": 2910833
+ },
+ {
+  "path": "audit/checkpoints/final-2026-09/trust_summary.json",
+  "sha256": "fdf0629f5e3348ad1128650cf75e7f732db3f0d759a374e602b471eccac50813",
+  "bytes": 19170
+ },
+ {
+  "path": "audit/checkpoints/final-2026-09/probe_print_axioms.txt",
+  "sha256": "6c071a7635319f5d57060f937b92ff603c85d9203f61b812309cbc9b6d6d9959",
+  "bytes": 3195
+ },
+ {
+  "path": "audit/checkpoints/final-2026-09/configuration.json",
+  "sha256": "9413a6ace920954dd9930f06ff69932d8133e55223f4561edd56a8df9ad12fdd",
+  "bytes": 1668
+ },
+ {
+  "path": "audit/checkpoints/final-2026-09/oleans_before.json",
+  "sha256": "de061e7447ece9fce9fea51b808b8bc0523b6217bd8b22385b8a978ef48c7f8b",
+  "bytes": 1254322
+ },
+ {
+  "path": "audit/checkpoints/final-2026-09/oleans_after.json",
+  "sha256": "aa9c82a500435c5e8eb645d68319ac7620dcd9dddae4df5e9bb744679a8918c4",
+  "bytes": 1254343
+ }
+]
