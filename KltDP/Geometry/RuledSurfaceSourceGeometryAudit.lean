@@ -1,0 +1,17 @@
+import KltDP.Geometry.RuledSurfaceSourceGeometry
+
+#check KltDP.Geometry.RuledSurfaceSourceGeometry.projection_isProper
+#check KltDP.Geometry.RuledSurfaceSourceGeometry.base_isProper
+#check KltDP.Geometry.RuledSurfaceSourceGeometry.section_isClosedImmersion
+#check KltDP.Geometry.RuledSurfaceSourceGeometry.base_isProjective
+#check KltDP.Geometry.RuledSurfaceSourceGeometry.fiberInclusion_isClosedImmersion
+#check KltDP.Geometry.RuledSurfaceSourceGeometry.exists_sectionPrimeCurve
+#check KltDP.Geometry.RuledSurfaceSourceGeometry.exists_fiberPrimeCurve
+
+#print axioms KltDP.Geometry.RuledSurfaceSourceGeometry.projection_isProper
+#print axioms KltDP.Geometry.RuledSurfaceSourceGeometry.base_isProper
+#print axioms KltDP.Geometry.RuledSurfaceSourceGeometry.section_isClosedImmersion
+#print axioms KltDP.Geometry.RuledSurfaceSourceGeometry.base_isProjective
+#print axioms KltDP.Geometry.RuledSurfaceSourceGeometry.fiberInclusion_isClosedImmersion
+#print axioms KltDP.Geometry.RuledSurfaceSourceGeometry.exists_sectionPrimeCurve
+#print axioms KltDP.Geometry.RuledSurfaceSourceGeometry.exists_fiberPrimeCurve

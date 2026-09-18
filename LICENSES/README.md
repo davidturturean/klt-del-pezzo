@@ -1,6 +1,6 @@
 # Third-party license texts
 
-These files reproduce the licenses supplied with reused code. They do not assign a new license to original project material or the manuscript.
+These files reproduce the licenses supplied with reused code. Original project material is licensed under Apache-2.0 (see [LICENSE](../LICENSE) and [NOTICE](../NOTICE)); the manuscript remains copyright its author.
 
 | Text | Source of the retained copy |
 | --- | --- |

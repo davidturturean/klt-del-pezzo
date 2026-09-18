@@ -2,7 +2,7 @@
 
 The copied Lean files retain their original copyright, author, license and adaptation notices. The [source-header inventory](audit/third-party-sources.json) identifies 240 files whose first comment records copyright, a license, or a source adaptation. This inventory is a guide to those notices, not a claim that all other files are original work.
 
-Complete Apache 2.0 texts are supplied in [LICENSES/](LICENSES/README.md). A source header's generic reference to `LICENSE` refers to the applicable third-party text here. No project-wide license for original material is assigned by these copies.
+Complete Apache 2.0 texts are supplied in [LICENSES/](LICENSES/README.md). A source header's generic reference to `LICENSE` refers to the applicable third-party text here. Original project material is licensed under Apache-2.0 (see [LICENSE](LICENSE) and [NOTICE](NOTICE)); the third-party notices below are retained as they are.
 
 ## Mathlib
 
@@ -30,4 +30,4 @@ Tau Ceti contributor notices are retained. The ports use the [reviewed integrati
 
 ## Mathematical sources
 
-The manuscript's references and the four [Stacks assumptions](notes/TRUST.md) supply mathematical attribution independently of code-port provenance. Third-party author credits do not identify the author of the frozen manuscript. Existing AI credits in source headers have been preserved as part of the upstream notices.
+The manuscript's references and the 28 admitted published statements listed in [notes/AXIOMS.md](notes/AXIOMS.md) supply mathematical attribution independently of code-port provenance. Third-party author credits concern the ported code, not the manuscript, which is by David Turturean. Existing AI credits in source headers have been preserved as part of the upstream notices.

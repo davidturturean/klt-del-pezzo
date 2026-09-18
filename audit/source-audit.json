@@ -1,0 +1,242 @@
+{
+  "files_scanned": 3527,
+  "counts": {
+    "sorry_or_admit": 0,
+    "native_evaluator": 0,
+    "axiom_declarations_outside_allowlist": 0,
+    "allowlist_violations": 0,
+    "constant_declarations": 0,
+    "allowed_literature_axioms": 28,
+    "parse_errors": 0
+  },
+  "literature_axiom_files": [
+    "KltDP/Literature/Hartshorne/HurwitzDegreeTwoInstance.lean",
+    "KltDP/Literature/Hartshorne/IntegralNumericalGroup.lean",
+    "KltDP/Literature/Hartshorne/MinimalSurfaceClassification.lean",
+    "KltDP/Literature/Hartshorne/PointBlowupCohomology.lean",
+    "KltDP/Literature/Hartshorne/RuledSurfaceGenus.lean",
+    "KltDP/Literature/Hartshorne/RuledSurfacePicard.lean",
+    "KltDP/Literature/Hartshorne/StrictTransformInstance.lean",
+    "KltDP/Literature/Hartshorne/SurfaceHodgeIndex.lean",
+    "KltDP/Literature/Hartshorne/SurfaceNakaiMoishezon.lean",
+    "KltDP/Literature/Hartshorne/SurfaceProjectivity.lean",
+    "KltDP/Literature/Hartshorne/SurfaceRiemannRoch.lean",
+    "KltDP/Literature/HartshorneCastelnuovoLiteral.lean",
+    "KltDP/Literature/KeelCompleteSystem.lean",
+    "KltDP/Literature/LipmanResolutionLiteral.lean",
+    "KltDP/Literature/ProperCurvePullbackDegreeLiteral.lean",
+    "KltDP/Literature/RegularSmoothLociLiteral.lean",
+    "KltDP/Literature/SmoothStandardCoverLiteral.lean",
+    "KltDP/Literature/Stacks/AffineMorphismCohomology.lean",
+    "KltDP/Literature/Stacks/BlowupRegularPointAdmitted.lean",
+    "KltDP/Literature/Stacks/CurveTensorDegreeLiteral.lean",
+    "KltDP/Literature/Stacks/FieldJ2.lean",
+    "KltDP/Literature/Stacks/ProperCohomologyFinite.lean",
+    "KltDP/Literature/Stacks/ProperFlatFiberEuler.lean",
+    "KltDP/Literature/Stacks/RegularLocalUFD.lean",
+    "KltDP/Literature/StacksPointBlowupDomination.lean",
+    "KltDP/Literature/SteinFactorizationNoetherian.lean",
+    "KltDP/Literature/Tanaka/ContractionTheorem.lean",
+    "KltDP/Literature/ZariskiNormalCompletion.lean"
+  ],
+  "allowed_literature_axioms": [
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/HurwitzDegreeTwoInstance.lean",
+      "line": 51,
+      "column": 1,
+      "name": "hurwitz_degreeTwo_projectiveLine_instance"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/IntegralNumericalGroup.lean",
+      "line": 25,
+      "column": 1,
+      "name": "integral_numerical_group_free_finite_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/MinimalSurfaceClassification.lean",
+      "line": 20,
+      "column": 1,
+      "name": "minimal_surface_classification_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/PointBlowupCohomology.lean",
+      "line": 25,
+      "column": 1,
+      "name": "point_blowup_structure_cohomology_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/RuledSurfaceGenus.lean",
+      "line": 20,
+      "column": 1,
+      "name": "ruled_surface_genus_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/RuledSurfacePicard.lean",
+      "line": 20,
+      "column": 1,
+      "name": "ruled_surface_picard_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/StrictTransformInstance.lean",
+      "line": 43,
+      "column": 1,
+      "name": "hasContractionLifts_instance"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/SurfaceHodgeIndex.lean",
+      "line": 25,
+      "column": 1,
+      "name": "surface_hodge_index_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/SurfaceNakaiMoishezon.lean",
+      "line": 28,
+      "column": 1,
+      "name": "surface_nakai_moishezon_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/SurfaceProjectivity.lean",
+      "line": 29,
+      "column": 1,
+      "name": "nonsingular_complete_surface_projective_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Hartshorne/SurfaceRiemannRoch.lean",
+      "line": 25,
+      "column": 1,
+      "name": "surface_riemannRoch_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/HartshorneCastelnuovoLiteral.lean",
+      "line": 18,
+      "column": 1,
+      "name": "castelnuovo_contraction_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/KeelCompleteSystem.lean",
+      "line": 29,
+      "column": 1,
+      "name": "semiampleness_completeSystem_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/LipmanResolutionLiteral.lean",
+      "line": 15,
+      "column": 1,
+      "name": "lipman_resolution_of_normal_completions_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/ProperCurvePullbackDegreeLiteral.lean",
+      "line": 19,
+      "column": 1,
+      "name": "proper_curve_pullback_degree_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/RegularSmoothLociLiteral.lean",
+      "line": 14,
+      "column": 1,
+      "name": "regular_smooth_loci_perfect_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/SmoothStandardCoverLiteral.lean",
+      "line": 12,
+      "column": 1,
+      "name": "smooth_standardSmooth_cover_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Stacks/AffineMorphismCohomology.lean",
+      "line": 29,
+      "column": 1,
+      "name": "affine_morphism_cohomology_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Stacks/BlowupRegularPointAdmitted.lean",
+      "line": 29,
+      "column": 1,
+      "name": "blowupRegularPoint_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Stacks/CurveTensorDegreeLiteral.lean",
+      "line": 43,
+      "column": 1,
+      "name": "proper_curve_tensor_degree_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Stacks/FieldJ2.lean",
+      "line": 14,
+      "column": 1,
+      "name": "field_isJ2"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Stacks/ProperCohomologyFinite.lean",
+      "line": 26,
+      "column": 1,
+      "name": "properCohomology_finite"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Stacks/ProperFlatFiberEuler.lean",
+      "line": 25,
+      "column": 1,
+      "name": "properFlat_fiberEuler_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Stacks/RegularLocalUFD.lean",
+      "line": 16,
+      "column": 1,
+      "name": "regularLocal_isUFD"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/StacksPointBlowupDomination.lean",
+      "line": 25,
+      "column": 1,
+      "name": "closed_point_blowups_dominate_proper_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/SteinFactorizationNoetherian.lean",
+      "line": 16,
+      "column": 1,
+      "name": "steinFactorization_noetherian_literal"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/Tanaka/ContractionTheorem.lean",
+      "line": 78,
+      "column": 1,
+      "name": "contraction_44_instance"
+    },
+    {
+      "kind": "axiom",
+      "file": "KltDP/Literature/ZariskiNormalCompletion.lean",
+      "line": 12,
+      "column": 1,
+      "name": "closedPoint_normal_completion_literal"
+    }
+  ],
+  "findings": [],
+  "parse_errors": []
+}

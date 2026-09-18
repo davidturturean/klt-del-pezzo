@@ -1,4 +1,5 @@
 import KltDP.RingTheory.NormalTwistedAdjunction
+import KltDP.Geometry.NormalTwistedAdjunctionTildeRestriction
 
 /-!
 # Equation-independent normal-twisted adjunction on the original affine scheme
@@ -37,15 +38,11 @@ local instance normalTwistAddCommGroup :
 def iso :
     SchemeKaehlerSheaf.baseRingSheaf
         (Spec.map (CommRingCat.ofHom (algebraMap R (A ⧸ J)))) ≅
-      (ModuleCat.of (A ⧸ J)
-        (((A ⧸ J) ⊗[A] (⋀[A]^2 (KaehlerDifferential R A))) ⊗[A ⧸ J]
-          Module.Dual (A ⧸ J) J.Cotangent)).tilde :=
+      (NormalTwistedAdjunctionTildeRestriction.twistedModule R A J).tilde :=
   AffineKaehlerTildeLocalization.iso R (A ⧸ J) ≪≫
     AffineModuleTilde.linearEquivIso
       (M := ModuleCat.of (A ⧸ J) (KaehlerDifferential R (A ⧸ J)))
-      (N := ModuleCat.of (A ⧸ J)
-        (((A ⧸ J) ⊗[A] (⋀[A]^2 (KaehlerDifferential R A))) ⊗[A ⧸ J]
-          Module.Dual (A ⧸ J) J.Cotangent))
+      (N := NormalTwistedAdjunctionTildeRestriction.twistedModule R A J)
       (KltDP.RingTheory.NormalTwistedAdjunction.equiv R A J d hJ hregular)
 
 /-- The actual affine sheaf map is independent of the chosen regular equation. -/

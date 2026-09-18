@@ -1,0 +1,8 @@
+import KltDP.Geometry.SingularStalkCompletionNormal
+
+#check @KltDP.Geometry.localCompletion_singularStalk_normal_of_zariski
+#print axioms KltDP.Geometry.localCompletion_singularStalk_normal_of_zariski
+#check @KltDP.Geometry.lipmanResolutionLiteral_of_zariski
+#print axioms KltDP.Geometry.lipmanResolutionLiteral_of_zariski
+#check @KltDP.Geometry.exists_minimalResolution_of_zariski_and_remaining_inputs
+#print axioms KltDP.Geometry.exists_minimalResolution_of_zariski_and_remaining_inputs

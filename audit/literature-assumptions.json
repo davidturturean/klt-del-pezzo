@@ -1,15 +1,180 @@
 {
+  "schema": "klt-literature-assumptions-v2",
+  "snapshot_date": "2026-09-17",
   "ordinary_axioms": [
     "propext",
     "Classical.choice",
     "Quot.sound"
   ],
+  "main_theorem": "KltDP.Manuscript.uniformSevenPointBound",
+  "axiom_report": "audit/axiom-report.txt",
   "active_literature_axioms": [
+    {
+      "name": "KltDP.Literature.Hartshorne.castelnuovo_contraction_literal",
+      "module": "KltDP.Literature.HartshorneCastelnuovoLiteral",
+      "source_path": "KltDP/Literature/HartshorneCastelnuovoLiteral.lean",
+      "source_sha256": "738dea533ea208a6d900e5db1921e5e5eb201253f8e588ac1fa8af3637db42eb",
+      "declaration_line": 18,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.hasContractionLifts_instance",
+      "module": "KltDP.Literature.Hartshorne.StrictTransformInstance",
+      "source_path": "KltDP/Literature/Hartshorne/StrictTransformInstance.lean",
+      "source_sha256": "e1040d1c04da01aad51729d142a7b5b62d5b8bbe6095c017c8ffe8f16b1ddb52",
+      "declaration_line": 43,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "manuscript lane (2026-09-16)"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance",
+      "module": "KltDP.Literature.Hartshorne.HurwitzDegreeTwoInstance",
+      "source_path": "KltDP/Literature/Hartshorne/HurwitzDegreeTwoInstance.lean",
+      "source_sha256": "a19bbf5d6d0c6bca68ff02228f052404b243d7bbdc4248f45ac642c1be77b88d",
+      "declaration_line": 51,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "manuscript lane (2026-09-16)"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.integral_numerical_group_free_finite_literal",
+      "module": "KltDP.Literature.Hartshorne.IntegralNumericalGroup",
+      "source_path": "KltDP/Literature/Hartshorne/IntegralNumericalGroup.lean",
+      "source_sha256": "879c08b36a102d6314a93343e9ba45654a6c7a1ed76bdf7e39a7c8324ba14de1",
+      "declaration_line": 25,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.minimal_surface_classification_literal",
+      "module": "KltDP.Literature.Hartshorne.MinimalSurfaceClassification",
+      "source_path": "KltDP/Literature/Hartshorne/MinimalSurfaceClassification.lean",
+      "source_sha256": "dc76b5d2689b57de6060976d1e8fd65efd682e292a8a8ffd306db9459ff93478",
+      "declaration_line": 20,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.nonsingular_complete_surface_projective_literal",
+      "module": "KltDP.Literature.Hartshorne.SurfaceProjectivity",
+      "source_path": "KltDP/Literature/Hartshorne/SurfaceProjectivity.lean",
+      "source_sha256": "43a90d171da6fe5e136d5580edecfd1c27e43528307f4420d29fca4d0e74117b",
+      "declaration_line": 29,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.point_blowup_structure_cohomology_literal",
+      "module": "KltDP.Literature.Hartshorne.PointBlowupCohomology",
+      "source_path": "KltDP/Literature/Hartshorne/PointBlowupCohomology.lean",
+      "source_sha256": "6170e6eaa06c89bc53ba9817dc891c3f821caabf898b4782b8baa4be6d9e7840",
+      "declaration_line": 25,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.ruled_surface_genus_literal",
+      "module": "KltDP.Literature.Hartshorne.RuledSurfaceGenus",
+      "source_path": "KltDP/Literature/Hartshorne/RuledSurfaceGenus.lean",
+      "source_sha256": "df5a3ce47d215297a810a9865a27455d088a2cbca41261c90e1fef85be3a1ed6",
+      "declaration_line": 20,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.ruled_surface_picard_literal",
+      "module": "KltDP.Literature.Hartshorne.RuledSurfacePicard",
+      "source_path": "KltDP/Literature/Hartshorne/RuledSurfacePicard.lean",
+      "source_sha256": "823a118fccd8a602fc2d932c26501cb24c384c1e8bfe04e8f28a8ca1c86bc6d8",
+      "declaration_line": 20,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.surface_hodge_index_literal",
+      "module": "KltDP.Literature.Hartshorne.SurfaceHodgeIndex",
+      "source_path": "KltDP/Literature/Hartshorne/SurfaceHodgeIndex.lean",
+      "source_sha256": "04d1c8225f0ec8d6112cd1040c39ae82e0efcead7a0796a5aa98f5a4113145c9",
+      "declaration_line": 25,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.surface_nakai_moishezon_literal",
+      "module": "KltDP.Literature.Hartshorne.SurfaceNakaiMoishezon",
+      "source_path": "KltDP/Literature/Hartshorne/SurfaceNakaiMoishezon.lean",
+      "source_sha256": "656cf05ccba031c0876a9768281039418e6ec987709da760e3324f4db8ba3fff",
+      "declaration_line": 28,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Hartshorne.surface_riemannRoch_literal",
+      "module": "KltDP.Literature.Hartshorne.SurfaceRiemannRoch",
+      "source_path": "KltDP/Literature/Hartshorne/SurfaceRiemannRoch.lean",
+      "source_sha256": "835d5da4a1950cf10981fffbbda61402f527849c507163e2ef6c98641f5285e2",
+      "declaration_line": 25,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Keel.semiampleness_completeSystem_literal",
+      "module": "KltDP.Literature.KeelCompleteSystem",
+      "source_path": "KltDP/Literature/KeelCompleteSystem.lean",
+      "source_sha256": "0b75babc8caa2a6be4d0ea62eeb1c17230390dc96dac82b9415588efc899fa0e",
+      "declaration_line": 29,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Stacks.affine_morphism_cohomology_literal",
+      "module": "KltDP.Literature.Stacks.AffineMorphismCohomology",
+      "source_path": "KltDP/Literature/Stacks/AffineMorphismCohomology.lean",
+      "source_sha256": "fc2b9ffdffd503f1003b8eada0a9dbe75f22a4dac7aa8eabb56801100948252e",
+      "declaration_line": 29,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Stacks.blowupRegularPoint_literal",
+      "module": "KltDP.Literature.Stacks.BlowupRegularPointAdmitted",
+      "source_path": "KltDP/Literature/Stacks/BlowupRegularPointAdmitted.lean",
+      "source_sha256": "ae662426238162bb3f8c8c791fc894a26bb8aa1bb8ebc8fb1449fe7126320f46",
+      "declaration_line": 29,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "manuscript lane (2026-09-16)"
+    },
+    {
+      "name": "KltDP.Literature.Stacks.closed_point_blowups_dominate_proper_literal",
+      "module": "KltDP.Literature.StacksPointBlowupDomination",
+      "source_path": "KltDP/Literature/StacksPointBlowupDomination.lean",
+      "source_sha256": "033c084d5e450d8be07620a4b397ab9d85b2687eb18ee7e44f2ea189238e1d2c",
+      "declaration_line": 25,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
     {
       "name": "KltDP.Literature.Stacks.field_isJ2",
       "module": "KltDP.Literature.Stacks.FieldJ2",
       "source_path": "KltDP/Literature/Stacks/FieldJ2.lean",
       "source_sha256": "c325d0d6f6f882ac4233020bad309d976e5baad69a32cd429d7dc493aa3bad37",
+      "declaration_line": 14,
       "universe_parameters": [
         "u",
         "v"
@@ -28,42 +193,25 @@
       "original_registry": {
         "path": "audit/field_j2_admission.json",
         "sha256": "b341fef779503eac029e5543911d27851c7d12c829c28a0bc2707f61e724d997"
-      }
+      },
+      "admitted_at": "candidate1559"
     },
     {
-      "name": "KltDP.Literature.Stacks.regularLocal_isUFD",
-      "module": "KltDP.Literature.Stacks.RegularLocalUFD",
-      "source_path": "KltDP/Literature/Stacks/RegularLocalUFD.lean",
-      "source_sha256": "c04596613b6835a686c6c5f827badf96b5a946ca79f56e3f840458b769042ac5",
-      "universe_parameters": [
-        "u"
-      ],
-      "type_expression_sha256": "f356ec1014d1edc174811412b6cf9c9103559feefaff133b4faf8bb62d02552f",
-      "printed_type_sha256": "b7bf2804667cea9b0eb23a68ed79fde62085ff0a07c63f0cf5784d3668628724",
-      "published_source": {
-        "tag": "0AG0",
-        "commit": "540451b3e79a131df8eca4c4187448e49dcb262d",
-        "definition_tags": [
-          "0006",
-          "07BI",
-          "00KU",
-          "034S"
-        ],
-        "alignment_tags": [
-          "034T",
-          "00NP"
-        ]
-      },
-      "original_registry": {
-        "path": "audit/regular_local_ufd_admission.json",
-        "sha256": "258ffdd90ad110c7d58572908c547e2f28efc4e3d5172597efe080df907e92ba"
-      }
+      "name": "KltDP.Literature.Stacks.lipman_resolution_of_normal_completions_literal",
+      "module": "KltDP.Literature.LipmanResolutionLiteral",
+      "source_path": "KltDP/Literature/LipmanResolutionLiteral.lean",
+      "source_sha256": "3aff165d9d078f04d73fc64fc6e1a768fdc5417eba93e9e53516b26ffb214754",
+      "declaration_line": 15,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
     },
     {
       "name": "KltDP.Literature.Stacks.properCohomology_finite",
       "module": "KltDP.Literature.Stacks.ProperCohomologyFinite",
       "source_path": "KltDP/Literature/Stacks/ProperCohomologyFinite.lean",
       "source_sha256": "ccc0cb94fc3344aad666076bf701f576a3ee167cc87ae677d535e64c0a8fea5d",
+      "declaration_line": 26,
       "universe_parameters": [
         "u"
       ],
@@ -78,13 +226,35 @@
       "original_registry": {
         "path": "audit/proper_cohomology_admission.json",
         "sha256": "0639cd7244af87b8b102eab28a43916650207b7b9c8ad8d563c2ad81aea20dde"
-      }
+      },
+      "admitted_at": "candidate1559"
+    },
+    {
+      "name": "KltDP.Literature.Stacks.properFlat_fiberEuler_literal",
+      "module": "KltDP.Literature.Stacks.ProperFlatFiberEuler",
+      "source_path": "KltDP/Literature/Stacks/ProperFlatFiberEuler.lean",
+      "source_sha256": "184632e54e89787da67d2338dc022a21f968b74a030c2140711ac5486d02c712",
+      "declaration_line": 25,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Stacks.proper_curve_pullback_degree_literal",
+      "module": "KltDP.Literature.ProperCurvePullbackDegreeLiteral",
+      "source_path": "KltDP/Literature/ProperCurvePullbackDegreeLiteral.lean",
+      "source_sha256": "3a47c7b4e33d29b63fa08a2d23ca4dfdebf3cb6205aa406fdf64e2c14345eadc",
+      "declaration_line": 19,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
     },
     {
       "name": "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal",
       "module": "KltDP.Literature.Stacks.CurveTensorDegreeLiteral",
       "source_path": "KltDP/Literature/Stacks/CurveTensorDegreeLiteral.lean",
       "source_sha256": "fdbff47f231d00fa5ef478c20986efc48a176a8194d073275bf8f19072662543",
+      "declaration_line": 43,
       "universe_parameters": [
         "u"
       ],
@@ -112,9 +282,102 @@
       "original_registry": {
         "path": "audit/curve_tensor_degree_admission.json",
         "sha256": "436db9c3a61f6db0f9adc818ade10cd7abae36d1f11b62be4764e65228f0e635"
-      }
+      },
+      "admitted_at": "candidate1559"
+    },
+    {
+      "name": "KltDP.Literature.Stacks.regularLocal_isUFD",
+      "module": "KltDP.Literature.Stacks.RegularLocalUFD",
+      "source_path": "KltDP/Literature/Stacks/RegularLocalUFD.lean",
+      "source_sha256": "c04596613b6835a686c6c5f827badf96b5a946ca79f56e3f840458b769042ac5",
+      "declaration_line": 16,
+      "universe_parameters": [
+        "u"
+      ],
+      "type_expression_sha256": "f356ec1014d1edc174811412b6cf9c9103559feefaff133b4faf8bb62d02552f",
+      "printed_type_sha256": "b7bf2804667cea9b0eb23a68ed79fde62085ff0a07c63f0cf5784d3668628724",
+      "published_source": {
+        "tag": "0AG0",
+        "commit": "540451b3e79a131df8eca4c4187448e49dcb262d",
+        "definition_tags": [
+          "0006",
+          "07BI",
+          "00KU",
+          "034S"
+        ],
+        "alignment_tags": [
+          "034T",
+          "00NP"
+        ]
+      },
+      "original_registry": {
+        "path": "audit/regular_local_ufd_admission.json",
+        "sha256": "258ffdd90ad110c7d58572908c547e2f28efc4e3d5172597efe080df907e92ba"
+      },
+      "admitted_at": "candidate1559"
+    },
+    {
+      "name": "KltDP.Literature.Stacks.regular_smooth_loci_perfect_literal",
+      "module": "KltDP.Literature.RegularSmoothLociLiteral",
+      "source_path": "KltDP/Literature/RegularSmoothLociLiteral.lean",
+      "source_sha256": "98d15f296dbca8664df35212e7a7c5ba50f80c77ff9b7e7bc5453ee3b5f42461",
+      "declaration_line": 14,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Stacks.smooth_standardSmooth_cover_literal",
+      "module": "KltDP.Literature.SmoothStandardCoverLiteral",
+      "source_path": "KltDP/Literature/SmoothStandardCoverLiteral.lean",
+      "source_sha256": "66feadf08b087a57f711139a37942c336b7325d536ae47b3179e56d3140ef204",
+      "declaration_line": 12,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Stacks.steinFactorization_noetherian_literal",
+      "module": "KltDP.Literature.SteinFactorizationNoetherian",
+      "source_path": "KltDP/Literature/SteinFactorizationNoetherian.lean",
+      "source_sha256": "7e4e29ac9ed9f9d2eed0169c21a858c11d5ef32ff2c44cba562b4b3f362afa96",
+      "declaration_line": 16,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
+    },
+    {
+      "name": "KltDP.Literature.Tanaka.contraction_44_instance",
+      "module": "KltDP.Literature.Tanaka.ContractionTheorem",
+      "source_path": "KltDP/Literature/Tanaka/ContractionTheorem.lean",
+      "source_sha256": "ef684d4ef83ed9afc980646519289b1b25132c6a44b1864b6e9c335cf5bede08",
+      "declaration_line": 78,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "manuscript lane (2026-09-16)"
+    },
+    {
+      "name": "KltDP.Literature.Zariski.closedPoint_normal_completion_literal",
+      "module": "KltDP.Literature.ZariskiNormalCompletion",
+      "source_path": "KltDP/Literature/ZariskiNormalCompletion.lean",
+      "source_sha256": "36595617aa6285f018c2739813465f25bb649a97f86e10e8e7e82cbfb7df4dae",
+      "declaration_line": 12,
+      "published_source": null,
+      "documentation": "The module docstring records the published statement, its source and every specialisation.",
+      "admitted_at": "union base library"
     }
   ],
-  "authority": "Exact four-entry accepted candidate1559 certificate and root acceptance",
-  "proof_status": "Literature statements are assumptions; their local consumers have separate proofs."
+  "proof_status": "Literature statements are assumptions; their local consumers have separate proofs. The main theorem depends on exactly these 28 statements and the three ordinary axioms.",
+  "history": {
+    "candidate1559": {
+      "authority": "Exact four-entry accepted candidate1559 certificate and root acceptance",
+      "proof_status": "Literature statements are assumptions; their local consumers have separate proofs.",
+      "active_literature_axioms": [
+        "KltDP.Literature.Stacks.field_isJ2",
+        "KltDP.Literature.Stacks.regularLocal_isUFD",
+        "KltDP.Literature.Stacks.properCohomology_finite",
+        "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal"
+      ]
+    }
+  }
 }

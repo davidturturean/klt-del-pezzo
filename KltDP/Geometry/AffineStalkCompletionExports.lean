@@ -1,0 +1,16 @@
+import KltDP.Geometry.AffineStalkCompletion
+
+#check KltDP.Geometry.affineStalkLocalizationAlgEquiv
+#print axioms KltDP.Geometry.affineStalkLocalizationAlgEquiv
+#check KltDP.Geometry.affineStalkLocalizationAlgEquiv_algebraMap
+#print axioms KltDP.Geometry.affineStalkLocalizationAlgEquiv_algebraMap
+#check KltDP.Geometry.affineStalkLocalization_normal_iff
+#print axioms KltDP.Geometry.affineStalkLocalization_normal_iff
+#check KltDP.Geometry.affineStalkCompletionAlgEquiv
+#print axioms KltDP.Geometry.affineStalkCompletionAlgEquiv
+#check KltDP.Geometry.affineStalkCompletionAlgEquiv_of
+#print axioms KltDP.Geometry.affineStalkCompletionAlgEquiv_of
+#check KltDP.Geometry.affineStalkCompletionAlgEquiv_algebraMap
+#print axioms KltDP.Geometry.affineStalkCompletionAlgEquiv_algebraMap
+#check KltDP.Geometry.affineStalkCompletion_normal_iff
+#print axioms KltDP.Geometry.affineStalkCompletion_normal_iff

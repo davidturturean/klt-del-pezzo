@@ -1,0 +1,80 @@
+name: Build Lean formalization
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  package-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check local imports and root coverage
+        run: python3 scripts/check_local_imports.py . KltDP
+
+      - name: Check active source for placeholders and undeclared axioms
+        run: python3 scripts/check_no_placeholders.py KltDP KltDP.lean --json source-audit.json
+
+      - name: Verify package records
+        run: python3 scripts/verify_package.py
+
+      - name: Check the committed axiom report against the trust boundary
+        run: python3 scripts/check_axioms.py audit/axiom-report.txt
+
+      - name: Upload package-check logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-checks
+          path: source-audit.json
+          if-no-files-found: ignore
+
+  full-build:
+    runs-on: [self-hosted, linux, klt]
+    timeout-minutes: 2160
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install elan if missing
+        run: |
+          if ! command -v elan >/dev/null 2>&1 && [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf \
+              | sh -s -- -y --default-toolchain none
+          fi
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Show pinned toolchain
+        run: lean --version
+
+      - name: Fetch Mathlib cache
+        run: lake exe cache get
+
+      - name: Build the library
+        run: lake build KltDP 2>&1 | tee build.log
+
+      - name: Print and check main-theorem axioms
+        run: |
+          ./scripts/print_axioms.sh 2>&1 | tee axiom-report.txt
+          python3 scripts/check_axioms.py axiom-report.txt
+
+      - name: Upload verification logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-build
+          path: |
+            build.log
+            axiom-report.txt
+          if-no-files-found: ignore

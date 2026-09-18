@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you reference this theorem, paper, or formalization, please cite it as below."
+title: "Singular points of klt del Pezzo surfaces of Picard number one in positive characteristic"
+version: 1.0.0
+authors:
+  - family-names: "Turturean"
+    given-names: "David"
+    email: "davidct@mit.edu"
+date-released: 2026-09-17
+license: Apache-2.0
+repository-code: "https://github.com/davidturturean/klt-del-pezzo"
+abstract: >-
+  Over an algebraically closed field of characteristic p > 2, a klt del Pezzo
+  surface of Picard number one has at most seven singular points. The bound is
+  sharp in characteristic three and fails in characteristic two. This repository
+  contains the paper and a complete Lean 4 formalization of the theorem and of
+  the examples, compiling against Lean 4.19.0 and Mathlib c44e0c8.
+keywords:
+  - "del Pezzo surface"
+  - "klt singularities"
+  - "positive characteristic"
+  - "Lean 4"
+  - "formal verification"
+  - "Mathlib"

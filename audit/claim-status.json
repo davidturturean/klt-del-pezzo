@@ -1,11 +1,41 @@
 {
-  "schema": "klt-public-claim-status-v1",
-  "source_commit": "8b6110c192269d3c3b2d80c2e54bef9f25864865",
-  "source_registry": "audit/implementation_status.json",
-  "source_registry_sha256": "c4802008a8775b1a87b705456d1a7a459329865e46d55050416e731736ea212e",
-  "planning_map_sha256": "8e0cfa8e6f941d61e17fecf4d8a07fce9a83bc47b8c8927cf7b96bbe92e6ccc1",
-  "manuscript_complete": false,
-  "note": "Accepted support rows close only the clauses in their acceptance excerpts. Titles and planned declarations retain inventory wording and do not assert completion of all geometric content.",
+  "schema": "klt-public-claim-status-v2",
+  "snapshot_date": "2026-09-17",
+  "source_snapshot": {
+    "build_machine": "build-vm",
+    "vm_lane_path": "/home/david/claude-klt-20260915",
+    "base_library_modules": 3467,
+    "manuscript_modules": 58,
+    "modules_total": 3525
+  },
+  "manuscript_complete": true,
+  "main_theorem": {
+    "id": "thm:main",
+    "declaration": "KltDP.Manuscript.uniformSevenPointBound",
+    "module": "KltDP.Manuscript.Main.Final",
+    "source_path": "KltDP/Manuscript/Main/Final.lean",
+    "axiom_report": "audit/axiom-report.txt",
+    "standard_axioms": 3,
+    "literature_axioms": 28
+  },
+  "status_vocabulary": {
+    "complete": "every clause of the statement has a compiled Lean declaration listed under compiled_declarations",
+    "complete_with_isolated_clauses": "the listed clauses are formalized; the clauses under isolated_clauses are not (none is needed for Theorem 1.1)",
+    "superseded_by_named_results": "checkpoint inventory obligation with no separate endpoint; absorbed by the named results",
+    "specified": "no longer used"
+  },
+  "note": "Rows accepted at checkpoint candidate1559 are retained verbatim, including their certificate dependency sets. Rows completed by the manuscript lane list their compiled declarations with module and source path; per-declaration axiom sets are recorded only for the main theorem (audit/axiom-report.txt), so 'axioms' is null elsewhere. Titles retain the inventory wording.",
+  "history": {
+    "candidate1559": {
+      "schema": "klt-public-claim-status-v1",
+      "source_commit": "8b6110c192269d3c3b2d80c2e54bef9f25864865",
+      "source_registry": "audit/implementation_status.json",
+      "source_registry_sha256": "c4802008a8775b1a87b705456d1a7a459329865e46d55050416e731736ea212e",
+      "planning_map_sha256": "8e0cfa8e6f941d61e17fecf4d8a07fce9a83bc47b8c8927cf7b96bbe92e6ccc1",
+      "manuscript_complete": false,
+      "note": "Accepted support rows close only the clauses in their acceptance excerpts. Titles and planned declarations retain inventory wording and do not assert completion of all geometric content."
+    }
+  },
   "results": [
     {
       "id": "thm:main",
@@ -19,14 +49,154 @@
       "planned_declarations": [
         "KltDP.uniformSevenPointBound"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.uniformSevenPointBound",
+        "KltDP.Manuscript.isolatedExchangeHyp_all",
+        "KltDP.Manuscript.uniformSevenPointBound_of_iso",
+        "KltDP.Manuscript.uniformSevenPointBound_of_hyps",
+        "KltDP.Manuscript.uniformSevenPointBound_of_adjoint",
+        "KltDP.Manuscript.uniformSevenPointBound_of",
+        "KltDP.Manuscript.exists_minimalCounterexample",
+        "KltDP.Manuscript.ResolutionDatum.IsMinimalCounterexample"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/Main/Assembly.lean",
+        "KltDP/Manuscript/Main/Assembly2.lean",
+        "KltDP/Manuscript/Main/Assembly3.lean",
+        "KltDP/Manuscript/Main/Final.lean",
+        "KltDP/Manuscript/Main/SevenPointBound.lean",
+        "audit/axiom-report.txt"
+      ],
       "title": "Uniform seven-point bound",
       "printed_number": "1.1",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.uniformSevenPointBound",
+          "module": "KltDP.Manuscript.Main.Final",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Main/Final.lean",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound",
+            "KltDP.Literature.Hartshorne.castelnuovo_contraction_literal",
+            "KltDP.Literature.Hartshorne.hasContractionLifts_instance",
+            "KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance",
+            "KltDP.Literature.Hartshorne.integral_numerical_group_free_finite_literal",
+            "KltDP.Literature.Hartshorne.minimal_surface_classification_literal",
+            "KltDP.Literature.Hartshorne.nonsingular_complete_surface_projective_literal",
+            "KltDP.Literature.Hartshorne.point_blowup_structure_cohomology_literal",
+            "KltDP.Literature.Hartshorne.ruled_surface_genus_literal",
+            "KltDP.Literature.Hartshorne.ruled_surface_picard_literal",
+            "KltDP.Literature.Hartshorne.surface_hodge_index_literal",
+            "KltDP.Literature.Hartshorne.surface_nakai_moishezon_literal",
+            "KltDP.Literature.Hartshorne.surface_riemannRoch_literal",
+            "KltDP.Literature.Keel.semiampleness_completeSystem_literal",
+            "KltDP.Literature.Stacks.affine_morphism_cohomology_literal",
+            "KltDP.Literature.Stacks.blowupRegularPoint_literal",
+            "KltDP.Literature.Stacks.closed_point_blowups_dominate_proper_literal",
+            "KltDP.Literature.Stacks.field_isJ2",
+            "KltDP.Literature.Stacks.lipman_resolution_of_normal_completions_literal",
+            "KltDP.Literature.Stacks.properCohomology_finite",
+            "KltDP.Literature.Stacks.properFlat_fiberEuler_literal",
+            "KltDP.Literature.Stacks.proper_curve_pullback_degree_literal",
+            "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal",
+            "KltDP.Literature.Stacks.regularLocal_isUFD",
+            "KltDP.Literature.Stacks.regular_smooth_loci_perfect_literal",
+            "KltDP.Literature.Stacks.smooth_standardSmooth_cover_literal",
+            "KltDP.Literature.Stacks.steinFactorization_noetherian_literal",
+            "KltDP.Literature.Tanaka.contraction_44_instance",
+            "KltDP.Literature.Zariski.closedPoint_normal_completion_literal"
+          ]
+        },
+        {
+          "name": "KltDP.Manuscript.isolatedExchangeHyp_all",
+          "module": "KltDP.Manuscript.Main.Final",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Main/Final.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.uniformSevenPointBound_of_iso",
+          "module": "KltDP.Manuscript.Main.Assembly3",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Main/Assembly3.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.uniformSevenPointBound_of_hyps",
+          "module": "KltDP.Manuscript.Main.Assembly2",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Main/Assembly2.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.uniformSevenPointBound_of_adjoint",
+          "module": "KltDP.Manuscript.Main.Assembly",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Main/Assembly.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.uniformSevenPointBound_of",
+          "module": "KltDP.Manuscript.Main.SevenPointBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Main/SevenPointBound.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.exists_minimalCounterexample",
+          "module": "KltDP.Manuscript.Main.SevenPointBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Main/SevenPointBound.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum.IsMinimalCounterexample",
+          "module": "KltDP.Manuscript.Main.SevenPointBound",
+          "kind": "def",
+          "source_path": "KltDP/Manuscript/Main/SevenPointBound.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "The endpoint `KltDP.Manuscript.uniformSevenPointBound` (KltDP/Manuscript/Main/Final.lean) states Theorem 1.1 for an algebraically closed field of characteristic p > 2, a normal projective surface X with `IsKltDelPezzo X` and `X.picardRank = 1`, and concludes `X.singularPoints.card ≤ 7`. Its `#print axioms` report is committed verbatim in audit/axiom-report.txt: the three standard principles and the 28 admitted literature statements, no other axiom and no `sorryAx`. The assembly chain is `uniformSevenPointBound_of` (Theorem 1.1 from Theorems 8.1 and 9.3 as hypotheses), `_of_adjoint`, `_of_hyps`, `_of_iso`, and `isolatedExchangeHyp_all`.",
+      "literature_dependencies": [
+        "KltDP.Literature.Hartshorne.castelnuovo_contraction_literal",
+        "KltDP.Literature.Hartshorne.hasContractionLifts_instance",
+        "KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance",
+        "KltDP.Literature.Hartshorne.integral_numerical_group_free_finite_literal",
+        "KltDP.Literature.Hartshorne.minimal_surface_classification_literal",
+        "KltDP.Literature.Hartshorne.nonsingular_complete_surface_projective_literal",
+        "KltDP.Literature.Hartshorne.point_blowup_structure_cohomology_literal",
+        "KltDP.Literature.Hartshorne.ruled_surface_genus_literal",
+        "KltDP.Literature.Hartshorne.ruled_surface_picard_literal",
+        "KltDP.Literature.Hartshorne.surface_hodge_index_literal",
+        "KltDP.Literature.Hartshorne.surface_nakai_moishezon_literal",
+        "KltDP.Literature.Hartshorne.surface_riemannRoch_literal",
+        "KltDP.Literature.Keel.semiampleness_completeSystem_literal",
+        "KltDP.Literature.Stacks.affine_morphism_cohomology_literal",
+        "KltDP.Literature.Stacks.blowupRegularPoint_literal",
+        "KltDP.Literature.Stacks.closed_point_blowups_dominate_proper_literal",
+        "KltDP.Literature.Stacks.field_isJ2",
+        "KltDP.Literature.Stacks.lipman_resolution_of_normal_completions_literal",
+        "KltDP.Literature.Stacks.properCohomology_finite",
+        "KltDP.Literature.Stacks.properFlat_fiberEuler_literal",
+        "KltDP.Literature.Stacks.proper_curve_pullback_degree_literal",
+        "KltDP.Literature.Stacks.proper_curve_tensor_degree_literal",
+        "KltDP.Literature.Stacks.regularLocal_isUFD",
+        "KltDP.Literature.Stacks.regular_smooth_loci_perfect_literal",
+        "KltDP.Literature.Stacks.smooth_standardSmooth_cover_literal",
+        "KltDP.Literature.Stacks.steinFactorization_noetherian_literal",
+        "KltDP.Literature.Tanaka.contraction_44_instance",
+        "KltDP.Literature.Zariski.closedPoint_normal_completion_literal"
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:examples",
@@ -40,14 +210,47 @@
       "planned_declarations": [
         "KltDP.Manuscript.S01.sharpnessAndCharacteristicTwoExamples"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S01.sharpnessExampleCharThree",
+        "KltDP.Manuscript.S01.characteristicTwoFamily",
+        "KltDP.Manuscript.S01.exists_frobenius_example"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S01/Examples.lean"
+      ],
       "title": "Bernasconi; Keel--McKernan",
       "printed_number": "1.2",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S01.sharpnessExampleCharThree",
+          "module": "KltDP.Manuscript.S01.Examples",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S01/Examples.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S01.characteristicTwoFamily",
+          "module": "KltDP.Manuscript.S01.Examples",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S01/Examples.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S01.exists_frobenius_example",
+          "module": "KltDP.Manuscript.S01.Examples",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S01/Examples.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Both examples are stated in the existential resolution-datum form: the characteristic-three seven-point surface with K² = 1/3 (`sharpnessExampleCharThree`) and the characteristic-two family with K² = 2/(n − 2) (`characteristicTwoFamily`).",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:stieltjes",
@@ -327,14 +530,43 @@
       "planned_declarations": [
         "KltDP.Manuscript.S02.keelSemiampleness"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S02.keelSemiampleness",
+        "KltDP.Literature.Keel.semiampleness_completeSystem_literal"
+      ],
+      "evidence": [
+        "KltDP/Literature/KeelCompleteSystem.lean",
+        "KltDP/Manuscript/S02/KeelSemiampleness.lean"
+      ],
       "title": "Keel {\\cite[Theorem~0.2",
       "printed_number": "2.3",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "admitted literature statement",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S02.keelSemiampleness",
+          "module": "KltDP.Manuscript.S02.KeelSemiampleness",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/KeelSemiampleness.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Literature.Keel.semiampleness_completeSystem_literal",
+          "module": "KltDP.Literature.KeelCompleteSystem",
+          "kind": "axiom",
+          "source_path": "KltDP/Literature/KeelCompleteSystem.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Theorem 2.3 is Keel's Theorem 0.2, quoted by the manuscript from the literature. It is not proved in Lean: the wrapper `keelSemiampleness` is conditional on the statement as a hypothesis, and the full-scope statement is admitted as the literature axiom `KltDP.Literature.Keel.semiampleness_completeSystem_literal` (KltDP/Literature/KeelCompleteSystem.lean), which Theorem 2.6 consumes.",
+      "literature_dependencies": [
+        "KltDP.Literature.Keel.semiampleness_completeSystem_literal"
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "prop:minimal-resolution",
@@ -348,14 +580,148 @@
       "planned_declarations": [
         "KltDP.Manuscript.S02.minimalResolutionGeometry"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.ResolutionDatum",
+        "KltDP.Manuscript.ResolutionDatum.exceptional_rational",
+        "KltDP.Manuscript.S02.selfIntersection_le_neg_two",
+        "KltDP.Manuscript.ResolutionDatum.A_posDef",
+        "KltDP.Manuscript.ResolutionDatum.two_le_w",
+        "KltDP.Manuscript.ResolutionDatum.A_eq_graphWeightMatrix",
+        "KltDP.Manuscript.ResolutionDatum.KS_add_Lweil",
+        "KltDP.Manuscript.ResolutionDatum.A_mulVec_lam",
+        "KltDP.Manuscript.ResolutionDatum.lam_nonneg",
+        "KltDP.Manuscript.ResolutionDatum.lam_lt_one",
+        "KltDP.Manuscript.S03.picardTorsionFree",
+        "KltDP.Manuscript.S05.picardUnimodular",
+        "KltDP.Manuscript.S05.finrank_pic",
+        "KltDP.Geometry.IsMinimalResolution.picard_and_structure_invariants_of_kltDelPezzo",
+        "KltDP.Geometry.IsMinimalResolution.noetherRelation_of_kltDelPezzo"
+      ],
+      "evidence": [
+        "KltDP/Geometry/KltResolutionNoetherRelation.lean",
+        "KltDP/Geometry/KltResolutionPicardCohomologyInvariants.lean",
+        "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+        "KltDP/Manuscript/S02/MinimalResolutionGeometry.lean",
+        "KltDP/Manuscript/S03/PrimitiveSquareZero.lean",
+        "KltDP/Manuscript/S05/PicardIndex.lean"
+      ],
       "title": "Geometry of the minimal resolution",
       "printed_number": "2.4",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum",
+          "module": "KltDP.Manuscript.Datum.ResolutionDatum",
+          "kind": "structure",
+          "source_path": "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum.exceptional_rational",
+          "module": "KltDP.Manuscript.Datum.ResolutionDatum",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.selfIntersection_le_neg_two",
+          "module": "KltDP.Manuscript.S02.MinimalResolutionGeometry",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/MinimalResolutionGeometry.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum.A_posDef",
+          "module": "KltDP.Manuscript.Datum.ResolutionDatum",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum.two_le_w",
+          "module": "KltDP.Manuscript.Datum.ResolutionDatum",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum.A_eq_graphWeightMatrix",
+          "module": "KltDP.Manuscript.Datum.ResolutionDatum",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum.KS_add_Lweil",
+          "module": "KltDP.Manuscript.Datum.ResolutionDatum",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum.A_mulVec_lam",
+          "module": "KltDP.Manuscript.Datum.ResolutionDatum",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum.lam_nonneg",
+          "module": "KltDP.Manuscript.Datum.ResolutionDatum",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.ResolutionDatum.lam_lt_one",
+          "module": "KltDP.Manuscript.Datum.ResolutionDatum",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Datum/ResolutionDatum.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.picardTorsionFree",
+          "module": "KltDP.Manuscript.S03.PrimitiveSquareZero",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/PrimitiveSquareZero.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.picardUnimodular",
+          "module": "KltDP.Manuscript.S05.PicardIndex",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardIndex.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.finrank_pic",
+          "module": "KltDP.Manuscript.S05.PicardIndex",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardIndex.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Geometry.IsMinimalResolution.picard_and_structure_invariants_of_kltDelPezzo",
+          "module": "KltDP.Geometry.KltResolutionPicardCohomologyInvariants",
+          "kind": "theorem",
+          "source_path": "KltDP/Geometry/KltResolutionPicardCohomologyInvariants.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Geometry.IsMinimalResolution.noetherRelation_of_kltDelPezzo",
+          "module": "KltDP.Geometry.KltResolutionNoetherRelation",
+          "kind": "theorem",
+          "source_path": "KltDP/Geometry/KltResolutionNoetherRelation.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Proposition 2.4 is carried by the resolution datum `KltDP.Manuscript.ResolutionDatum` (a minimal resolution π : S → X of a rank-one klt del Pezzo surface) and its derived data: rational exceptional curves (`exceptional_rational`), square at most −2 (`S02.selfIntersection_le_neg_two`), positive definite negative intersection matrix A equal to the graph weight matrix (`A_posDef`, `A_eq_graphWeightMatrix`), K_S + Σ λ_i D_i = π^*K_X with λ = A⁻¹q and 0 ≤ λ_i < 1 (`KS_add_Lweil`, `A_mulVec_lam`, `lam_nonneg`, `lam_lt_one`), torsion-free unimodular Pic(S) (`S03.picardTorsionFree`, `S05.picardUnimodular`), #Irr(D) = ρ(S) − 1 (`S05.finrank_pic`) and K_S² + ρ(S) = 10 (`noetherRelation_of_kltDelPezzo`). The clause that S admits a birational morphism to P² or a rational ruling, and the identity #π₀(D) = n(X), are not listed here as standalone declarations; they are used through the union's contraction interface where the later sections need them. The union wrapper `KltDP.Manuscript.S02.minimalResolutionGeometry` fixes the statement shape only.",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:square-degree",
@@ -369,14 +735,62 @@
       "planned_declarations": [
         "KltDP.Manuscript.S02.squareAndDegree"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S02.square_formula",
+        "KltDP.Manuscript.S02.square_formula_inverse",
+        "KltDP.Manuscript.S02.degree_formula",
+        "KltDP.Manuscript.S02.minusOne_degree_formula",
+        "KltDP.Manuscript.S02.minusOne_degree_formula_of_regular"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S02/SquareDegree.lean"
+      ],
       "title": "Square and degree formulas",
       "printed_number": "2.5",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S02.square_formula",
+          "module": "KltDP.Manuscript.S02.SquareDegree",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/SquareDegree.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.square_formula_inverse",
+          "module": "KltDP.Manuscript.S02.SquareDegree",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/SquareDegree.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.degree_formula",
+          "module": "KltDP.Manuscript.S02.SquareDegree",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/SquareDegree.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.minusOne_degree_formula",
+          "module": "KltDP.Manuscript.S02.SquareDegree",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/SquareDegree.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.minusOne_degree_formula_of_regular",
+          "module": "KltDP.Manuscript.S02.SquareDegree",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/SquareDegree.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:anticanonical-contraction",
@@ -390,14 +804,67 @@
       "planned_declarations": [
         "KltDP.Manuscript.S02.anticanonicalContraction"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S02.anticanonicalContraction",
+        "KltDP.Manuscript.S02.exists_semiample_of_forest",
+        "KltDP.Manuscript.S02.exists_contraction_of_semiample",
+        "KltDP.Manuscript.S02.picardRank_eq_one_of_contraction",
+        "KltDP.Manuscript.S02.canonical_descent"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S02/AnticanonicalContraction.lean"
+      ],
       "title": "Anticanonical contraction to a rank-one klt del Pezzo surface",
       "printed_number": "2.6",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S02.anticanonicalContraction",
+          "module": "KltDP.Manuscript.S02.AnticanonicalContraction",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/AnticanonicalContraction.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.exists_semiample_of_forest",
+          "module": "KltDP.Manuscript.S02.AnticanonicalContraction",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/AnticanonicalContraction.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.exists_contraction_of_semiample",
+          "module": "KltDP.Manuscript.S02.AnticanonicalContraction",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/AnticanonicalContraction.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.picardRank_eq_one_of_contraction",
+          "module": "KltDP.Manuscript.S02.AnticanonicalContraction",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/AnticanonicalContraction.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.canonical_descent",
+          "module": "KltDP.Manuscript.S02.AnticanonicalContraction",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/AnticanonicalContraction.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Keel's theorem enters through the admitted literal and the Stein factorisation of the complete-system map through the admitted Stacks 03H0 literal; the canonical descent and the klt conclusion are proved.",
+      "literature_dependencies": [
+        "KltDP.Literature.Keel.semiampleness_completeSystem_literal",
+        "KltDP.Literature.Stacks.steinFactorization_noetherian_literal"
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:numerical-contraction",
@@ -411,14 +878,38 @@
       "planned_declarations": [
         "KltDP.Manuscript.S02.numericalRankOneContraction"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S02.numericalRankOneContraction",
+        "KltDP.Manuscript.S02.nef_and_nullCurves_of_numerical"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S02/NumericalContraction.lean"
+      ],
       "title": "Numerical rank-one contraction on a rational surface",
       "printed_number": "2.7",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S02.numericalRankOneContraction",
+          "module": "KltDP.Manuscript.S02.NumericalContraction",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/NumericalContraction.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.nef_and_nullCurves_of_numerical",
+          "module": "KltDP.Manuscript.S02.NumericalContraction",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/NumericalContraction.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:projection",
@@ -432,14 +923,70 @@
       "planned_declarations": [
         "KltDP.Manuscript.S02.rankOneProjection"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S02.rankOneProjection_green",
+        "KltDP.Manuscript.S02.rankOneProjection_charge",
+        "KltDP.Manuscript.S02.rankOneProjection_green_gt_one",
+        "KltDP.Manuscript.S02.rankOneProjection_charge_lt_one",
+        "KltDP.Manuscript.S02.A_inv_mulVec_q",
+        "KltDP.Manuscript.S02.Ldeg_pos"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S02/Projection.lean"
+      ],
       "title": "Rank-one projection identity",
       "printed_number": "2.8",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S02.rankOneProjection_green",
+          "module": "KltDP.Manuscript.S02.Projection",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/Projection.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.rankOneProjection_charge",
+          "module": "KltDP.Manuscript.S02.Projection",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/Projection.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.rankOneProjection_green_gt_one",
+          "module": "KltDP.Manuscript.S02.Projection",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/Projection.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.rankOneProjection_charge_lt_one",
+          "module": "KltDP.Manuscript.S02.Projection",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/Projection.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.A_inv_mulVec_q",
+          "module": "KltDP.Manuscript.S02.Projection",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/Projection.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.Ldeg_pos",
+          "module": "KltDP.Manuscript.S02.Projection",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/Projection.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:exterior-null-curves",
@@ -453,14 +1000,54 @@
       "planned_declarations": [
         "KltDP.Manuscript.S02.exteriorNullCurves"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S02.exteriorNullCurve_isMinusOne",
+        "KltDP.Manuscript.S02.exteriorNullCurves_disjoint",
+        "KltDP.Manuscript.S02.exteriorNullCurves_finite",
+        "KltDP.Manuscript.S02.exteriorNullCurves_intersectionPairing_eq_zero"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S02/ExteriorNullCurves.lean"
+      ],
       "title": "Null curves outside the minimal exceptional divisor",
       "printed_number": "2.9",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S02.exteriorNullCurve_isMinusOne",
+          "module": "KltDP.Manuscript.S02.ExteriorNullCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/ExteriorNullCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.exteriorNullCurves_disjoint",
+          "module": "KltDP.Manuscript.S02.ExteriorNullCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/ExteriorNullCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.exteriorNullCurves_finite",
+          "module": "KltDP.Manuscript.S02.ExteriorNullCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/ExteriorNullCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S02.exteriorNullCurves_intersectionPairing_eq_zero",
+          "module": "KltDP.Manuscript.S02.ExteriorNullCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S02/ExteriorNullCurves.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:primitive-square-zero",
@@ -474,14 +1061,74 @@
       "planned_declarations": [
         "KltDP.Manuscript.S03.primitiveSquareZeroRuling"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete_with_isolated_clauses",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S03.primitiveSquareZero_ruling",
+        "KltDP.Manuscript.S03.primitiveSquareZero_primitive",
+        "KltDP.Manuscript.S03.primitiveSquareZero_primitive_cartier",
+        "KltDP.Manuscript.S03.primitiveSquareZero_hZero",
+        "KltDP.Manuscript.S03.intersectionNumber_eq_zero_iff_vertical",
+        "KltDP.Manuscript.S03.exists_closedFiberDivisor"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S03/PrimitiveSquareZero.lean"
+      ],
       "title": "A nef divisor of square zero and canonical degree minus two",
       "printed_number": "3.1",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized; isolated clauses recorded",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S03.primitiveSquareZero_ruling",
+          "module": "KltDP.Manuscript.S03.PrimitiveSquareZero",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/PrimitiveSquareZero.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.primitiveSquareZero_primitive",
+          "module": "KltDP.Manuscript.S03.PrimitiveSquareZero",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/PrimitiveSquareZero.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.primitiveSquareZero_primitive_cartier",
+          "module": "KltDP.Manuscript.S03.PrimitiveSquareZero",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/PrimitiveSquareZero.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.primitiveSquareZero_hZero",
+          "module": "KltDP.Manuscript.S03.PrimitiveSquareZero",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/PrimitiveSquareZero.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.intersectionNumber_eq_zero_iff_vertical",
+          "module": "KltDP.Manuscript.S03.PrimitiveSquareZero",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/PrimitiveSquareZero.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.exists_closedFiberDivisor",
+          "module": "KltDP.Manuscript.S03.PrimitiveSquareZero",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/PrimitiveSquareZero.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Proved: the ruling from a nef class F with F² = 0 and K·F = −2, its primitivity, the vertical criterion F·C = 0, and closed fibre divisors.",
+      "isolated_clauses": [
+        "Smoothness of the generic fibre of the ruling (clause 3.1b). Not needed for Theorem 1.1."
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:ruling-fibers",
@@ -495,14 +1142,83 @@
       "planned_declarations": [
         "KltDP.Manuscript.S03.primitiveRulingFibers"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete_with_isolated_clauses",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S03.exists_isFiberDivisor",
+        "KltDP.Manuscript.S03.fiber_isConnected",
+        "KltDP.Manuscript.S03.rulingFibers_selfIntersection_neg",
+        "KltDP.Manuscript.S03.rulingFibers_exists_minusOneCurve",
+        "KltDP.Manuscript.S03.rulingFibers_picardRank_lower_bound",
+        "KltDP.Manuscript.S03.rulingFibers_reducibleFibers_finite",
+        "KltDP.Manuscript.S03.kernel_eq_smul_of_connected"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S03/RulingFibers.lean"
+      ],
       "title": "Primitive rational rulings and their fibers",
       "printed_number": "3.2",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized; isolated clauses recorded",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S03.exists_isFiberDivisor",
+          "module": "KltDP.Manuscript.S03.RulingFibers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/RulingFibers.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.fiber_isConnected",
+          "module": "KltDP.Manuscript.S03.RulingFibers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/RulingFibers.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.rulingFibers_selfIntersection_neg",
+          "module": "KltDP.Manuscript.S03.RulingFibers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/RulingFibers.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.rulingFibers_exists_minusOneCurve",
+          "module": "KltDP.Manuscript.S03.RulingFibers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/RulingFibers.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.rulingFibers_picardRank_lower_bound",
+          "module": "KltDP.Manuscript.S03.RulingFibers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/RulingFibers.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.rulingFibers_reducibleFibers_finite",
+          "module": "KltDP.Manuscript.S03.RulingFibers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/RulingFibers.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.kernel_eq_smul_of_connected",
+          "module": "KltDP.Manuscript.S03.RulingFibers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/RulingFibers.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Proved: fibre divisors, connectedness of fibres, negative square of components of reducible fibres, a vertical (−1)-curve in every reducible fibre, the kernel lemma, the Picard-rank lower bound and finiteness of the reducible fibres.",
+      "isolated_clauses": [
+        "(iii) the SNC-tree shape of reducible fibres.",
+        "(iv) the equality ρ(S) = 2 + Σ_t (n_t − 1); the lower bound ρ(S) ≥ 2 + Σ_t (n_t − 1) is proved (`rulingFibers_picardRank_lower_bound`). Section 7 uses only the lower bound and intersection arithmetic."
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:nef-threshold",
@@ -516,14 +1232,124 @@
       "planned_declarations": [
         "KltDP.Manuscript.S03.leastExteriorNefThreshold"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S03.thresholdClass",
+        "KltDP.Manuscript.S03.exists_exteriorMinusOne",
+        "KltDP.Manuscript.S03.exists_shortestExteriorMinusOne",
+        "KltDP.Manuscript.S03.thresholdClass_nef",
+        "KltDP.Manuscript.S03.thresholdClass_not_nef_of_gt",
+        "KltDP.Manuscript.S03.exterior_degree_bound",
+        "KltDP.Manuscript.S03.Ldeg_ge_of_not_exceptional",
+        "KltDP.Manuscript.S03.effective_small_degree_supported_on_exceptional",
+        "KltDP.Manuscript.S03.thresholdClass_square_nonneg",
+        "KltDP.Manuscript.S03.exists_minusOneCurve_of_extremalRay",
+        "KltDP.Manuscript.S03.exists_minusOneCurve_of_not_nef",
+        "KltDP.Manuscript.S03.nef_of_minusOne_nonneg"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S03/NefThreshold.lean",
+        "KltDP/Manuscript/S03/NefThresholdArithmetic.lean",
+        "KltDP/Manuscript/S03/NefThresholdCore.lean"
+      ],
       "title": "The least exterior degree is the nef anticanonical threshold",
       "printed_number": "3.3",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S03.thresholdClass",
+          "module": "KltDP.Manuscript.S03.NefThresholdArithmetic",
+          "kind": "def",
+          "source_path": "KltDP/Manuscript/S03/NefThresholdArithmetic.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.exists_exteriorMinusOne",
+          "module": "KltDP.Manuscript.S03.NefThreshold",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThreshold.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.exists_shortestExteriorMinusOne",
+          "module": "KltDP.Manuscript.S03.NefThreshold",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThreshold.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.thresholdClass_nef",
+          "module": "KltDP.Manuscript.S03.NefThreshold",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThreshold.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.thresholdClass_not_nef_of_gt",
+          "module": "KltDP.Manuscript.S03.NefThreshold",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThreshold.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.exterior_degree_bound",
+          "module": "KltDP.Manuscript.S03.NefThreshold",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThreshold.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.Ldeg_ge_of_not_exceptional",
+          "module": "KltDP.Manuscript.S03.NefThreshold",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThreshold.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.effective_small_degree_supported_on_exceptional",
+          "module": "KltDP.Manuscript.S03.NefThreshold",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThreshold.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.thresholdClass_square_nonneg",
+          "module": "KltDP.Manuscript.S03.NefThreshold",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThreshold.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.exists_minusOneCurve_of_extremalRay",
+          "module": "KltDP.Manuscript.S03.NefThresholdCore",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThresholdCore.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.exists_minusOneCurve_of_not_nef",
+          "module": "KltDP.Manuscript.S03.NefThresholdCore",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThresholdCore.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S03.nef_of_minusOne_nonneg",
+          "module": "KltDP.Manuscript.S03.NefThresholdCore",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S03/NefThresholdCore.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "The extremal-ray input (an exterior (−1)-curve on a K-negative extremal ray) uses the admitted instance of the contraction theorem, KltDP/Literature/Tanaka/ContractionTheorem.lean, together with the cone infrastructure in KltDP/Geometry/CurveConeReal.lean, CurveConeExtremal.lean and NumericalOneCycles.lean.",
+      "literature_dependencies": [
+        "KltDP.Literature.Tanaka.contraction_44_instance"
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:elementary-discrepancy",
@@ -537,14 +1363,46 @@
       "planned_declarations": [
         "KltDP.Manuscript.S04.elementaryDiscrepancyBound"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S04.elementaryDiscrepancyBound",
+        "KltDP.Manuscript.S04.endpoint_bound",
+        "KltDP.Manuscript.S04.convexity_bound"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S04/DiscrepancyLemmas.lean"
+      ],
       "title": "Elementary discrepancy bound",
       "printed_number": "4.1",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S04.elementaryDiscrepancyBound",
+          "module": "KltDP.Manuscript.S04.DiscrepancyLemmas",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/DiscrepancyLemmas.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.endpoint_bound",
+          "module": "KltDP.Manuscript.S04.DiscrepancyLemmas",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/DiscrepancyLemmas.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.convexity_bound",
+          "module": "KltDP.Manuscript.S04.DiscrepancyLemmas",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/DiscrepancyLemmas.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:excess-contact",
@@ -558,14 +1416,62 @@
       "planned_declarations": [
         "KltDP.Manuscript.S04.excessContactRigidity"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S04.IsExcessContact",
+        "KltDP.Manuscript.S04.exists_excess_contact",
+        "KltDP.Manuscript.S04.bounded_contact_simple",
+        "KltDP.Manuscript.S04.higher_weight_excess_contact",
+        "KltDP.Manuscript.S04.higher_weight_excess_contact_unique"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S04/ExcessContact.lean"
+      ],
       "title": "Existence and rigidity of an excess contact",
       "printed_number": "4.2",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S04.IsExcessContact",
+          "module": "KltDP.Manuscript.S04.ExcessContact",
+          "kind": "def",
+          "source_path": "KltDP/Manuscript/S04/ExcessContact.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.exists_excess_contact",
+          "module": "KltDP.Manuscript.S04.ExcessContact",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/ExcessContact.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.bounded_contact_simple",
+          "module": "KltDP.Manuscript.S04.ExcessContact",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/ExcessContact.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.higher_weight_excess_contact",
+          "module": "KltDP.Manuscript.S04.ExcessContact",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/ExcessContact.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.higher_weight_excess_contact_unique",
+          "module": "KltDP.Manuscript.S04.ExcessContact",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/ExcessContact.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:discrepancy-separation",
@@ -579,14 +1485,38 @@
       "planned_declarations": [
         "KltDP.Manuscript.S04.discrepancySeparation"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S04.discrepancySeparation",
+        "KltDP.Manuscript.S04.path_key"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S04/DiscrepancyLemmas.lean"
+      ],
       "title": "Discrepancy separation in one exceptional component",
       "printed_number": "4.3",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S04.discrepancySeparation",
+          "module": "KltDP.Manuscript.S04.DiscrepancyLemmas",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/DiscrepancyLemmas.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.path_key",
+          "module": "KltDP.Manuscript.S04.DiscrepancyLemmas",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/DiscrepancyLemmas.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:exceptional-valency",
@@ -600,14 +1530,38 @@
       "planned_declarations": [
         "KltDP.Manuscript.S04.exceptionalValencyAtMostThree"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S04.exceptionalValencyAtMostThree",
+        "KltDP.Manuscript.S04.sum_inv_w_neighbors_lt"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S04/DiscrepancyLemmas.lean"
+      ],
       "title": "Valencies of exceptional trees",
       "printed_number": "4.4",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S04.exceptionalValencyAtMostThree",
+          "module": "KltDP.Manuscript.S04.DiscrepancyLemmas",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/DiscrepancyLemmas.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.sum_inv_w_neighbors_lt",
+          "module": "KltDP.Manuscript.S04.DiscrepancyLemmas",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/DiscrepancyLemmas.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:one-component-replacement",
@@ -621,14 +1575,103 @@
       "planned_declarations": [
         "KltDP.Manuscript.S04.oneComponentReplacement"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S04.Replacement.oneComponentReplacement_datum",
+        "KltDP.Manuscript.S04.Replacement.oneComponentReplacement_datum_cases",
+        "KltDP.Manuscript.S04.Replacement.exists_minimalResolution_ncard_lt",
+        "KltDP.Manuscript.S04.Replacement.anticanonicalContraction_famG",
+        "KltDP.Manuscript.S04.Replacement.hC_nonneg",
+        "KltDP.Manuscript.S04.Replacement.hC_le_eta",
+        "KltDP.Manuscript.S04.Replacement.eta_lt_one",
+        "KltDP.Manuscript.S04.Replacement.square_gain_pos",
+        "KltDP.Manuscript.S04.Replacement.Lsq_lt_Lsq'",
+        "KltDP.Manuscript.S04.Replacement.singularPoints_card_eq"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S04/OneComponentReplacement.lean"
+      ],
       "title": "Replacement of one exceptional component",
       "printed_number": "4.5",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.oneComponentReplacement_datum",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.oneComponentReplacement_datum_cases",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.exists_minimalResolution_ncard_lt",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.anticanonicalContraction_famG",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.hC_nonneg",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.hC_le_eta",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.eta_lt_one",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.square_gain_pos",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.Lsq_lt_Lsq'",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.Replacement.singularPoints_card_eq",
+          "module": "KltDP.Manuscript.S04.OneComponentReplacement",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/OneComponentReplacement.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Exact-ρ clause: the manuscript's exact Picard drop ρ(S₁) = ρ(S) − 1 for the replaced datum is not proved; the strict inequality ρ(R₁.S) < ρ(R.S) (`exists_minimalResolution_ncard_lt`, `oneComponentReplacement_datum`) and the singular-point count change deg C − contactCount (or deg C − 1) are proved, which is what Theorem 8.1 uses. The scalar package 0 ≤ h ≤ η < 1, the null equations, the square gain and the contraction through Theorem 2.6 are proved.",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:isolated-node-exchange",
@@ -642,14 +1685,126 @@
       "planned_declarations": [
         "KltDP.Manuscript.S04.isolatedNodeExchange"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.IsolatedExchangeHyp",
+        "KltDP.Manuscript.S04.isolatedNodeExchange_datum",
+        "KltDP.Manuscript.S04.IsolatedNodeExchange.w_B_eq_three",
+        "KltDP.Manuscript.S04.IsolatedNodeExchange.half_lt_gC",
+        "KltDP.Manuscript.S04.isolatedExchangeHyp_of_degree_ge_two",
+        "KltDP.Manuscript.S04.isolatedExchangeHyp_of_terminal",
+        "KltDP.Manuscript.S04.IsolatedNodeExchange.exists_terminal_datum",
+        "KltDP.Manuscript.S04.isolatedExchangeTerminalHyp_of_blowups",
+        "KltDP.Manuscript.S04.isolatedExchangeHyp_of_blowups",
+        "KltDP.Manuscript.S04.hasPointBlowups_of_literal",
+        "KltDP.Manuscript.S04.isolatedExchangeHyp_of_literal",
+        "KltDP.Manuscript.isolatedExchangeHyp_all"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/Main/Final.lean",
+        "KltDP/Manuscript/S04/IsolatedNodeExchange.lean",
+        "KltDP/Manuscript/S04/IsolatedNodeExchangeTerminal.lean",
+        "KltDP/Manuscript/S07/Interfaces.lean"
+      ],
       "title": "The isolated-$A_1$ exchange with its two-curve contraction",
       "printed_number": "4.6",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.IsolatedExchangeHyp",
+          "module": "KltDP.Manuscript.S07.Interfaces",
+          "kind": "def",
+          "source_path": "KltDP/Manuscript/S07/Interfaces.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.isolatedNodeExchange_datum",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchange",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchange.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.IsolatedNodeExchange.w_B_eq_three",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchange",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchange.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.IsolatedNodeExchange.half_lt_gC",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchange",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchange.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.isolatedExchangeHyp_of_degree_ge_two",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchange",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchange.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.isolatedExchangeHyp_of_terminal",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchange",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchange.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.IsolatedNodeExchange.exists_terminal_datum",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchangeTerminal",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchangeTerminal.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.isolatedExchangeTerminalHyp_of_blowups",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchangeTerminal",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchangeTerminal.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.isolatedExchangeHyp_of_blowups",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchangeTerminal",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchangeTerminal.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.hasPointBlowups_of_literal",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchangeTerminal",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchangeTerminal.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S04.isolatedExchangeHyp_of_literal",
+          "module": "KltDP.Manuscript.S04.IsolatedNodeExchangeTerminal",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S04/IsolatedNodeExchangeTerminal.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.isolatedExchangeHyp_all",
+          "module": "KltDP.Manuscript.Main.Final",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/Main/Final.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Exact-ρ clause: the exact Picard drop ρ − 1 and the exact count change d − 2 are not proved; the strict inequalities used by Theorem 8.1 are. The valency d ≥ 2 case is unconditional (`isolatedExchangeHyp_of_degree_ge_two`); the terminal case d = 1 (KltDP/Manuscript/S04/IsolatedNodeExchangeTerminal.lean) blows up the node and uses the two admitted blowup inputs, the point-blowup literal (Stacks 0AGQ) and the strict-transform instance (Hartshorne V.3.6), discharged in `isolatedExchangeHyp_of_literal` and consumed by `isolatedExchangeHyp_all`.",
+      "literature_dependencies": [
+        "KltDP.Literature.Stacks.blowupRegularPoint_literal",
+        "KltDP.Literature.Hartshorne.hasContractionLifts_instance"
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:no-even-nodes",
@@ -663,14 +1818,48 @@
       "planned_declarations": [
         "KltDP.Manuscript.S05.isolatedNodeCodeVanishes"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Geometry.isolated_even_selection_eq_empty",
+        "KltDP.Geometry.exists_minimalResolution_with_no_even_isolatedNodes",
+        "KltDP.Manuscript.S05.isolated_nodes_no_half_sum"
+      ],
+      "evidence": [
+        "KltDP/Geometry/IsolatedNodeVanishing.lean",
+        "KltDP/Manuscript/S05/PicardIndex.lean"
+      ],
       "title": "Vanishing of the isolated-node code",
       "printed_number": "5.1",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Geometry.isolated_even_selection_eq_empty",
+          "module": "KltDP.Geometry.IsolatedNodeVanishing",
+          "kind": "theorem",
+          "source_path": "KltDP/Geometry/IsolatedNodeVanishing.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Geometry.exists_minimalResolution_with_no_even_isolatedNodes",
+          "module": "KltDP.Geometry.IsolatedNodeVanishing",
+          "kind": "theorem",
+          "source_path": "KltDP/Geometry/IsolatedNodeVanishing.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.isolated_nodes_no_half_sum",
+          "module": "KltDP.Manuscript.S05.PicardIndex",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardIndex.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Theorem 5.1 is the union theorem `KltDP.Geometry.isolated_even_selection_eq_empty` (KltDP/Geometry/IsolatedNodeVanishing.lean): in characteristic p > 2, an isolated (−2)-selection whose Picard class is divisible by two is empty; `S05.isolated_nodes_no_half_sum` restates it in the resolution datum.",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:picard-index",
@@ -684,14 +1873,70 @@
       "planned_declarations": [
         "KltDP.Manuscript.S05.fullPicardIndexObstruction"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S05.fullPicardIndexObstruction",
+        "KltDP.Manuscript.S05.exists_picard_lattice_data",
+        "KltDP.Manuscript.S05.isolated_nodes_card_le_index",
+        "KltDP.Manuscript.S05.index_sq_eq_det_mul",
+        "KltDP.Manuscript.S05.one_lt_green",
+        "KltDP.Manuscript.S05.det_mul_green_sub_one_is_square"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S05/PicardIndex.lean"
+      ],
       "title": "The full-index obstruction from isolated nodes",
       "printed_number": "5.2",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S05.fullPicardIndexObstruction",
+          "module": "KltDP.Manuscript.S05.PicardIndex",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardIndex.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.exists_picard_lattice_data",
+          "module": "KltDP.Manuscript.S05.PicardIndex",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardIndex.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.isolated_nodes_card_le_index",
+          "module": "KltDP.Manuscript.S05.PicardIndex",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardIndex.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.index_sq_eq_det_mul",
+          "module": "KltDP.Manuscript.S05.PicardIndex",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardIndex.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.one_lt_green",
+          "module": "KltDP.Manuscript.S05.PicardIndex",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardIndex.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.det_mul_green_sub_one_is_square",
+          "module": "KltDP.Manuscript.S05.PicardIndex",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardIndex.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:picard-parity",
@@ -705,14 +1950,70 @@
       "planned_declarations": [
         "KltDP.Manuscript.S05.picardIndexParity"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S05.picardIndexParity",
+        "KltDP.Manuscript.S05.picardIndexParity_code",
+        "KltDP.Manuscript.S05.picardIndexParity_word",
+        "KltDP.Manuscript.S05.picardIndexParity_36",
+        "KltDP.Manuscript.S05.picardIndexParity_24",
+        "KltDP.Manuscript.S05.picardIndexParity_24_impossible"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S05/PicardParity.lean"
+      ],
       "title": "Riemann--Roch parity and the full Picard index",
       "printed_number": "5.3",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S05.picardIndexParity",
+          "module": "KltDP.Manuscript.S05.PicardParity",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardParity.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.picardIndexParity_code",
+          "module": "KltDP.Manuscript.S05.PicardParity",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardParity.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.picardIndexParity_word",
+          "module": "KltDP.Manuscript.S05.PicardParity",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardParity.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.picardIndexParity_36",
+          "module": "KltDP.Manuscript.S05.PicardParity",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardParity.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.picardIndexParity_24",
+          "module": "KltDP.Manuscript.S05.PicardParity",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardParity.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.picardIndexParity_24_impossible",
+          "module": "KltDP.Manuscript.S05.PicardParity",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/PicardParity.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:eight-curve-forest",
@@ -726,14 +2027,30 @@
       "planned_declarations": [
         "KltDP.Manuscript.S05.eightWeightTwoCurves"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S05.eightWeightTwoCurves"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S05/EightCurveForest.lean"
+      ],
       "title": "An eight-curve weight-two forest has at most four connected components",
       "printed_number": "5.4",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S05.eightWeightTwoCurves",
+          "module": "KltDP.Manuscript.S05.EightCurveForest",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/EightCurveForest.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "prop:zero-adjoint",
@@ -747,14 +2064,54 @@
       "planned_declarations": [
         "KltDP.Manuscript.S05.zeroAdjointBound"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S05.zeroAdjointBound",
+        "KltDP.Manuscript.S05.zeroAdjointBound_pic",
+        "KltDP.Manuscript.S05.five_le_components",
+        "KltDP.Manuscript.S05.Ksq_eq"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S05/ZeroAdjoint.lean"
+      ],
       "title": "The zero-adjoint three-curve configuration",
       "printed_number": "5.5",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S05.zeroAdjointBound",
+          "module": "KltDP.Manuscript.S05.ZeroAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/ZeroAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.zeroAdjointBound_pic",
+          "module": "KltDP.Manuscript.S05.ZeroAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/ZeroAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.five_le_components",
+          "module": "KltDP.Manuscript.S05.ZeroAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/ZeroAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S05.Ksq_eq",
+          "module": "KltDP.Manuscript.S05.ZeroAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S05/ZeroAdjoint.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:square-one-adjoint",
@@ -768,14 +2125,72 @@
       "planned_declarations": [
         "KltDP.Manuscript.S06.squareOneAdjointRemainder"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S06.squareOneAdjoint_U1",
+        "KltDP.Manuscript.S06.squareOneAdjoint_U2",
+        "KltDP.Manuscript.S06.squareOneAdjoint_U3",
+        "KltDP.Manuscript.S06.squareOneClass_U1",
+        "KltDP.Manuscript.S06.squareOneClass_U2",
+        "KltDP.Manuscript.S06.squareOneClass_U3"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S06/SquareOneAdjoint.lean",
+        "KltDP/Manuscript/S06/SquareOneBound.lean"
+      ],
       "title": "The effective adjoint remainder of a square-one configuration",
       "printed_number": "6.1",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S06.squareOneAdjoint_U1",
+          "module": "KltDP.Manuscript.S06.SquareOneAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneAdjoint_U2",
+          "module": "KltDP.Manuscript.S06.SquareOneAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneAdjoint_U3",
+          "module": "KltDP.Manuscript.S06.SquareOneAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneClass_U1",
+          "module": "KltDP.Manuscript.S06.SquareOneBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneBound.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneClass_U2",
+          "module": "KltDP.Manuscript.S06.SquareOneBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneBound.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneClass_U3",
+          "module": "KltDP.Manuscript.S06.SquareOneBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneBound.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "The three input types are `squareOneAdjoint_U1` (A = W + P), `squareOneAdjoint_U2` (A = U + V + P) and `squareOneAdjoint_U3` (A = B + P): the effective adjoint remainder N with its Picard identity, L-degree, support and exterior-null occurrence. The nef adjoint classes of the three types are `squareOneClass_U1/U2/U3` (KltDP/Manuscript/S06/SquareOneBound.lean).",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "prop:square-one-bound",
@@ -789,14 +2204,70 @@
       "planned_declarations": [
         "KltDP.Manuscript.S06.squareOneConfigurationBounds"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S06.squareOneBound_i",
+        "KltDP.Manuscript.S06.squareOneBound_U1",
+        "KltDP.Manuscript.S06.squareOneBound_U2",
+        "KltDP.Manuscript.S06.squareOneBound_U3",
+        "KltDP.Manuscript.S06.squareOneStructure_U3",
+        "KltDP.Manuscript.S06.squareOneStructure_of_Knum_eq_neg"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S06/SquareOneBound.lean"
+      ],
       "title": "Singular-point bounds for square-one configurations",
       "printed_number": "6.2",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S06.squareOneBound_i",
+          "module": "KltDP.Manuscript.S06.SquareOneBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneBound.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneBound_U1",
+          "module": "KltDP.Manuscript.S06.SquareOneBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneBound.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneBound_U2",
+          "module": "KltDP.Manuscript.S06.SquareOneBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneBound.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneBound_U3",
+          "module": "KltDP.Manuscript.S06.SquareOneBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneBound.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneStructure_U3",
+          "module": "KltDP.Manuscript.S06.SquareOneBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneBound.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.squareOneStructure_of_Knum_eq_neg",
+          "module": "KltDP.Manuscript.S06.SquareOneBound",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/SquareOneBound.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:adjacent-contact-adjoint",
@@ -810,14 +2281,71 @@
       "planned_declarations": [
         "KltDP.Manuscript.S06.adjacentContactAdjoint"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S06Adj.adjacentContactAdjoint",
+        "KltDP.Manuscript.S06Adj.AdjointRemainder",
+        "KltDP.Manuscript.S06Adj.adjointCore",
+        "KltDP.Manuscript.S06Adj.weight_le_four",
+        "KltDP.Manuscript.S06Adj.remainder_ne_zero_of_contact",
+        "KltDP.Manuscript.S06Adj.singularPoints_le_seven_of_remainder_zero"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S06/AdjacentContactAdjoint.lean"
+      ],
       "title": "The adjacent-contact adjoint",
       "printed_number": "6.3",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S06Adj.adjacentContactAdjoint",
+          "module": "KltDP.Manuscript.S06.AdjacentContactAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/AdjacentContactAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.AdjointRemainder",
+          "module": "KltDP.Manuscript.S06.AdjacentContactAdjoint",
+          "kind": "structure",
+          "source_path": "KltDP/Manuscript/S06/AdjacentContactAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.adjointCore",
+          "module": "KltDP.Manuscript.S06.AdjacentContactAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/AdjacentContactAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.weight_le_four",
+          "module": "KltDP.Manuscript.S06.AdjacentContactAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/AdjacentContactAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.remainder_ne_zero_of_contact",
+          "module": "KltDP.Manuscript.S06.AdjacentContactAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/AdjacentContactAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.singularPoints_le_seven_of_remainder_zero",
+          "module": "KltDP.Manuscript.S06.AdjacentContactAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/AdjacentContactAdjoint.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "The declarations live in the namespace `KltDP.Manuscript.S06Adj`; `KltDP.Manuscript.S06` re-exports `adjacentContactAdjoint`, `remainder_ne_zero_of_contact` and `singularPoints_le_seven_of_remainder_zero` as aliases.",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "cor:multiple-contact",
@@ -831,14 +2359,38 @@
       "planned_declarations": [
         "KltDP.Manuscript.S06.shortestMultipleWeightTwoContact"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S06.multipleContact",
+        "KltDP.Manuscript.S06.multipleContact_bound"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S06/MultipleContact.lean"
+      ],
       "title": "The only possible multiple weight-two contact at a shortest curve",
       "printed_number": "6.4",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S06.multipleContact",
+          "module": "KltDP.Manuscript.S06.MultipleContact",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/MultipleContact.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06.multipleContact_bound",
+          "module": "KltDP.Manuscript.S06.MultipleContact",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/MultipleContact.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "prop:cubic-adjoint",
@@ -852,14 +2404,63 @@
       "planned_declarations": [
         "KltDP.Manuscript.S06.threeWeightTwoAdjoint"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S06Adj.cubicAdjoint",
+        "KltDP.Manuscript.S06Adj.CubicRemainder",
+        "KltDP.Manuscript.S06Adj.cubic_rulings",
+        "KltDP.Manuscript.S06Adj.cubicRemainder_eq_zero_of_no_exterior",
+        "KltDP.Manuscript.S06Adj.singularPoints_le_seven_of_cubicRemainder"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S06/CubicAdjoint.lean"
+      ],
       "title": "An effective adjoint from three $(-2)$-contacts",
       "printed_number": "6.5",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S06Adj.cubicAdjoint",
+          "module": "KltDP.Manuscript.S06.CubicAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/CubicAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.CubicRemainder",
+          "module": "KltDP.Manuscript.S06.CubicAdjoint",
+          "kind": "structure",
+          "source_path": "KltDP/Manuscript/S06/CubicAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.cubic_rulings",
+          "module": "KltDP.Manuscript.S06.CubicAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/CubicAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.cubicRemainder_eq_zero_of_no_exterior",
+          "module": "KltDP.Manuscript.S06.CubicAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/CubicAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.singularPoints_le_seven_of_cubicRemainder",
+          "module": "KltDP.Manuscript.S06.CubicAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/CubicAdjoint.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Namespace `KltDP.Manuscript.S06Adj`, with aliases in `KltDP.Manuscript.S06`.",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "prop:three-contact-single-component",
@@ -873,14 +2474,39 @@
       "planned_declarations": [
         "KltDP.Manuscript.S06.singleThreeContactAdjointBound"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S06Adj.threeContactSingleComponent",
+        "KltDP.Manuscript.S06Adj.threeContactSingleComponent_of"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S06/ThreeContactSingleComponent.lean"
+      ],
       "title": "A singular-point bound for a single exterior adjoint component",
       "printed_number": "6.6",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S06Adj.threeContactSingleComponent",
+          "module": "KltDP.Manuscript.S06.ThreeContactSingleComponent",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/ThreeContactSingleComponent.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.threeContactSingleComponent_of",
+          "module": "KltDP.Manuscript.S06.ThreeContactSingleComponent",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/ThreeContactSingleComponent.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Namespace `KltDP.Manuscript.S06Adj`, with aliases in `KltDP.Manuscript.S06`.",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:three-contact-descent",
@@ -894,14 +2520,39 @@
       "planned_declarations": [
         "KltDP.Manuscript.S06.strictThreeContactDescent"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S06Adj.threeContactDescent",
+        "KltDP.Manuscript.S06Adj.threeContactDescent_of"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S06/ThreeContactDescent.lean"
+      ],
       "title": "Strict adjoint descent from any three weight-two contacts",
       "printed_number": "6.7",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S06Adj.threeContactDescent",
+          "module": "KltDP.Manuscript.S06.ThreeContactDescent",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/ThreeContactDescent.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S06Adj.threeContactDescent_of",
+          "module": "KltDP.Manuscript.S06.ThreeContactDescent",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S06/ThreeContactDescent.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Namespace `KltDP.Manuscript.S06Adj`, with aliases in `KltDP.Manuscript.S06`. Conclusion: #Sing(X) ≤ 7, or a shorter disjoint exterior (−1)-curve Q with L·Q ≤ ℓ − v/2.",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:forest-count",
@@ -915,14 +2566,54 @@
       "planned_declarations": [
         "KltDP.Manuscript.S07.rulingForestComponentCount"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S07.forestCount",
+        "KltDP.Manuscript.S07.forestCount_nat",
+        "KltDP.Manuscript.S07.forest_component_count",
+        "KltDP.Manuscript.S07.forestCount_of_reducible_subset"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S07/ForestCount.lean"
+      ],
       "title": "Connected-component count from a rational ruling",
       "printed_number": "7.1",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S07.forestCount",
+          "module": "KltDP.Manuscript.S07.ForestCount",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/ForestCount.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.forestCount_nat",
+          "module": "KltDP.Manuscript.S07.ForestCount",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/ForestCount.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.forest_component_count",
+          "module": "KltDP.Manuscript.S07.ForestCount",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/ForestCount.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.forestCount_of_reducible_subset",
+          "module": "KltDP.Manuscript.S07.ForestCount",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/ForestCount.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:bisection-ramification",
@@ -936,14 +2627,67 @@
       "planned_declarations": [
         "KltDP.Manuscript.S07.bisectionRamification"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S07.bisection_pullback_degree",
+        "KltDP.Manuscript.S07.bisectionFiber_singleton",
+        "KltDP.Manuscript.S07.RiemannHurwitzDegreeTwo",
+        "KltDP.Manuscript.S07.bisectionRamification_count",
+        "KltDP.Manuscript.S07.riemannHurwitzDegreeTwo_of_instance"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S07/BisectionRamification.lean",
+        "KltDP/Manuscript/S07/HurwitzInput.lean"
+      ],
       "title": "Ramification of a smooth bisection",
       "printed_number": "7.2",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S07.bisection_pullback_degree",
+          "module": "KltDP.Manuscript.S07.BisectionRamification",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/BisectionRamification.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.bisectionFiber_singleton",
+          "module": "KltDP.Manuscript.S07.BisectionRamification",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/BisectionRamification.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.RiemannHurwitzDegreeTwo",
+          "module": "KltDP.Manuscript.S07.BisectionRamification",
+          "kind": "def",
+          "source_path": "KltDP/Manuscript/S07/BisectionRamification.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.bisectionRamification_count",
+          "module": "KltDP.Manuscript.S07.BisectionRamification",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/BisectionRamification.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.riemannHurwitzDegreeTwo_of_instance",
+          "module": "KltDP.Manuscript.S07.HurwitzInput",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/HurwitzInput.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "`bisectionRamification_count` is conditional on `RiemannHurwitzDegreeTwo`, which `riemannHurwitzDegreeTwo_of_instance` (KltDP/Manuscript/S07/HurwitzInput.lean) discharges from the admitted degree-two Hurwitz instance (Hartshorne IV.2.4 and IV.2.2(b)).",
+      "literature_dependencies": [
+        "KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance"
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:fiber-degree-equality",
@@ -957,14 +2701,86 @@
       "planned_declarations": [
         "KltDP.Manuscript.S07.leastDegreeFiberPatterns"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S07.exterior_component_isMinusOne",
+        "KltDP.Manuscript.S07.fiber_degree_equalities",
+        "KltDP.Manuscript.S07.exterior_pattern",
+        "KltDP.Manuscript.S07.numExterior_eq_one_or_two",
+        "KltDP.Manuscript.S07.pattern_two_valency",
+        "KltDP.Manuscript.S07.pattern_two_numPieces_le_two",
+        "KltDP.Manuscript.S07.pattern_one_one_chain",
+        "KltDP.Manuscript.S07.card_twoExteriorFibres_le"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S07/FiberDegreeEquality.lean"
+      ],
       "title": "Fibers of least possible anticanonical degree",
       "printed_number": "7.3",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S07.exterior_component_isMinusOne",
+          "module": "KltDP.Manuscript.S07.FiberDegreeEquality",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/FiberDegreeEquality.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.fiber_degree_equalities",
+          "module": "KltDP.Manuscript.S07.FiberDegreeEquality",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/FiberDegreeEquality.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.exterior_pattern",
+          "module": "KltDP.Manuscript.S07.FiberDegreeEquality",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/FiberDegreeEquality.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.numExterior_eq_one_or_two",
+          "module": "KltDP.Manuscript.S07.FiberDegreeEquality",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/FiberDegreeEquality.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.pattern_two_valency",
+          "module": "KltDP.Manuscript.S07.FiberDegreeEquality",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/FiberDegreeEquality.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.pattern_two_numPieces_le_two",
+          "module": "KltDP.Manuscript.S07.FiberDegreeEquality",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/FiberDegreeEquality.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.pattern_one_one_chain",
+          "module": "KltDP.Manuscript.S07.FiberDegreeEquality",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/FiberDegreeEquality.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.card_twoExteriorFibres_le",
+          "module": "KltDP.Manuscript.S07.FiberDegreeEquality",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/FiberDegreeEquality.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:bisection-adjoint",
@@ -978,14 +2794,46 @@
       "planned_declarations": [
         "KltDP.Manuscript.S07.bisectionAdjoint"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S07.bisectionAdjoint",
+        "KltDP.Manuscript.S07.exists_adjoint",
+        "KltDP.Manuscript.S07.adjoint_exterior_dichotomy"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S07/BisectionAdjoint.lean"
+      ],
       "title": "A bisection adjoint is zero or one exterior curve",
       "printed_number": "7.4",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S07.bisectionAdjoint",
+          "module": "KltDP.Manuscript.S07.BisectionAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/BisectionAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.exists_adjoint",
+          "module": "KltDP.Manuscript.S07.BisectionAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/BisectionAdjoint.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.adjoint_exterior_dichotomy",
+          "module": "KltDP.Manuscript.S07.BisectionAdjoint",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/BisectionAdjoint.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:two-contact-ruling",
@@ -999,14 +2847,66 @@
       "planned_declarations": [
         "KltDP.Manuscript.S07.twoContactRulingBound"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S07.twoContactRulingBound",
+        "KltDP.Manuscript.S07.twoContactRulingHyp",
+        "KltDP.Manuscript.TwoContactRulingHyp",
+        "KltDP.Manuscript.S07.count_le_seven_of_sections",
+        "KltDP.Manuscript.S07.singularPoints_le_seven_of_bisection"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S07/Interfaces.lean",
+        "KltDP/Manuscript/S07/TwoContactRuling.lean"
+      ],
       "title": "The singular-point bound from sections and bisections",
       "printed_number": "7.5",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S07.twoContactRulingBound",
+          "module": "KltDP.Manuscript.S07.TwoContactRuling",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/TwoContactRuling.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.twoContactRulingHyp",
+          "module": "KltDP.Manuscript.S07.TwoContactRuling",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/TwoContactRuling.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.TwoContactRulingHyp",
+          "module": "KltDP.Manuscript.S07.Interfaces",
+          "kind": "def",
+          "source_path": "KltDP/Manuscript/S07/Interfaces.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.count_le_seven_of_sections",
+          "module": "KltDP.Manuscript.S07.TwoContactRuling",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/TwoContactRuling.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.singularPoints_le_seven_of_bisection",
+          "module": "KltDP.Manuscript.S07.TwoContactRuling",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/TwoContactRuling.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "literature_dependencies": [
+        "KltDP.Literature.Hartshorne.hurwitz_degreeTwo_projectiveLine_instance"
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:adjoint-reduction",
@@ -1020,14 +2920,48 @@
       "planned_declarations": [
         "KltDP.Manuscript.S08.singleExteriorAdjointReduction"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S07.singleExteriorAdjointReduction_of",
+        "KltDP.Manuscript.S07.adjointConfiguration_of_core",
+        "KltDP.Manuscript.AdjointConfiguration"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S07/AdjointConfiguration.lean",
+        "KltDP/Manuscript/S07/AdjointReduction.lean"
+      ],
       "title": "A single exterior adjoint curve for a minimal counterexample",
       "printed_number": "8.1",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S07.singleExteriorAdjointReduction_of",
+          "module": "KltDP.Manuscript.S07.AdjointReduction",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/AdjointReduction.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S07.adjointConfiguration_of_core",
+          "module": "KltDP.Manuscript.S07.AdjointReduction",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S07/AdjointReduction.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.AdjointConfiguration",
+          "module": "KltDP.Manuscript.S07.AdjointConfiguration",
+          "kind": "structure",
+          "source_path": "KltDP/Manuscript/S07/AdjointConfiguration.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "`singleExteriorAdjointReduction_of` takes Theorem 7.5 (`TwoContactRulingHyp`) and Theorem 4.6 (`IsolatedExchangeHyp`) as interface hypotheses; both are discharged in the assembly of Theorem 1.1 (`twoContactRulingHyp`, `isolatedExchangeHyp_all`). The conclusion is the structure `AdjointConfiguration` (KltDP/Manuscript/S07/AdjointConfiguration.lean).",
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "lem:rooted-trees",
@@ -1353,14 +3287,30 @@
       "planned_declarations": [
         "KltDP.Manuscript.S09.singleAdjointForestImpossible"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S08.singleAdjointForestImpossible"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S08/ForestExclusion.lean"
+      ],
       "title": "The single exterior adjoint configuration is impossible",
       "printed_number": "9.3",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S08.singleAdjointForestImpossible",
+          "module": "KltDP.Manuscript.S08.ForestExclusion",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S08/ForestExclusion.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "prop:frobenius-family",
@@ -1374,14 +3324,59 @@
       "planned_declarations": [
         "KltDP.Manuscript.S10.frobeniusFamily"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S10.frobeniusFamily",
+        "KltDP.Manuscript.S10.discrepancy_coefficients",
+        "KltDP.Manuscript.S10.anticanonical_pullback_classMap",
+        "KltDP.Manuscript.S10.anticanonical_pullback_newest_degree"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S10/FrobeniusFamily.lean"
+      ],
       "title": "Canonical divisors in the Frobenius family",
       "printed_number": "10.1",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S10.frobeniusFamily",
+          "module": "KltDP.Manuscript.S10.FrobeniusFamily",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/FrobeniusFamily.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.discrepancy_coefficients",
+          "module": "KltDP.Manuscript.S10.FrobeniusFamily",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/FrobeniusFamily.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.anticanonical_pullback_classMap",
+          "module": "KltDP.Manuscript.S10.FrobeniusFamily",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/FrobeniusFamily.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.anticanonical_pullback_newest_degree",
+          "module": "KltDP.Manuscript.S10.FrobeniusFamily",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/FrobeniusFamily.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Proved for all p and n: the classes, the Gram matrix, M nef and big with the stated null locus, M² = p(n − 2), L ∼ tM, the discrepancies, the del Pezzo criterion, the trichotomy and L² = d²/(p(n − 2)).",
+      "omitted_descriptive_clauses": [
+        "The restatement M ∼ π^*A of the pulled-back ample class.",
+        "The description of the contact points as sets."
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "thm:characteristic-two",
@@ -1395,14 +3390,66 @@
       "planned_declarations": [
         "KltDP.Manuscript.S10.characteristicTwoFamily"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S10.characteristicTwoFamily_code",
+        "KltDP.Manuscript.S10.sevenNodes_code",
+        "KltDP.Manuscript.S10.graph_inseparable_bisection",
+        "KltDP.Manuscript.S10.secondRuling_fiber_irreducible",
+        "KltDP.Manuscript.S10.code_half_class"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S10/CharacteristicTwo.lean"
+      ],
       "title": "Rulings and divisibility on the Keel--McKernan family",
       "printed_number": "10.2",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S10.characteristicTwoFamily_code",
+          "module": "KltDP.Manuscript.S10.CharacteristicTwo",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/CharacteristicTwo.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.sevenNodes_code",
+          "module": "KltDP.Manuscript.S10.CharacteristicTwo",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/CharacteristicTwo.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.graph_inseparable_bisection",
+          "module": "KltDP.Manuscript.S10.CharacteristicTwo",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/CharacteristicTwo.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.secondRuling_fiber_irreducible",
+          "module": "KltDP.Manuscript.S10.CharacteristicTwo",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/CharacteristicTwo.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.code_half_class",
+          "module": "KltDP.Manuscript.S10.CharacteristicTwo",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/CharacteristicTwo.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Proved: the counts, K², the forest, the classes of L, ℓ_ext and the adjoint, the fibres F_i + U_i + 2P_i, the inseparable bisection and the code clauses DE(n).",
+      "omitted_descriptive_clauses": [
+        "Non-irreducibility of the special fibre."
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "cor:inseparable-covers",
@@ -1416,14 +3463,57 @@
       "planned_declarations": [
         "KltDP.Manuscript.S10.inseparableCoverFailures"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S10.bisection_inseparable",
+        "KltDP.Manuscript.S10.evenSet_pair",
+        "KltDP.Manuscript.S10.squareRoot_purelyInseparable",
+        "KltDP.Manuscript.S10.squareRoot_coverAlgebra_equiv"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S10/InseparableCovers.lean"
+      ],
       "title": "Failure of the separability arguments in characteristic two",
       "printed_number": "10.3",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S10.bisection_inseparable",
+          "module": "KltDP.Manuscript.S10.InseparableCovers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/InseparableCovers.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.evenSet_pair",
+          "module": "KltDP.Manuscript.S10.InseparableCovers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/InseparableCovers.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.squareRoot_purelyInseparable",
+          "module": "KltDP.Manuscript.S10.InseparableCovers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/InseparableCovers.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S10.squareRoot_coverAlgebra_equiv",
+          "module": "KltDP.Manuscript.S10.InseparableCovers",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S10/InseparableCovers.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "omitted_descriptive_clauses": [
+        "The non-reduced double-tree restriction."
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "prop:equality-negative-curves",
@@ -1437,14 +3527,107 @@
       "planned_declarations": [
         "KltDP.Manuscript.S0A.equalityNegativeCurves"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete_with_isolated_clauses",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S11.sevenPointNegativeCurves",
+        "KltDP.Manuscript.S11.thirteen_squares",
+        "KltDP.Manuscript.S11.thirteen_canonical",
+        "KltDP.Manuscript.S11.thirteen_degrees",
+        "KltDP.Manuscript.S11.thirteen_contacts",
+        "KltDP.Manuscript.S11.thirteen_distinct",
+        "KltDP.Manuscript.S11.newestCurveP_isMinusOne",
+        "KltDP.Manuscript.S11.newestCurveP_isShortest",
+        "KltDP.Manuscript.S11.datum_Ldeg_isLeast",
+        "KltDP.Manuscript.S11.exterior_negative_class_mem_patterns_of"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S11/NegativeCurves.lean"
+      ],
       "title": "The thirteen nonexceptional negative curves on the minimal resolution",
       "printed_number": "A.1",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized; isolated clauses recorded",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S11.sevenPointNegativeCurves",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.thirteen_squares",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.thirteen_canonical",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.thirteen_degrees",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.thirteen_contacts",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.thirteen_distinct",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.newestCurveP_isMinusOne",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.newestCurveP_isShortest",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.datum_Ldeg_isLeast",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.exterior_negative_class_mem_patterns_of",
+          "module": "KltDP.Manuscript.S11.NegativeCurves",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/NegativeCurves.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "Proved on the actual seven-point surface: the thirteen classes with square −1, K·Z = −1 and L-degrees 1/3, 1/3, 2/3, 2/3, 1; the curves P_i are actual shortest exterior (−1)-curves with L·P_i = 1/3; the least exterior degree is 1/3.",
+      "isolated_clauses": [
+        "The actual curves T_i, Θ, Q_i and W_i are not constructed (the library cannot construct those curves); their classes, squares, canonical degrees, L-degrees and contacts are proved at the lattice level (`thirteen_*`).",
+        "The completeness clause (the displayed list is the complete list of exterior negative prime curves)."
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "prop:equality-adjoints",
@@ -1458,14 +3641,107 @@
       "planned_declarations": [
         "KltDP.Manuscript.S0A.equalityAdjointsAndReplacements"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete_with_isolated_clauses",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S11.adjoint_one",
+        "KltDP.Manuscript.S11.adjoint_two",
+        "KltDP.Manuscript.S11.adjoint_three",
+        "KltDP.Manuscript.S11.adjoint_four",
+        "KltDP.Manuscript.S11.adjoint_five",
+        "KltDP.Manuscript.S11.adjoint_vector_identities",
+        "KltDP.Manuscript.S11.adjoint_pairs_degree",
+        "KltDP.Manuscript.S11.replacement_numerics",
+        "KltDP.Manuscript.S11.replacedNef_square",
+        "KltDP.Manuscript.S11.component_count_change"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S11/EqualityAdjoints.lean"
+      ],
       "title": "Adjoint identities and singular-point counts on the equality example",
       "printed_number": "A.2",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized; isolated clauses recorded",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S11.adjoint_one",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.adjoint_two",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.adjoint_three",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.adjoint_four",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.adjoint_five",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.adjoint_vector_identities",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.adjoint_pairs_degree",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.replacement_numerics",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.replacedNef_square",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.component_count_change",
+          "module": "KltDP.Manuscript.S11.EqualityAdjoints",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityAdjoints.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "scope_note": "The five adjoint identities are proved as linear equivalences in Pic(S) with actual divisors (`adjoint_one` to `adjoint_five`), with the replacement numerics. The lane ledger records the two isolated clauses; the packaging keeps them isolated rather than absorbing them into a completeness claim.",
+      "isolated_clauses": [
+        "Uniqueness of the effective representatives of the right-hand sides.",
+        "The six-point target obtained through Theorem 4.5."
+      ],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "cor:equality-lattice",
@@ -1479,14 +3755,102 @@
       "planned_declarations": [
         "KltDP.Manuscript.S0A.equalityLatticeAndOptimality"
       ],
-      "status": "specified",
-      "compiled_declarations": [],
-      "evidence": [],
+      "status": "complete",
+      "compiled_declarations": [
+        "KltDP.Manuscript.S11.sevenPointLattices",
+        "KltDP.Manuscript.S11.datum_Ksq",
+        "KltDP.Manuscript.S11.datum_A_det",
+        "KltDP.Manuscript.S11.datum_green_newest",
+        "KltDP.Manuscript.S11.datum_index_newest",
+        "KltDP.Manuscript.S11.datum_borderedGram_newest",
+        "KltDP.Manuscript.S11.datum_lam",
+        "KltDP.Manuscript.S11.graphIso",
+        "KltDP.Manuscript.S11.graph_card_edgeFinset",
+        "KltDP.Manuscript.S11.graph_card_connectedComponent"
+      ],
+      "evidence": [
+        "KltDP/Manuscript/S11/EqualityLattices.lean"
+      ],
       "title": "Intersection lattices at equality",
       "printed_number": "A.3",
-      "display_status": "open; specified",
-      "declaration_records": [],
-      "acceptance_excerpts": []
+      "display_status": "formalized",
+      "declaration_records": [
+        {
+          "name": "KltDP.Manuscript.S11.sevenPointLattices",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.datum_Ksq",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.datum_A_det",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.datum_green_newest",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.datum_index_newest",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.datum_borderedGram_newest",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.datum_lam",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.graphIso",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "def",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.graph_card_edgeFinset",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        },
+        {
+          "name": "KltDP.Manuscript.S11.graph_card_connectedComponent",
+          "module": "KltDP.Manuscript.S11.EqualityLattices",
+          "kind": "theorem",
+          "source_path": "KltDP/Manuscript/S11/EqualityLattices.lean",
+          "axioms": null
+        }
+      ],
+      "acceptance_excerpts": [],
+      "formalization_record": {
+        "built_on": "build-vm lane /home/david/claude-klt-20260915",
+        "lane_ledger": "manuscript lane PROGRESS.md (2026-09-16)"
+      }
     },
     {
       "id": "F01",
@@ -2081,14 +4445,15 @@
         "line_end": 356
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Intersection theory and numerical equivalence",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F04",
@@ -2100,14 +4465,15 @@
         "line_end": 326
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Canonical divisors, Q-Cartier pullback and discrepancy semantics",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F05",
@@ -2119,14 +4485,15 @@
         "line_end": 356
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Cohomology, Euler characteristic and effective representatives",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F06",
@@ -2138,14 +4505,15 @@
         "line_end": 348
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Global Hodge index including nef/isotropic equality cases",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F07",
@@ -2157,14 +4525,15 @@
         "line_end": 305
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Finite N1, ample spanning, nef and big criteria",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F08",
@@ -2176,14 +4545,15 @@
         "line_end": 458
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "P1, P2, products and their geometric Picard models",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F09",
@@ -2195,14 +4565,15 @@
         "line_end": 348
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Point blowups: schemes, Picard, intersection, canonical and cohomology formulas",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F10",
@@ -2214,14 +4585,15 @@
         "line_end": 458
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Resolution existence, relative minimality and factorization",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F11",
@@ -2233,14 +4605,15 @@
         "line_end": 558
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Every valuation and the SNC sub-klt criterion",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F12",
@@ -2252,14 +4625,15 @@
         "line_end": 547
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Stein factorization and semiample morphisms",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F13",
@@ -2271,14 +4645,15 @@
         "line_end": 458
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Same contracted curves imply same normal target",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F14",
@@ -2290,14 +4665,15 @@
         "line_end": 458
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Rational Picard lattice, rank and numerical injectivity",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F15",
@@ -2309,14 +4685,15 @@
         "line_end": 431
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Minimal rational models and ruled-surface formula",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F16",
@@ -2328,14 +4705,15 @@
         "line_end": 414
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Exceptional fibers and distinct singular points",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F17",
@@ -2347,14 +4725,15 @@
         "line_end": 752
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Linear systems, genus zero and regular generic fibers",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F18",
@@ -2366,14 +4745,15 @@
         "line_end": 752
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "P1-bundles and splitting of rank-two bundles",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F19",
@@ -2385,14 +4765,15 @@
         "line_end": 823
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Closed cone, compact ample slice and negative extremal-ray detection",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F20",
@@ -2404,14 +4785,15 @@
         "line_end": 673
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Discrete least degree and finite negative classes",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F21",
@@ -2423,14 +4805,15 @@
         "line_end": 1265
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Actual double-cover algebra, branch geometry and splitting",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F22",
@@ -2442,14 +4825,15 @@
         "line_end": 1330
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Double-cover invariants and the ruled rank calculation",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F23",
@@ -2461,14 +4845,15 @@
         "line_end": 377
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Normalization and gluing of invertible sheaves on nodal curves",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F24",
@@ -2480,14 +4865,15 @@
         "line_end": 1440
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Integral lattice discriminants, primary subgroups and code parity",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F25",
@@ -2499,14 +4885,15 @@
         "line_end": 338
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Finite weighted forests and component counting",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F26",
@@ -2753,14 +5140,15 @@
         "line_end": 1110
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Transport through blowdowns and exact count changes",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F28",
@@ -3220,14 +5608,15 @@
         "line_end": 2954
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Iterated contact blowups and all local fiber incidences",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F30",
@@ -3239,14 +5628,15 @@
         "line_end": 2995
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Canonical descent without a positive anticanonical divisor",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F31",
@@ -3258,14 +5648,15 @@
         "line_end": 3127
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Characteristic-two divisor code and inseparable algebra",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F32",
@@ -3421,14 +5812,15 @@
         "line_end": 1997
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Well-founded minimal counterexample over one fixed field",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "F34",
@@ -3440,14 +5832,15 @@
         "line_end": 3261
       },
       "planned_declarations": [],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Equality example curve realizations and negative-class uniqueness",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-EQUIVALENCES",
@@ -3461,14 +5854,15 @@
       "planned_declarations": [
         "KltDP.Support.u_equivalences"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Linear, Q-linear and numerical equivalence hierarchy",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-SINGULAR-COUNT",
@@ -4437,14 +6831,15 @@
       "planned_declarations": [
         "KltDP.Support.u_negative_prime"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Negative exterior primes are actual (-1)-curves",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-FIBER-FACTS",
@@ -4458,14 +6853,15 @@
       "planned_declarations": [
         "KltDP.Support.u_fiber_facts"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Scheme-theoretic fibers, horizontals and reduced support",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-REDUCIBLE-FINITE",
@@ -4479,14 +6875,15 @@
       "planned_declarations": [
         "KltDP.Support.u_reducible_finite"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Finiteness of the set of reducible fibers",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-BRAUER-P1",
@@ -4500,14 +6897,15 @@
       "planned_declarations": [
         "KltDP.Support.u_brauer_p1"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "The manuscript assertion Br(P1)=0",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-CONE-SLICE",
@@ -4521,14 +6919,15 @@
       "planned_declarations": [
         "KltDP.Support.u_cone_slice"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "No unproved extremal-ray oracle",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-KLT-COEFFICIENTS",
@@ -4995,14 +7394,15 @@
       "planned_declarations": [
         "KltDP.Support.u_nonpseudo_p12"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Passage to the exact P12 ruledness hypothesis",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-CODE-KERNEL-LIFT",
@@ -5842,14 +8242,15 @@
       "planned_declarations": [
         "KltDP.Support.u_bisection_count"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "All bisection branches in the ruling proof",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-CORE-WEIGHTS",
@@ -5972,14 +8373,15 @@
       "planned_declarations": [
         "KltDP.Support.u_single_effective"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "The adjoint remainder is an actual exterior prime",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-GRAPH-BRIDGE",
@@ -7420,14 +9822,15 @@
       "planned_declarations": [
         "KltDP.Support.u_frobenius_definition_f3"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Equality construction descends to F3",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-EQUALITY-CONTACT-CERT",
@@ -7687,14 +10090,15 @@
       "planned_declarations": [
         "KltDP.Support.u_equality_unique"
       ],
-      "status": "specified",
+      "status": "superseded_by_named_results",
       "compiled_declarations": [],
       "evidence": [],
       "title": "Unique effective representatives and the node coincidence",
       "printed_number": null,
-      "display_status": "open; specified",
+      "display_status": "superseded by the named results",
       "declaration_records": [],
-      "acceptance_excerpts": []
+      "acceptance_excerpts": [],
+      "note": "Inventory entry of the incremental checkpoints with no separately accepted endpoint. The complete formalization discharges whatever this obligation contributes inside the named results; no separate endpoint is recorded for it."
     },
     {
       "id": "U-EQUALITY-NUMBERS",

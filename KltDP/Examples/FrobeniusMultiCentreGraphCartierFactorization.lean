@@ -45,10 +45,7 @@ open FrobeniusProjectivePoints FrobeniusProjectiveMorphism FrobeniusGraphClosed
   FrobeniusTowerTransportCartier FrobeniusTowerFunctionField.PlaneChartedScheme
 
 attribute [local instance] Types.instFunLike Types.instConcreteCategory
-local instance factorizationOpenGenericPointPreserving
-    {X Y : Scheme.{u}} [IsIntegral X] [IsIntegral Y]
-    (f : X ⟶ Y) [IsOpenImmersion f] : GenericPointPreserving f :=
-  FrobeniusMultiCentreExceptionalLocalComparison.openGenericPointPreserving f
+attribute [local instance] FrobeniusMultiCentreExceptionalLocalComparison.openGenericPointPreserving
 
 /-- Restricting an actual Cartier pullback along an open immersion is
 the pullback along the original composite morphism. -/

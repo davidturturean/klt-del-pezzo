@@ -1,0 +1,1570 @@
+{
+  "schema": "klt-source-lint-summary-v1",
+  "tool": "scripts/audit_sources.py",
+  "snapshot_date": "2026-09-17",
+  "status": "source_lint_rejected",
+  "source_policy_profile": "lean419_logical_boundary_four_stacks_v6",
+  "linter_sha256": "e8eb9601f98de0a0730a8e2ba38cbce7b55d09ae59db2d0124818bed40722c5f",
+  "files_scanned": 3527,
+  "note": "Trust-boundary source lint of the complete tree. The lint has no literature-admission registry in this package, so every `axiom` token is reported as a rejection; the 28 reported axiom tokens are exactly the admitted literature statements of audit/axiom-report.txt (see audit/source-audit.json for the allowlisted scan). The remaining rejections are elaborator extensions and partial definitions in thirteen union geometry modules; the review findings are attribute commands, declaration attributes and interpolated strings outside the lint's pinned reviewed forms. None of these is a placeholder proof.",
+  "counts": {
+    "rejections": 52,
+    "rejections_by_token": {
+      "partial": 9,
+      "elab": 15,
+      "axiom": 28
+    },
+    "reviews": 168,
+    "reviews_by_token": {
+      "@[...]": 28,
+      "attribute": 129,
+      "string_with_brace": 11
+    },
+    "import_policy_rejections": 0
+  },
+  "rejections": [
+    {
+      "file": "KltDP/Geometry/AdjunctionTensorRestrictionNativeBaseProof.lean",
+      "line": 19,
+      "column": 9,
+      "token": "partial",
+      "reason": "partial mathematical source declaration"
+    },
+    {
+      "file": "KltDP/Geometry/AdjunctionTensorRestrictionNativeBaseProof.lean",
+      "line": 31,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicSourceProofAnnotations.lean",
+      "line": 21,
+      "column": 9,
+      "token": "partial",
+      "reason": "partial mathematical source declaration"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicSourceProofAnnotations.lean",
+      "line": 61,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetNativeData.lean",
+      "line": 17,
+      "column": 9,
+      "token": "partial",
+      "reason": "partial mathematical source declaration"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetNativeData.lean",
+      "line": 46,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetNativeData.lean",
+      "line": 75,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetOriginalPrefunctor.lean",
+      "line": 16,
+      "column": 9,
+      "token": "partial",
+      "reason": "partial mathematical source declaration"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetOriginalPrefunctor.lean",
+      "line": 37,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetProofAnnotations.lean",
+      "line": 21,
+      "column": 9,
+      "token": "partial",
+      "reason": "partial mathematical source declaration"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetProofAnnotations.lean",
+      "line": 61,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionNativeApplication.lean",
+      "line": 8,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionNativeApplicationTerm.lean",
+      "line": 8,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionNativeComponentNormalization.lean",
+      "line": 19,
+      "column": 9,
+      "token": "partial",
+      "reason": "partial mathematical source declaration"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionNativeComponentNormalization.lean",
+      "line": 56,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionOriginalComponentNormalization.lean",
+      "line": 20,
+      "column": 9,
+      "token": "partial",
+      "reason": "partial mathematical source declaration"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionOriginalComponentNormalization.lean",
+      "line": 57,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionSectionEqComposition.lean",
+      "line": 13,
+      "column": 9,
+      "token": "partial",
+      "reason": "partial mathematical source declaration"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionSectionEqComposition.lean",
+      "line": 48,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/SchemeModulePullbackBoolFactorTerm.lean",
+      "line": 30,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/SchemeModulePullbackBoolFactorTerm.lean",
+      "line": 35,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/SchemeModulePullbackNativeFactorTerm.lean",
+      "line": 18,
+      "column": 9,
+      "token": "partial",
+      "reason": "partial mathematical source declaration"
+    },
+    {
+      "file": "KltDP/Geometry/SchemeModulePullbackNativeFactorTerm.lean",
+      "line": 98,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Geometry/SchemeModulePullbackNativeFactorTerm.lean",
+      "line": 107,
+      "column": 1,
+      "token": "elab",
+      "reason": "unreviewed elaborator extension"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/HurwitzDegreeTwoInstance.lean",
+      "line": 51,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/IntegralNumericalGroup.lean",
+      "line": 25,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/MinimalSurfaceClassification.lean",
+      "line": 20,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/PointBlowupCohomology.lean",
+      "line": 25,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/RuledSurfaceGenus.lean",
+      "line": 20,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/RuledSurfacePicard.lean",
+      "line": 20,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/StrictTransformInstance.lean",
+      "line": 43,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/SurfaceHodgeIndex.lean",
+      "line": 25,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/SurfaceNakaiMoishezon.lean",
+      "line": 28,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/SurfaceProjectivity.lean",
+      "line": 29,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Hartshorne/SurfaceRiemannRoch.lean",
+      "line": 25,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/HartshorneCastelnuovoLiteral.lean",
+      "line": 18,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/KeelCompleteSystem.lean",
+      "line": 29,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/LipmanResolutionLiteral.lean",
+      "line": 15,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/ProperCurvePullbackDegreeLiteral.lean",
+      "line": 19,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/RegularSmoothLociLiteral.lean",
+      "line": 14,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/SmoothStandardCoverLiteral.lean",
+      "line": 12,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Stacks/AffineMorphismCohomology.lean",
+      "line": 29,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Stacks/BlowupRegularPointAdmitted.lean",
+      "line": 29,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Stacks/CurveTensorDegreeLiteral.lean",
+      "line": 43,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Stacks/FieldJ2.lean",
+      "line": 14,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Stacks/ProperCohomologyFinite.lean",
+      "line": 26,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Stacks/ProperFlatFiberEuler.lean",
+      "line": 25,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Stacks/RegularLocalUFD.lean",
+      "line": 16,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/StacksPointBlowupDomination.lean",
+      "line": 25,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/SteinFactorizationNoetherian.lean",
+      "line": 16,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/Tanaka/ContractionTheorem.lean",
+      "line": 78,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    },
+    {
+      "file": "KltDP/Literature/ZariskiNormalCompletion.lean",
+      "line": 12,
+      "column": 1,
+      "token": "axiom",
+      "reason": "no literature axiom is currently approved"
+    }
+  ],
+  "reviews": [
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 65,
+      "column": 1,
+      "token": "@[refl, simps]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 74,
+      "column": 1,
+      "token": "@[symm, simps]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 87,
+      "column": 1,
+      "token": "@[simps]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 101,
+      "column": 1,
+      "token": "@[simps]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 123,
+      "column": 1,
+      "token": "@[simps! source target iso]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 134,
+      "column": 1,
+      "token": "@[trans, simps! source target iso]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 144,
+      "column": 1,
+      "token": "@[simps]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 154,
+      "column": 1,
+      "token": "@[simps]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 165,
+      "column": 1,
+      "token": "@[stacks 0A20      ]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 173,
+      "column": 1,
+      "token": "@[refl]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 177,
+      "column": 1,
+      "token": "@[symm]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 181,
+      "column": 1,
+      "token": "@[trans]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 217,
+      "column": 1,
+      "token": "@[mk_iff]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 235,
+      "column": 1,
+      "token": "@[simps]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BirationalRationality.lean",
+      "line": 264,
+      "column": 1,
+      "token": "@[simps! source target iso]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BivariateSwap.lean",
+      "line": 35,
+      "column": 1,
+      "token": "@[simps! apply_apply symm_apply]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Compatibility/BivariateSwap.lean",
+      "line": 78,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Compatibility/LurothQuotientConstant.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Examples/FrobeniusMultiCentreGraphCartierFactorization.lean",
+      "line": 48,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AdjunctionTensorRestrictionNativeBaseProof.lean",
+      "line": 28,
+      "column": 16,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/AffineBlowupRegularPairClosedPoint.lean",
+      "line": 53,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineBlowupRegularPairClosedSNC.lean",
+      "line": 28,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineBlowupRegularPairClosedStalk.lean",
+      "line": 25,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineBlowupRegularPairExceptionalPoints.lean",
+      "line": 29,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineBlowupRegularPairFractionNode.lean",
+      "line": 55,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineCanonicalDifferenceFromNamedSquare.lean",
+      "line": 19,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineCanonicalDifferenceFromSquare.lean",
+      "line": 26,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineCanonicalDifferenceFromWitness.lean",
+      "line": 25,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineProductKaehlerComparison.lean",
+      "line": 40,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineProductKaehlerOriginalMaps.lean",
+      "line": 234,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineProductKaehlerProjectionMaps.lean",
+      "line": 32,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineProductKaehlerPullbackFactors.lean",
+      "line": 95,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineProductKaehlerSum.lean",
+      "line": 120,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/AffineProductKaehlerTilde.lean",
+      "line": 33,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/BirationalCartierRestrictionEquality.lean",
+      "line": 19,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/BirationalOpenSpanOrder.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/BirationalValuativeInverse.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalCoordinateNormalization.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalCoordinateOpenComposition.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalDivisorTargetOpenSquare.lean",
+      "line": 25,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalDivisorTargetOpenSquareWitness.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalFrameCoordinateOrder.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalLocalReferenceDiscrepancy.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalLocalReferencePullbackOrder.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalNormalizationOrder.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalPrincipalNeighborhoodExtension.lean",
+      "line": 26,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalPrincipalShiftCoordinate.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CanonicalPrincipalShiftOpenCoordinate.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CartierFrameSectionCoefficient.lean",
+      "line": 20,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CartierMapCoefficientOrder.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CartierOrderOpenRestriction.lean",
+      "line": 19,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CartierPullbackValuationEquality.lean",
+      "line": 18,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CommonOpenCanonicalCoefficient.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CommonOpenCanonicalLocalFrame.lean",
+      "line": 27,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CommonOpenLocalFrameDiscrepancy.lean",
+      "line": 17,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CommonProperModelValuationPrime.lean",
+      "line": 20,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CommonTargetCanonicalNormalization.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CommonTargetCanonicalNormalization.lean",
+      "line": 61,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CompleteCartierSystemBigness.lean",
+      "line": 22,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CompleteSystemBirationalIsomorphism.lean",
+      "line": 27,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/CurveCompleteSystemBirational.lean",
+      "line": 29,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/DivisorOrderPositiveLocalElement.lean",
+      "line": 42,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/DominantRegularCurveFlat.lean",
+      "line": 26,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/FinitePrimeCartierSumCoefficients.lean",
+      "line": 20,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/FreeProjectiveBasisTransitions.lean",
+      "line": 87,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/FrobeniusGeneratedNormalImageCount.lean",
+      "line": 31,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/FrobeniusMultiCentreCompleteBirational.lean",
+      "line": 27,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/FrobeniusNormalProjectiveSurfaceContraction.lean",
+      "line": 29,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/GeneratedCompleteSystemImage.lean",
+      "line": 25,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/GeneratedCompleteSystemNormalDimension.lean",
+      "line": 14,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/GeneratedCompleteSystemNormalFactor.lean",
+      "line": 25,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/GeneratedCompleteSystemNormalSurface.lean",
+      "line": 14,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicSourceProofAnnotations.lean",
+      "line": 30,
+      "column": 16,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetNativeData.lean",
+      "line": 26,
+      "column": 16,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetNativeData.lean",
+      "line": 83,
+      "column": 16,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetOriginalPrefunctor.lean",
+      "line": 25,
+      "column": 16,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionIntrinsicTargetProofAnnotations.lean",
+      "line": 30,
+      "column": 16,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionNativeComponentNormalization.lean",
+      "line": 28,
+      "column": 16,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionNativeComponentNormalization.lean",
+      "line": 39,
+      "column": 18,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionOriginalComponentNormalization.lean",
+      "line": 29,
+      "column": 16,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/GluedAdjunctionOriginalComponentNormalization.lean",
+      "line": 40,
+      "column": 18,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/HartshorneCastelnuovoContraction.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/HartshorneFiniteDisjointContractions.lean",
+      "line": 19,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/KeelExceptionalSupportComparison.lean",
+      "line": 20,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/KeelSurfaceExceptionalComparison.lean",
+      "line": 28,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/KeelZeroDimensional.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/KltOriginalDiscrepancyBound.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/LocallyFreeFramedAffineCover.lean",
+      "line": 27,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/LocallyFreeSymmetricProjDiagram.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/MinusOneCurveNormal.lean",
+      "line": 92,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NefCompleteSystemBirational.lean",
+      "line": 25,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalFiniteTypeValuationPoint.lean",
+      "line": 20,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCanonicalAffineSource.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCanonicalFrame.lean",
+      "line": 22,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCanonicalFrameComparison.lean",
+      "line": 29,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCanonicalFrameComparison.lean",
+      "line": 30,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCanonicalFrameOrder.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCanonicalOpenFrame.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCanonicalOpenFrame.lean",
+      "line": 25,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCanonicalOpenWitness.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCanonicalReferenceTransfer.lean",
+      "line": 25,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCartierOrderDetection.lean",
+      "line": 18,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelCommonOpenDetection.lean",
+      "line": 20,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelDiscrepancyNumerator.lean",
+      "line": 22,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelFrameFromTargetLift.lean",
+      "line": 31,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelFrameFromTargetLift.lean",
+      "line": 32,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelFrameNormalization.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelFrameOverCanonicalReference.lean",
+      "line": 20,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelFrameOverReferenceChart.lean",
+      "line": 20,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelKlt.lean",
+      "line": 27,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelKltOfSNC.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelKltPair.lean",
+      "line": 19,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelLocalFrameConstructor.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelLocalFrameRescale.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelLocalFrameRestriction.lean",
+      "line": 22,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelLocalFrameRestrictionNormalized.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalModelValuationOrderDetection.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalSchemeAffineNormalization.lean",
+      "line": 72,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/NormalTwistedAdjunctionChartRestriction.lean",
+      "line": 223,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalizedAffineCanonicalDifference.lean",
+      "line": 30,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalizedFrameDifferentialSquare.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/NormalizedFrameTargetOpenSquare.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/OpenCartierIntrinsicOrder.lean",
+      "line": 18,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/OpenCartierWeilNestedRestriction.lean",
+      "line": 22,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/OpenImmersionValuationPoint.lean",
+      "line": 19,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/OriginalDifferentialCoefficientOrder.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/OriginalDifferentialCoefficientOrderAllSections.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/OriginalDifferentialCoefficientOrderSquare.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/OriginalSectionGermOrder.lean",
+      "line": 19,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/PointBlowupExceptionalFiberIso.lean",
+      "line": 19,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/PointBlowupParameterChartSNC.lean",
+      "line": 39,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/PointBlowupValuationCenterOrder.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/PointBlowupValuationCofinality.lean",
+      "line": 25,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/PointBlowupValuationOrderDetection.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/ProperBirationalCanonicalCoefficient.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/ProperBirationalCanonicalOpen.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/ProperBirationalCanonicalOriginalTargetOrder.lean",
+      "line": 22,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/ProperBirationalCanonicalRestriction.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/ProperBirationalCodimensionOne.lean",
+      "line": 20,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/ProperBirationalCommonOpenAtValuation.lean",
+      "line": 18,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/ProperBirationalExteriorIsomorphismOpen.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/ProperBirationalValuationPrime.lean",
+      "line": 23,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/ProperFunctionFieldStalkLift.lean",
+      "line": 14,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/RationalDifferentialSquareValue.lean",
+      "line": 33,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/RationalMapGraphBirational.lean",
+      "line": 21,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/RegularCurveRationalMapDomain.lean",
+      "line": 15,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/RegularCurveValuationStalk.lean",
+      "line": 15,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/RegularTargetCanonicalDiscrepancy.lean",
+      "line": 33,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/RegularTargetCompatibleCanonicalFrame.lean",
+      "line": 29,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/RelativeProjectiveBaseChange.lean",
+      "line": 37,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/RelativeProjectiveBaseChange.lean",
+      "line": 41,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/RelativeProjectiveBasicOpenBaseChange.lean",
+      "line": 86,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/RelativeProjectiveBasicOpenBaseChange.lean",
+      "line": 90,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/SchemeModulePullbackNativeFactorTerm.lean",
+      "line": 84,
+      "column": 20,
+      "token": "string_with_brace",
+      "reason": "string braces may introduce elaborated holes under contextual interpolation syntax"
+    },
+    {
+      "file": "KltDP/Geometry/SheafProjectiveFrameTransitions.lean",
+      "line": 71,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/SmoothPointBlowupBoundaryClosure.lean",
+      "line": 29,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/StalkDivisorOrderPullback.lean",
+      "line": 17,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Geometry/SymmetricProjAffineProduct.lean",
+      "line": 64,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/SymmetricProjAffineProduct.lean",
+      "line": 69,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/SymmetricProjBasicOpenTransitions.lean",
+      "line": 35,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/SymmetricProjBasicOpenTransitions.lean",
+      "line": 40,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/SymmetricProjBasicOpenTransitions.lean",
+      "line": 52,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/SymmetricProjBasicOpenTransitions.lean",
+      "line": 80,
+      "column": 1,
+      "token": "@[reassoc (attr := simp)]",
+      "reason": "declaration attribute handler is not one of the reviewed pinned stock handlers"
+    },
+    {
+      "file": "KltDP/Geometry/TargetOpenCartierPushforward.lean",
+      "line": 24,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/Literature/HartshorneCastelnuovoLiteral.lean",
+      "line": 15,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/RingTheory/KaehlerTensorProductSplit.lean",
+      "line": 58,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/RingTheory/KaehlerTensorProductSplit.lean",
+      "line": 174,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    },
+    {
+      "file": "KltDP/RingTheory/KaehlerTensorProductSplitBaseChange.lean",
+      "line": 33,
+      "column": 1,
+      "token": "attribute",
+      "reason": "attribute command needs an exact reviewed form"
+    }
+  ],
+  "import_policy_rejections": []
+}
