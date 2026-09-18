@@ -24,7 +24,7 @@ jobs:
         run: python3 scripts/check_local_imports.py . KltDP
 
       - name: Check active source for placeholders and undeclared axioms
-        run: python3 scripts/check_no_placeholders.py KltDP KltDP.lean --json source-audit.json
+        run: python3 scripts/check_no_placeholders.py KltDP KltDP.lean --json "$RUNNER_TEMP/source-audit.json"
 
       - name: Verify package records
         run: python3 scripts/verify_package.py
@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: package-checks
-          path: source-audit.json
+          path: ${{ runner.temp }}/source-audit.json
           if-no-files-found: ignore
 
   full-build:
