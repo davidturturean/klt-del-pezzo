@@ -1,0 +1,9 @@
+Fresh full build of the packaged snapshot (Lean sources as in commit 89ce9e8; KltDP.lean root importing 3,525 modules)
+machine: the project's build VM, 32 cores, 251 GiB, no resource caps
+command: lake build KltDP
+started:  2026-09-18T01:32:48Z
+finished: 2026-09-18T04:03:59Z
+exit code: 0
+jobs: 7297 (3,525 project modules; the remainder are pinned dependency replays)
+errors: 0
+then: lake env lean KltDP/Manuscript/Main/Final.lean  -> exit 0; output identical to audit/axiom-report.txt

@@ -28527,7 +28527,8 @@
     "scripts/check_no_placeholders.py",
     "scripts/print_axioms.sh",
     "scripts/verify_package.py",
-    "source/README.md"
+    "source/README.md",
+    "audit/build-2026-09-18.txt"
   ],
   "source_policy": "Production Lean sources and the frozen manuscript bytes are copied unchanged from the two source trees; the root import file, the package records, the documentation and the check scripts are generated. Historical candidate1559 evidence is retained unchanged under audit/checkpoints/candidate1559/.",
   "public_release_recorded": false,
