@@ -1,0 +1,2 @@
+Running as unit: klt-build-20260918T150124Z-2309692.scope; invocation ID: 322377aa7b9648739537e327991da289
+{"status": "passed_with_itemized_nonroot_failures", "output": "/home/david/klt-final-cmp/evidence/production_v5_final_validation.json", "declaration_count": 71351, "failed_declaration_count": 9, "declaration_free_module_count": 5, "unaudited_local_source_count": 0}

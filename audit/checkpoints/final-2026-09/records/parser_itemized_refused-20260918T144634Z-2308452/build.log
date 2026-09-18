@@ -1,0 +1,2 @@
+Running as unit: klt-build-20260918T144634Z-2308452.scope; invocation ID: de0e3a87d7fe410587954c90478c0b2b
+Compiled audit validation FAILED: Library mathematical modules absent from inventory: KltDP.Geometry.AffineStalkCompletionExports, KltDP.Geometry.RegularProperCurveFieldIsoAudit, KltDP.Geometry.RuledSurfaceSourceGeometryAudit, KltDP.Geometry.SingularStalkCompletionNormalExports, KltDP.Geometry.SmoothPointBlowupAffineCanonicalCharts

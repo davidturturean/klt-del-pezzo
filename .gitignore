@@ -9,3 +9,6 @@ __pycache__/
 *.toc
 *.fls
 *.fdb_latexmk
+
+# Recorded audit evidence is tracked even when it matches the LaTeX/build patterns above.
+!audit/checkpoints/**

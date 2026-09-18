@@ -5,3 +5,6 @@
 *.tex text eol=lf
 *.pdf binary
 *.gz binary
+
+# Audit checkpoint records are byte-exact evidence; never normalize them.
+audit/checkpoints/** -text
